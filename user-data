@@ -1,0 +1,31 @@
+#cloud-config
+#vim:syntax=yaml
+
+users:
+  - name: Hassan
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users
+    shell: /bin/bash
+    lock_passwd: false
+
+chpasswd:
+  list: |
+    Hassan:Hassan@337
+  expire: False
+
+hostname: Hassan
+local-hostname: Hassan
+
+# Use DHCP for network
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: true
+
+# Prevent re-applying network on every boot
+write_files:
+  - path: /etc/cloud/cloud.cfg.d/80_disable_network_after_firstboot.cfg
+    content: |
+      network:
+        config: disabled
