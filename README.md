@@ -25,15 +25,15 @@ The video focuses on theory and desktop-oriented workflows; it does **not** incl
 I set up an Amazon Linux 2 virtual machine on VirtualBox using the official AWS `.vdi` disk and a freshly generated `seed.iso` so cloud-init could preconfigure my environment with my `Hassan` user.
 
 ### 🖼️ Visual Timeline
-![Creating the VM](Made teh VM amazon linux 2 .png)
+![Creating the VM](images/01-create-vm.png)
 
 I began by preparing the host PC, downloading the prebuilt Amazon Linux 2 VirtualBox image, and creating a fresh VM definition. Selecting “Other Linux (64-bit)” and enabling EFI early on ensured the GPT/XFS disk could boot properly.
 
-![Importing the disk](installing the amazon linux2 on the Virtual box.png)
+![Importing the disk](images/02-disk-import.png)
 
 Generating the `seed.iso` caused the bulk of the friction: `mkisofs` initially complained about a missing `cygwin1.dll`, then about `user-data.txt` / `meta-data.txt`, and finally about the required `cidata` label. After rereading the AWS guide and leaning on generative AI tips, I switched to a portable `mkisofs.exe`, copied the DLL into place, and rebuilt the ISO with extensionless files and the correct volume label.
 
-![Seed ISO ready](created teh iso file and now installing the linux on VM.png)
+![Seed ISO ready](images/03-seed-iso.png)
 
 VirtualBox threw extra curveballs (“cannot register hard disk” and “please use an appropriate kernel for your CPU”). I fixed the first by cleaning the Media Manager entries and relocating the `.vdi`, and solved the second by recreating the VM as 64-bit with EFI enabled. After attaching the regenerated `seed.iso`, the VM finally booted with my hostname and `Hassan@337` credentials applied automatically.
 
@@ -71,7 +71,3 @@ Generative AI guidance reinforced the AWS documentation details (file naming, IS
 
 - AWS Amazon Linux 2 VM preparation guide (cloud-init + VirtualBox).  
 - Linux Essentials video (timestamped above) for foundational review.
-
----
-
-This repository tracks my daily progress, artifacts, and practice documents for the DevOps training journey. Uploading everything here keeps the workflow reproducible and ready for future reviews.
