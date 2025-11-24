@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-11-24 | AWS Cloud Technical Essentials, Linux CLI practice, AL2 VM attempt  |
 | 2025-11-21 | Amazon Linux 2 VirtualBox setup, cloud-init seed ISO, study summary |
 
 navigate into the date folder you want to review—for example:
