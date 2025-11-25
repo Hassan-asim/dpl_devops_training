@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-11-25 | Linux Essentials Chapters 7-12, Ubuntu VM installation, AL2 CLI practice (70+ commands) |
 | 2025-11-24 | AWS Cloud Technical Essentials, Linux CLI practice, AL2 VM attempt  |
 | 2025-11-21 | Amazon Linux 2 VirtualBox setup, cloud-init seed ISO, study summary |
 
