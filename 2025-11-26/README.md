@@ -113,20 +113,57 @@ All of today's terminal drills are logged verbatim in `commands I learned.txt`. 
 
 ---
 
+## 🚀 NGINX Web Server – Assigned Task
+
+I was assigned a new lecture to study and implement: **NGINX Crash Course** ([YouTube](https://www.youtube.com/watch?v=9t9Mp0BGnyI))
+
+### Topics Covered
+
+- ⌨️ (00:00) **What is NGINX** – Introduction to NGINX as a web server, reverse proxy, and load balancer
+- ⌨️ (08:18) **NGINX Installation** – Installing NGINX on Ubuntu using official release docs
+- ⌨️ (11:11) **NGINX Terminology** – Understanding directives, contexts, and configuration structure
+- ⌨️ (13:16) **Serving Static Content** – Configuring NGINX to serve static files
+
+### Installation Process
+
+Following the official NGINX release documentation, I installed NGINX on the Ubuntu system by running all the required commands in the terminal.
+
+![Installing NGINX using docs](images/installing%20the%20ngenx%20using%20the%20relese%20docs%20provided%20on%20the%20ubuntu%20system%20.png)
+
+![Running installation commands](images/installing%20the%20ngenx%20using%20the%20relese%20docs%20provided%20on%20the%20ubuntu%20system%20by%20running%20all%20the%20commands%20using%20the%20terminal%20of%20ubuntu.png)
+
+### NGINX Installation & Execution
+
+Successfully installed NGINX and got it running on the local server.
+
+![NGINX being installed](images/nginx%20being%20installed.png)
+
+![NGINX running on local server](images/nginx%20installed%20and%20executed%20on%20local%20server.png)
+
+### Verification
+
+Verified through the browser's console network output that the server is actually running NGINX.
+
+![Verifying NGINX in console](images/varifying%20through%20consol%20network%20output%20that%20the%20server%20is%20actually%20nginx%20.png)
+
+---
+
 ## 🗂️ Reference Assets & Next Steps
 
 - `commands I learned.txt` – canonical list of all 65 commands learned today with descriptions.
-- `images/` – seven screenshots documenting networking practice and multi-VM work.
+- `images/` – twelve screenshots documenting networking practice, multi-VM work, and NGINX installation.
 
 Next session I will:
 
 1. Troubleshoot the SSH connection issue between VMs.
 2. Practice remote file operations (`scp`, `rsync`) once connectivity is established.
-3. Continue with remaining Linux Essentials chapters.
+3. Continue with NGINX configuration – reverse proxy and load balancing.
+4. Continue with remaining Linux Essentials chapters.
 
 ---
 
 ## 📚 References
 
 - Linux Essentials Chapters 12–14 video timestamps noted above.
+- [NGINX Crash Course](https://www.youtube.com/watch?v=9t9Mp0BGnyI) – Assigned task video.
 
