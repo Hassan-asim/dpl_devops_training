@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-11-27 | NGINX Complete Tutorial: Static Content, Mime Types, Location Context, Rewrites, Load Balancing with Docker |
 | 2025-11-26 | Linux Essentials Chapters 12-14, NGINX installation & setup, 65 commands |
 | 2025-11-25 | Linux Essentials Chapters 7-12, Ubuntu VM installation, AL2 CLI practice (70+ commands) |
 | 2025-11-24 | AWS Cloud Technical Essentials, Linux CLI practice, AL2 VM attempt  |
