@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-1  | Advanced Git: Internals & Configs, Merge/Conflicts, Diff/Stashing, Rebase, GitHub Integration, Pull Requests & Open Source |
 | 2025-11-28 | SSH connectivity lab across dual Ubuntu VMs, Git fundamentals kickoff |
 | 2025-11-27 | NGINX Complete Tutorial: Static Content, Mime Types, Location Context, Rewrites, Load Balancing with Docker |
 | 2025-11-26 | Linux Essentials Chapters 12-14, NGINX installation & setup, 65 commands |
