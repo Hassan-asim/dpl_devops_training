@@ -313,3 +313,14 @@ git_exercise/
 ---
 
 **Learning Progress:** Advanced Git concepts mastered. Ready for production-level version control workflows. 🚀
+
+---
+
+## 🧭 New Topic: Gitflow Workflow (Legacy Branching Strategy)
+
+- Studied Atlassian’s Gitflow guide in depth to understand why the model relies on parallel `main` and `develop` branches, how release/hotfix branches isolate stabilization work, and why the workflow fits scheduled releases despite falling out of favor for modern trunk-based CI/CD.
+- Practiced the entire lifecycle (feature → develop, release → main+develop, hotfix → main+develop) using pure `git checkout` and `git merge` sequences because installing the `git-flow` extension was blocked by admin controls; documented the exact command pairs as a drop-in alternative to `git flow feature|release|hotfix start/finish`.
+- Highlighted operational guardrails learned from the article—never merge feature branches directly into `main`, always merge hotfixes back to `develop`, and tag production releases off `main` for traceability.
+- Reflected on practical trade-offs: Gitflow’s clarity for regulated releases versus the overhead of long-lived branches, and noted scenarios where I would still reach for it (multi-sprint QA cycles, staggered release trains).
+
+Reference: [Atlassian – Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
