@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-3  | TypeScript Fundamentals (Basic & Everyday Types), Modern JavaScript Coursera Course (Module 1 completed), Multi-Tenant Chatbot Architecture Research |
 | 2025-12-2  | Trunk-Based Development deep dive, Git merge strategies (fast-forward vs --no-ff), rebase vs merge, Git workflows (Gitflow, GitHub Flow, forking), reflog/recovery theory |
 | 2025-12-1  | Advanced Git: Internals, Merge/Conflicts, Diff/Stashing, Rebase, GitHub + PRs, plus Gitflow workflow practice (manual checkout alternative) |
 | 2025-11-28 | SSH connectivity lab across dual Ubuntu VMs, Git fundamentals kickoff |
