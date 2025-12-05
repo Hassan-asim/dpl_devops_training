@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-5  | Advanced TypeScript Types: Optional properties, custom types, literal types and unions, type narrowing, utility types (Partial, Omit), and generics with practical pizza restaurant examples |
 | 2025-12-4  | TypeScript basics (handbook), watched practical TS tutorial and built a small TypeScript practice project; images and artifacts added in `2025-12-4/` |
 | 2025-12-3  | TypeScript Fundamentals (Basic & Everyday Types), Modern JavaScript Coursera Course (Module 1 completed), Multi-Tenant Chatbot Architecture Research |
 | 2025-12-2  | Trunk-Based Development deep dive, Git merge strategies (fast-forward vs --no-ff), rebase vs merge, Git workflows (Gitflow, GitHub Flow, forking), reflog/recovery theory |
