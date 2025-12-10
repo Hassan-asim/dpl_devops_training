@@ -13,7 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
-| 2025-12-10 | AWS Cloud Practitioner Essentials Module 9 completed; Module 10 started; Coursera JavaScript Data and Applications Modules 6–8 completed; rewatched Kubernetes microservices video; evidence in `2025-12-10/` |
+| 2025-12-10 | AWS Cloud Practitioner Essentials Module 9 completed; Module 10 started; Mastering AWS CDK – Coding Cloud Architectures Modules 6–8 completed; rewatched Kubernetes microservices video; evidence in `2025-12-10/` |
 | 2025-12-9  | AWS Cloud Practitioner Essentials Modules 4–8 completed; Mastering AWS CDK Modules 4–5 completed; Kubernetes microservices fundamentals video (deployments, scaling, ingress); evidence in `2025-12-9/` |
 | 2025-12-8  | AWS Cloud Practitioner Essentials Modules 1–4 completed; Mastering AWS CDK Modules 1–3 completed; AWS CLI profile configured and CDK installed |
 | 2025-12-5  | Advanced TypeScript Types: Optional properties, custom types, literal types and unions, type narrowing, utility types (Partial, Omit), and generics with practical pizza restaurant examples |
