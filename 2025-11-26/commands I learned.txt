@@ -64,4 +64,12 @@ and then to see the content of file use cat outputfile)
 63:wc file ( display the number of line, bytes , and words   but if we want a specific option we can use -h, -c, -w   for number of line, bytes , and word respectively)
 64:cut ( used to manipulate column based files designed to extract different columns)
 65:ls -l | cut -d" " -f3 ( this will display the 3rd column seprate by blank space )
+66:curl url ( it will read and display the content of the mentened url page )
+67:curl -o saved.html  url  (it will save the fetched text from the url in a file named in this case saved.html )
+68:ssh systemname ( to login to a remote system)
+69:ssh someone@someSystem ( to login as a different user in a system remotely)
+70:scp <localfile> user@remotesystem :/home/user/ (to copy a local file to a remote system )
+
+
+
 
