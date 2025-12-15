@@ -13,6 +13,8 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-15 | Deep Dive with Security: AWS IAM course started (46% complete); IAM lab theory + 14-step hands-on completed with certificate; evidence in `2025-12-15/` |
+| 2025-12-12 | AWS Cloud Practitioner Essentials completed with certificate; Mastering AWS CDK completed with certificate; modules 10–13 evidence in `2025-12-12/` |
 | 2025-12-11 | Video-only learning day: watched two YouTube sessions; skimmed *The Pragmatic Programmer* preface; no screenshots; evidence in `2025-12-11/` |
 | 2025-12-10 | AWS Cloud Practitioner Essentials Module 9 completed; Module 10 started; Mastering AWS CDK – Coding Cloud Architectures Modules 6–8 completed; rewatched Kubernetes microservices video; evidence in `2025-12-10/` |
 | 2025-12-9  | AWS Cloud Practitioner Essentials Modules 4–8 completed; Mastering AWS CDK Modules 4–5 completed; Kubernetes microservices fundamentals video (deployments, scaling, ingress); evidence in `2025-12-9/` |
