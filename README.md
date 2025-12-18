@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-18 | AWS architecture course Modules 2–5 completed with detailed part-wise screenshots; STS course fully completed with certificate; evidence in `2025-12-18/` |
 | 2025-12-17 | New AWS architecture course started (parts 1–16) plus STS segment; Rebel Capture – DPL Webcam Prototype repo reviewed and app UI screens captured; evidence in `2025-12-17/` |
 | 2025-12-16 | AWS security course completion milestone documented with certificate screenshot; evidence in `2025-12-16/` |
 | 2025-12-15 | Deep Dive with Security: AWS IAM course started (46% complete); IAM lab theory + 14-step hands-on completed with certificate; evidence in `2025-12-15/` |
