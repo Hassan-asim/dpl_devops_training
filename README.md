@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-23 | Reviewed **AWS CSO** and **AWS EC2 (with lab)** courses; captured part-wise screenshots and certificates in `2025-12-23/` for evidence and reporting. |
 | 2025-12-22 | Watched **~half** of the Amazon EC2 course (through Topic 6 — Launch Template); full course outline and video link added (`https://www.youtube.com/watch?v=4dscVzCaXCU`); no screenshots — planning hands-on labs next; details in `2025-12-22/` |
 | 2025-12-19 | AWS architecture course Modules 6–10 completed with detailed part-wise screenshots; certificate of completion saved; evidence in `2025-12-19/` |
 | 2025-12-18 | AWS architecture course Modules 2–5 completed with detailed part-wise screenshots; STS course fully completed with certificate; evidence in `2025-12-18/` |
