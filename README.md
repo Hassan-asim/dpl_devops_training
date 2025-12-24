@@ -24,13 +24,13 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 | 2025-12-12 | AWS Cloud Practitioner Essentials completed with certificate; Mastering AWS CDK completed with certificate; modules 10–13 evidence in `2025-12-12/` |
 | 2025-12-11 | Video-only learning day: watched two YouTube sessions; skimmed *The Pragmatic Programmer* preface; no screenshots; evidence in `2025-12-11/` |
 | 2025-12-10 | AWS Cloud Practitioner Essentials Module 9 completed; Module 10 started; Mastering AWS CDK – Coding Cloud Architectures Modules 6–8 completed; rewatched Kubernetes microservices video; evidence in `2025-12-10/` |
-| 2025-12-9  | AWS Cloud Practitioner Essentials Modules 4–8 completed; Mastering AWS CDK Modules 4–5 completed; Kubernetes microservices fundamentals video (deployments, scaling, ingress); evidence in `2025-12-9/` |
-| 2025-12-8  | AWS Cloud Practitioner Essentials Modules 1–4 completed; Mastering AWS CDK Modules 1–3 completed; AWS CLI profile configured and CDK installed |
-| 2025-12-5  | Advanced TypeScript Types: Optional properties, custom types, literal types and unions, type narrowing, utility types (Partial, Omit), and generics with practical pizza restaurant examples |
-| 2025-12-4  | TypeScript basics (handbook), watched practical TS tutorial and built a small TypeScript practice project; images and artifacts added in `2025-12-4/` |
-| 2025-12-3  | TypeScript Fundamentals (Basic & Everyday Types), Modern JavaScript Coursera Course (Module 1 completed), Multi-Tenant Chatbot Architecture Research |
-| 2025-12-2  | Trunk-Based Development deep dive, Git merge strategies (fast-forward vs --no-ff), rebase vs merge, Git workflows (Gitflow, GitHub Flow, forking), reflog/recovery theory |
-| 2025-12-1  | Advanced Git: Internals, Merge/Conflicts, Diff/Stashing, Rebase, GitHub + PRs, plus Gitflow workflow practice (manual checkout alternative) |
+| 2025-12-09 | AWS Cloud Practitioner Essentials Modules 4–8 completed; Mastering AWS CDK Modules 4–5 completed; Kubernetes microservices fundamentals video (deployments, scaling, ingress); evidence in `2025-12-09/` |
+| 2025-12-08 | AWS Cloud Practitioner Essentials Modules 1–4 completed; Mastering AWS CDK Modules 1–3 completed; AWS CLI profile configured and CDK installed |
+| 2025-12-05 | Advanced TypeScript Types: Optional properties, custom types, literal types and unions, type narrowing, utility types (Partial, Omit), and generics with practical pizza restaurant examples |
+| 2025-12-04 | TypeScript basics (handbook), watched practical TS tutorial and built a small TypeScript practice project; images and artifacts added in `2025-12-04/` |
+| 2025-12-03 | TypeScript Fundamentals (Basic & Everyday Types), Modern JavaScript Coursera Course (Module 1 completed), Multi-Tenant Chatbot Architecture Research |
+| 2025-12-02 | Trunk-Based Development deep dive, Git merge strategies (fast-forward vs --no-ff), rebase vs merge, Git workflows (Gitflow, GitHub Flow, forking), reflog/recovery theory |
+| 2025-12-01 | Advanced Git: Internals, Merge/Conflicts, Diff/Stashing, Rebase, GitHub + PRs, plus Gitflow workflow practice (manual checkout alternative) |
 | 2025-11-28 | SSH connectivity lab across dual Ubuntu VMs, Git fundamentals kickoff |
 | 2025-11-27 | NGINX Complete Tutorial: Static Content, Mime Types, Location Context, Rewrites, Load Balancing with Docker |
 | 2025-11-26 | Linux Essentials Chapters 12-14, NGINX installation & setup, 65 commands |
