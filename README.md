@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-29 | **Certificates added:** EBS, EBS Performance Optimization, and Security Best Practices (PNG) saved in `2025-12-29/` — daily report created with evidence in `images/`. |
 | 2025-12-26 | AWS course modules: **Auto Scaling**, **Block Storage**, **EC2 for Windows instance**, **OMT**, **Outpost Server**, and **Scale Out Computing**; screenshots added in `2025-12-26/` (images embedded in report). |
 | 2025-12-24 | Continued AWS training: **AWS Build with EC2** and **AWS EC2 Basics**; captured part-wise screenshots and certificates in `2025-12-24/` (images embedded in report). |
 | 2025-12-23 | Reviewed **AWS CSO** and **AWS EC2 (with lab)** courses; captured part-wise screenshots and certificates in `2025-12-23/` for evidence and reporting. |
