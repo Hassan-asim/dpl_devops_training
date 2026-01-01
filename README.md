@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2025-12-31 | **PO task:** Implemented initial CloudFormation practice template (`AWSTemplateFormatVersion 2010-09-09.yaml`) and added supporting screenshots and certificates in `2025-12-31/images/`; daily report created in `2025-12-31/`. |
 | 2025-12-30 | **Learned:** AWS Single Sign-On (IAM Identity Center) — read official docs and watched an in-depth YouTube video; notes in `2025-12-30/` (no images). |
 | 2025-12-29 | **Certificates added:** EBS, EBS Performance Optimization, and Security Best Practices (PNG) saved in `2025-12-29/` — daily report created with evidence in `images/`. |
 | 2025-12-26 | AWS course modules: **Auto Scaling**, **Block Storage**, **EC2 for Windows instance**, **OMT**, **Outpost Server**, and **Scale Out Computing**; screenshots added in `2025-12-26/` (images embedded in report). |

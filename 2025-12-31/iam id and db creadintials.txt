@@ -1,0 +1,3 @@
+ami-002e0685c97ba18c5   IAM ID for amazon Linux 2
+db username :admin
+db password :123456789
