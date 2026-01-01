@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2026-01-01 | **Static site:** Deployed S3 + CloudFront via CloudFormation; added `static-website-cloudformation.yaml`, `index.html`, `error.html`, and screenshots/certificates in `2026-01-01/`. |
 | 2025-12-31 | **PO task:** Implemented initial CloudFormation practice template (`AWSTemplateFormatVersion 2010-09-09.yaml`) and added supporting screenshots and certificates in `2025-12-31/images/`; daily report created in `2025-12-31/`. |
 | 2025-12-30 | **Learned:** AWS Single Sign-On (IAM Identity Center) — read official docs and watched an in-depth YouTube video; notes in `2025-12-30/` (no images). |
 | 2025-12-29 | **Certificates added:** EBS, EBS Performance Optimization, and Security Best Practices (PNG) saved in `2025-12-29/` — daily report created with evidence in `images/`. |

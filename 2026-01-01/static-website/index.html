@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Website Deployment Completed</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: #333;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(90deg, #0f4c81, #00b4d8);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Section */
+        section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0f4c81;
+            margin-bottom: 30px;
+        }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px) {
+            .banner h1 {
+                font-size: 2rem;
+            }
+
+            .banner p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>Static Website Hosted Successfully!</h1>
+        <p>Using AWS S3, CloudFront, and CloudFormation</p>
+    </div>
+
+    <!-- Steps Completed -->
+    <section>
+        <h2>Steps We Completed</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>1. Create HTML Files</h3>
+                <p>Prepared <strong>index.html</strong> and <strong>error.html</strong> as the content of our static website.</p>
+            </div>
+            <div class="card">
+                <h3>2. Write CloudFormation Template</h3>
+                <p>Created a dynamic CloudFormation YAML template to provision the S3 bucket and CloudFront distribution automatically.</p>
+            </div>
+            <div class="card">
+                <h3>3. Deploy CloudFormation Stack</h3>
+                <p>Used AWS CloudFormation console to deploy the stack and create the required infrastructure resources.</p>
+            </div>
+            <div class="card">
+                <h3>4. Upload Files to S3</h3>
+                <p>Uploaded the HTML files to the root of the S3 bucket created by CloudFormation.</p>
+            </div>
+            <div class="card">
+                <h3>5. Test URLs</h3>
+                <p>Accessed the website via both S3 endpoint (HTTP) and CloudFront endpoint (HTTPS) to ensure everything works.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Used -->
+    <section>
+        <h2>Technologies & Tools</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Amazon S3</h3>
+                <p>Simple Storage Service (S3) stores static files and serves them as a website.</p>
+            </div>
+            <div class="card">
+                <h3>Amazon CloudFront</h3>
+                <p>Content Delivery Network (CDN) that delivers content globally over HTTPS with caching.</p>
+            </div>
+            <div class="card">
+                <h3>CloudFormation</h3>
+                <p>Infrastructure as Code (IaC) service to automate the creation of AWS resources like S3 buckets and CloudFront distributions.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Static Website Deployment Example | Built with AWS
+    </footer>
+
+</body>
+</html>
