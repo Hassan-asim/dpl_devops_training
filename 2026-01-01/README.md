@@ -326,4 +326,6 @@ Outputs:
 - Uploaded `index.html` and `error.html`, verified S3 and CloudFront endpoints, and collected screenshots and certificates as evidence.
 - Next steps: parameterize more template options (logging, cache behaviors), add CI/CD automation for deployments, and test invalid requests to verify error page behavior.
 
+**Follow-up (2026-01-02):** Continued the work to add a custom domain and ACM certificate using `static-website-with-domain.yaml` in `2026-01-02/`; DNS validation and certificate issuance are pending (see `2026-01-02/images/` for ACM validation screenshots).
+
 Made by Sufi Hassan Asim — 2026-01-01

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Static Website Deployment Complete</title>
+<style>
+    /* Reset & Font */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color:#0a0f1b; color:#f0f0f0; }
+
+    /* Banner */
+    .banner {
+        background: linear-gradient(90deg,#0077b6,#00bcd4);
+        padding:50px 20px;
+        text-align:center;
+        color:white;
+    }
+    .banner h1 { font-size:2.8rem; margin-bottom:10px; }
+    .banner p { font-size:1.2rem; opacity:0.9; }
+
+    /* Section */
+    section { max-width:1200px; margin:40px auto; padding:0 20px; }
+    h2 { text-align:center; color:#00bcd4; margin-bottom:30px; }
+
+    /* Cards */
+    .card-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card {
+        background:#111827;
+        border-radius:12px;
+        box-shadow:0 6px 15px rgba(0,0,0,0.4);
+        padding:25px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.5); }
+    .card h3 { color:#00bcd4; margin-bottom:10px; }
+    .card p { font-size:0.95rem; line-height:1.5; color:#ccc; }
+
+    /* Footer */
+    footer { text-align:center; padding:20px; font-size:0.9rem; color:#888; }
+
+    /* Responsive */
+    @media(max-width:600px) {
+        .banner h1 { font-size:2rem; }
+        .banner p { font-size:1rem; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <h1>Static Website Hosted Successfully!</h1>
+    <p>Using AWS S3, CloudFront, and CloudFormation</p>
+</div>
+
+<!-- Steps Completed -->
+<section>
+    <h2>Steps Completed</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>1. HTML Files Created</h3>
+            <p>Prepared <strong>index.html</strong> and <strong>error.html</strong> as the static website content.</p>
+        </div>
+        <div class="card">
+            <h3>2. CloudFormation Template</h3>
+            <p>Created a dynamic CloudFormation YAML template to provision the S3 bucket and CloudFront distribution automatically.</p>
+        </div>
+        <div class="card">
+            <h3>3. Deploy Stack</h3>
+            <p>Used CloudFormation console to deploy the stack and create the required infrastructure resources.</p>
+        </div>
+        <div class="card">
+            <h3>4. Upload Files to S3</h3>
+            <p>Uploaded the HTML files to the root of the S3 bucket created by CloudFormation.</p>
+        </div>
+        <div class="card">
+            <h3>5. ACM Validation</h3>
+            <p>Requested SSL certificate from ACM and DNS validation was completed by the domain owner. HTTPS will be active once issued.</p>
+        </div>
+        <div class="card">
+            <h3>6. CloudFront Distribution</h3>
+            <p>Created CloudFront distribution pointing to S3 with SSL certificate attached for secure global access.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Used -->
+<section>
+    <h2>Technologies & Tools</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Amazon S3</h3>
+            <p>Simple Storage Service stores static files and serves them publicly via HTTP.</p>
+        </div>
+        <div class="card">
+            <h3>Amazon CloudFront</h3>
+            <p>Content Delivery Network (CDN) that delivers content securely over HTTPS with caching and global performance.</p>
+        </div>
+        <div class="card">
+            <h3>AWS CloudFormation</h3>
+            <p>Infrastructure as Code (IaC) service to automate creation of S3 buckets, CloudFront distributions, and other resources.</p>
+        </div>
+        <div class="card">
+            <h3>AWS Certificate Manager (ACM)</h3>
+            <p>Manages SSL/TLS certificates for secure HTTPS connections without manually configuring certificates.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Static Website Deployment Example | Built with AWS
+</footer>
+
+</body>
+</html>

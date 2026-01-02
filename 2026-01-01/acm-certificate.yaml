@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ACM certificate for CloudFront with DNS validation
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: Subdomain to secure (e.g. test1234.dplit.com)
+
+  HostedZoneId:
+    Type: String
+    Description: Route 53 Hosted Zone ID for dplit.com
+
+Resources:
+  SSLCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+
+Outputs:
+  CertificateArn:
+    Description: ACM Certificate ARN
+    Value: !Ref SSLCertificate

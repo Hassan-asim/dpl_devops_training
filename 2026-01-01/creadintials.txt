@@ -1,0 +1,4 @@
+Domain test1234.dplit.com
+CNAME name _b1b51321e12a7453c57c9d09c0abfeb4.test1234.dplit.com.
+Type CNAME
+CNAME value _1d9313447c79511a1683a9bec3fecbd7.jkddzztszm.acm-validations.aws.
