@@ -1,0 +1,5 @@
+# Local credentials - ignore
+creadintials.txt
+
+# Optional: ignore any similarly named files
+*creadintials*
