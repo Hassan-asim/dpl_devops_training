@@ -288,46 +288,46 @@ Outputs:
 Below are all screenshots taken during the deployment and validation steps. Click an image to view the full-size file.
 
 - **Certificate — Bash scripting for DevOps**  
-  ![certificate bash scripting](images/certificate of compleation bash scripting for DevOps .png)
+  ![certificate bash scripting](./images/certificate%20of%20compleation%20bash%20scripting%20for%20DevOps%20.png)
 
 - **Certificate — IO redirection for DevOps**  
-  ![certificate IO redirection](images/certificate of compleation io redirection for DevOps.png)
+  ![certificate IO redirection](./images/certificate%20of%20compleation%20io%20redirection%20for%20DevOps.png)
 
 - **ACM validation pending (earlier)**  
-  ![ACM validation pending](images/Static website hostiong using a custom domain and waiting for the DNS validation for the certificate issuing .png)
+  ![ACM validation pending](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20and%20waiting%20for%20the%20DNS%20validation%20for%20the%20certificate%20issuing%20.png)
 
 - **ACM certificate issued**  
-  ![ACM issued](images/Static website hostiong using a custom domain the certificatehas been issued.png)
+  ![ACM issued](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20certificatehas%20been%20issued.png)
 
 - **CloudFront URL screenshot**  
-  ![CloudFront URL](images/Static website hostiong using a custom domain the cloudfront url screen.png)
+  ![CloudFront URL](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20cloudfront%20url%20screen.png)
 
 - **Custom domain URL screenshot**  
-  ![Custom domain](images/Static website hostiong using a custom domain the custom domain url screen.png)
+  ![Custom domain](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20custom%20domain%20url%20screen.png)
 
 - **Stack parameters (prompt)**  
-  ![Stack parameters prompt](images/Static website hostiong using a custom domain the custom parameters are being asked to add when creating stack.png)
+  ![Stack parameters prompt](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20custom%20parameters%20are%20being%20asked%20to%20add%20when%20creating%20stack.png)
 
 - **Stack parameter values**  
-  ![Stack parameter values](images/Static website hostiong using a custom domain the parameters of the stack .png)
+  ![Stack parameter values](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20parameters%20of%20the%20stack%20.png)
 
 - **Resource creation confirmation**  
-  ![Resource creation confirmation](images/Static website hostiong using a custom domain the resourced creation conformation in the stack .png)
+  ![Resource creation confirmation](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20resourced%20creation%20conformation%20in%20the%20stack%20.png)
 
 - **Stack creation (using CloudFormation)**  
-  ![Stack creating](images/Static website hostiong using a custom domain the stack is being created using cloud formation.png)
+  ![Stack creating](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20stack%20is%20being%20created%20using%20cloud%20formation.png)
 
 - **Stack creation complete**  
-  ![Stack complete](images/Static website hostiong using a custom domain the stack is create compleate.png)
+  ![Stack complete](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20stack%20is%20create%20compleate.png)
 
 - **Stack creation in progress**  
-  ![Stack in progress](images/Static website hostiong using a custom domain the stack is create in progress.png)
+  ![Stack in progress](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20stack%20is%20create%20in%20progress.png)
 
 - **S3 upload confirmation (static website files)**  
-  ![S3 upload confirmation](images/Static website hostiong using a custom domain the static website files uploaded in the s3 bucket that was created using teh cloud formation stack .png)
+  ![S3 upload confirmation](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20static%20website%20files%20uploaded%20in%20the%20s3%20bucket%20that%20was%20created%20using%20teh%20cloud%20formation%20stack%20.png)
 
 - **Stack outputs: S3 & CloudFront URLs (console output)**  
-  ![Stack outputs S3 CloudFront](images/Static website hostiong using a custom domain the urls s3 and cloudfront in the coutput of the stack.png)
+  ![Stack outputs S3 CloudFront](./images/Static%20website%20hostiong%20using%20a%20custom%20domain%20the%20urls%20s3%20and%20cloudfront%20in%20the%20coutput%20of%20the%20stack.png)
 
 ---
 
