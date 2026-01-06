@@ -1,5 +1,6 @@
 # Local credentials - ignore
 creadintials.txt
+/2026-01-06/ec2-key.pem
 
 # Optional: ignore any similarly named files
 *creadintials*
