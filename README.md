@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2026-01-06 | **CDK course completed + EC2 website hosted:** Completed the CDK course and lab (`hello-cdk/`), launched an EC2-hosted static website with Nginx and Certbot (Let’s Encrypt); Elastic IP allocated and associated — awaiting DNS A record propagation to finalize the certificate. Screenshots and evidence: `2026-01-06/images/`. |
 | 2026-01-05 | **Static site deployed + DNS fix:** Added website code to `static-website/` and `static-website-with-domain.yaml`; uploaded screenshots to `2026-01-05/images/`; fixed site access issue by changing VPN DNS to a public resolver (1.1.1.1) and flushing cache — site now works on and off VPN. |
 | 2026-01-02 | **Static site w/ domain:** Requested ACM certificate and deployed domain-backed static site using `static-website-with-domain.yaml`; DNS validation pending — artifacts in `2026-01-02/`. |
 | 2026-01-01 | **Static site:** Deployed S3 + CloudFront via CloudFormation; added `static-website-cloudformation.yaml`, `index.html`, `error.html`, and screenshots/certificates in `2026-01-01/`. |

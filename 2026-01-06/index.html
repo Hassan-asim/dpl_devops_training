@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EC2 Static Website Deployment Complete</title>
+<style>
+    /* Reset & Font */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color:#0f1e0f; color:#e0f0e0; }
+
+    /* Banner */
+    .banner {
+        background: linear-gradient(90deg,#2e7d32,#81c784);
+        padding:50px 20px;
+        text-align:center;
+        color:white;
+    }
+    .banner h1 { font-size:2.8rem; margin-bottom:10px; }
+    .banner p { font-size:1.2rem; opacity:0.9; }
+
+    /* Section */
+    section { max-width:1200px; margin:40px auto; padding:0 20px; }
+    h2 { text-align:center; color:#81c784; margin-bottom:30px; }
+
+    /* Cards */
+    .card-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card {
+        background:#1b2e1b;
+        border-radius:12px;
+        box-shadow:0 6px 15px rgba(0,0,0,0.4);
+        padding:25px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.5); }
+    .card h3 { color:#81c784; margin-bottom:10px; }
+    .card p { font-size:0.95rem; line-height:1.5; color:#cce6cc; }
+
+    /* Footer */
+    footer { text-align:center; padding:20px; font-size:0.9rem; color:#aaa; }
+
+    /* Responsive */
+    @media(max-width:600px) {
+        .banner h1 { font-size:2rem; }
+        .banner p { font-size:1rem; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <h1>EC2 Static Website Hosted Successfully!</h1>
+    <p>Using AWS EC2, Nginx, and Let’s Encrypt SSL</p>
+</div>
+
+<!-- Steps Completed -->
+<section>
+    <h2>Steps Completed</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>1. EC2 Instance Launched</h3>
+            <p>Created an Amazon Linux 2 EC2 instance to host the static website.</p>
+        </div>
+        <div class="card">
+            <h3>2. Connect via SSH</h3>
+            <p>Used a key pair file to connect to the EC2 instance securely from a local Windows laptop.</p>
+        </div>
+        <div class="card">
+            <h3>3. Install Nginx</h3>
+            <p>Installed Nginx web server on EC2 to serve the static website content.</p>
+        </div>
+        <div class="card">
+            <h3>4. Upload Website Files</h3>
+            <p>Uploaded <strong>index.html</strong> and <strong>error.html</strong> to <code>/usr/share/nginx/html</code>.</p>
+        </div>
+        <div class="card">
+            <h3>5. Point Domain</h3>
+            <p>Configured the domain DNS A record to point to the EC2 public IP for the website.</p>
+        </div>
+        <div class="card">
+            <h3>6. SSL with Let’s Encrypt</h3>
+            <p>Installed Certbot and generated a free SSL certificate. HTTPS is now enabled with auto-renewal.</p>
+        </div>
+        <div class="card">
+            <h3>7. Tested Website</h3>
+            <p>Verified website loads correctly on <strong>http</strong> and <strong>https</strong>, both locally and on VPN.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Used -->
+<section>
+    <h2>Technologies & Tools</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Amazon EC2</h3>
+            <p>Elastic Compute Cloud (EC2) provides scalable virtual servers to host websites and applications.</p>
+        </div>
+        <div class="card">
+            <h3>Nginx</h3>
+            <p>Lightweight, high-performance web server used to serve static content and handle HTTP/HTTPS requests.</p>
+        </div>
+        <div class="card">
+            <h3>Certbot & Let’s Encrypt</h3>
+            <p>Free SSL certificate management tool that provides HTTPS for secure connections.</p>
+        </div>
+        <div class="card">
+            <h3>DNS / Domain</h3>
+            <p>Configured domain A record to point to EC2 instance for proper website access.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 EC2 Static Website Deployment Example | Built with AWS
+</footer>
+
+</body>
+</html>
