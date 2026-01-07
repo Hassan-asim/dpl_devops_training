@@ -3,13 +3,12 @@
 ## Purpose
 Point the custom domain to the EC2 instance hosting the website using a static Elastic IP.
 
-## Elastic IP Details
-
- Domain Name   : [NEW_DOMAIN]         
- Record Type   : A
- Value (Elastic IP / CNAME)     : 3.215.189.47 
- TTL (seconds)  : 300
- Notes         : Points directly to the EC2 instance                
+ ## Elastic IP Details.
+ ## Domain Name   : [NEW_DOMAIN]. 
+ ## Record Type   : A. 
+ ## Value (Elastic IP / CNAME)     : 3.215.189.47.
+ ## TTL (seconds)  : 300.
+ ## Notes         : Points directly to the EC2 instance.           
 
 
 ## Instructions for DNS Update
