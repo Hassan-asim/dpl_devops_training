@@ -1,0 +1,198 @@
+2026-01-08 07:01:20.1642 INFO SSM Agent Updater - v3.3.3598.0
+2026-01-08 07:01:20.1643 DEBUG Checking if agent has OnPrem identity type
+2026-01-08 07:01:20.1643 INFO Checking if agent identity type OnPrem can be assumed
+2026-01-08 07:01:20.1648 DEBUG Checking if agent has EC2 identity type
+2026-01-08 07:01:20.1648 INFO Checking if agent identity type EC2 can be assumed
+2026-01-08 07:01:20.1921 DEBUG [AuthRegisterService] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:20.1923 DEBUG [EC2Identity] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:20.1937 INFO Agent will take identity from EC2
+2026-01-08 07:01:20.1937 DEBUG Using identity from runtime config
+2026-01-08 07:01:20.1938 DEBUG getting platform details
+2026-01-08 07:01:20.1938 DEBUG fetching platform details from /etc/os-release
+2026-01-08 07:01:20.1939 DEBUG Command output &{Amazon Linux 2023}
+2026-01-08 07:01:20.1939 INFO Detected platform Amazon Linux
+2026-01-08 07:01:23.1946 INFO Update root is: /var/lib/amazon/ssm/update/
+2026-01-08 07:01:23.1964 DEBUG Successfully persisted update response for 2026-01-08T07-01-23.196342_aws.ssm.4579e496-a3f3-4f9e-8cd4-1d7fffe5f44b.i-0baef22ad0ce7d233_update
+2026-01-08 07:01:23.1974 DEBUG Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:23.2007 DEBUG [AuthRegisterService] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:23.2008 DEBUG [EC2Identity] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:23.2014 INFO [ECSIdentity] Agent not taking ECS identity: Could not fetch metadata endpoint
+2026-01-08 07:01:23.2043 DEBUG Calling UpdateInstanceInformation with params{
+  AgentName: "amazon-ssm-agent",
+  AgentStatus: "UpdateInitialized-None",
+  AgentVersion: "3.3.3572.0",
+  AvailabilityZone: "us-east-1b",
+  AvailabilityZoneId: "use1-az4",
+  ComputerName: "ip-172-31-30-250.ec2.internal",
+  IPAddress: <sensitive>,
+  InstanceId: "i-0baef22ad0ce7d233",
+  PlatformName: "Amazon Linux",
+  PlatformType: "Linux",
+  PlatformVersion: "2023",
+  SSMConnectionChannel: ""
+}
+2026-01-08 07:01:23.2284 DEBUG UpdateInstanceInformation Response{
+
+}
+2026-01-08 07:01:23.2285 INFO Initiating download manifest https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json
+2026-01-08 07:01:23.2285 INFO UpdateS3Util manifest download url is https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/ssm-agent-manifest.json
+2026-01-08 07:01:23.2286 DEBUG UpdateS3Util Found no match of regex "^((.+)\.)?(bucket|accesspoint|control)\.vpce-[-a-z0-9]+\.s3[.-](([-a-z0-9]+)\.)?vpce\.(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com"
+
+2026-01-08 07:01:23.2286 DEBUG UpdateS3Util Found matches of regex "^((.+)\.)?s3[.-](website[-.])?(accelerate\.)?(dualstack[-.])?(([-a-z0-9]+)\.)?(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com": {Bucket: "", Region: "us-east-1"}
+
+2026-01-08 07:01:23.2286 DEBUG UpdateS3Util attempting to download as s3 download /tmp/1164267178/b2cbc1d75fd22dbcae082d17acbb3b396be1cb31
+2026-01-08 07:01:23.2286 DEBUG UpdateS3Util Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.2467 DEBUG UpdateS3Util Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.2725 DEBUG UpdateS3Util failed to download from s3, AccessDenied: Access Denied
+	status code: 403, request id: Z37VFH5TE5QG3R4B, host id: HiSuMlRj/kN7RkXcd/tgnlwJPRpn1P3lrXsHQ/CdJpuQf5ti7gP+V6LjKStg3BZnS5C3gzWmzUqCAshNERaukpXQuqA+tQTy
+2026-01-08 07:01:23.2726 INFO UpdateS3Util An error occurred when attempting s3 download. Attempting http/https download as fallback.
+2026-01-08 07:01:23.2726 DEBUG UpdateS3Util attempting to download as http/https download from https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/ssm-agent-manifest.json to /tmp/1164267178/b2cbc1d75fd22dbcae082d17acbb3b396be1cb31
+2026-01-08 07:01:23.2979 DEBUG UpdateS3Util file eTagValue is "e22aa5b03ebea85f4b28af2fe65fc16e"
+2026-01-08 07:01:23.3012 INFO UpdateS3Util /tmp/1164267178/b2cbc1d75fd22dbcae082d17acbb3b396be1cb31 with 592986 bytes downloaded
+2026-01-08 07:01:23.3012 INFO UpdateS3Util Succeed to download the manifest
+2026-01-08 07:01:23.3013 INFO UpdateS3Util Local file path : /tmp/1164267178/b2cbc1d75fd22dbcae082d17acbb3b396be1cb31
+2026-01-08 07:01:23.3083 INFO found package amazon-ssm-agent
+2026-01-08 07:01:23.3083 INFO found file amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.3084 INFO UpdateS3Util Successfully parsed the manifest
+2026-01-08 07:01:23.3085 INFO TargetVersion is empty string, defaulting to 'latest'
+2026-01-08 07:01:23.3085 INFO TargetVersion is 'latest', attempting to find the latest active version
+2026-01-08 07:01:23.3113 INFO Updating amazon-ssm-agent from 3.3.3572.0 to 3.3.3598.0
+2026-01-08 07:01:23.3113 INFO Comparing source version 3.3.3572.0 and target version 3.3.3598.0
+2026-01-08 07:01:23.3113 INFO Verifying source version 3.3.3572.0 and target version 3.3.3598.0 are available in the manifest from https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json
+2026-01-08 07:01:23.3113 DEBUG checking if package amazon-ssm-agent has version 3.3.3572.0
+2026-01-08 07:01:23.3113 DEBUG Searching for file name amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.3113 DEBUG Found package amazon-ssm-agent
+2026-01-08 07:01:23.3113 DEBUG Found file name amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.3113 DEBUG Found version 3.3.3572.0
+2026-01-08 07:01:23.3113 DEBUG checking if package amazon-ssm-agent has version 3.3.3598.0
+2026-01-08 07:01:23.3113 DEBUG Searching for file name amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.3113 DEBUG Found package amazon-ssm-agent
+2026-01-08 07:01:23.3113 DEBUG Found file name amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.3114 DEBUG Found version 3.3.3598.0
+2026-01-08 07:01:23.3114 INFO Validating inactive version for amazon ssm agent
+2026-01-08 07:01:23.3114 INFO found package amazon-ssm-agent
+2026-01-08 07:01:23.3114 INFO Version 3.3.3598.0 status in manifest is Active while checking if status is Active
+2026-01-08 07:01:23.3114 INFO Checking update precondition BottlerocketPrecondition
+2026-01-08 07:01:23.3114 INFO Checking for Bottlerocket
+2026-01-08 07:01:23.3114 INFO Checking update precondition StaticPiePrecondition
+2026-01-08 07:01:23.3114 INFO Checking kernel version
+2026-01-08 07:01:23.3130 INFO Attempting to get download url and artifact hashes from manifest
+2026-01-08 07:01:23.3130 INFO Initiating download amazon-ssm-agent
+2026-01-08 07:01:23.3130 INFO Preparing artifacts for version 3.3.3572.0
+2026-01-08 07:01:23.3130 DEBUG Found no match of regex "^((.+)\.)?(bucket|accesspoint|control)\.vpce-[-a-z0-9]+\.s3[.-](([-a-z0-9]+)\.)?vpce\.(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com"
+
+2026-01-08 07:01:23.3131 DEBUG Found matches of regex "^((.+)\.)?s3[.-](website[-.])?(accelerate\.)?(dualstack[-.])?(([-a-z0-9]+)\.)?(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com": {Bucket: "", Region: "us-east-1"}
+
+2026-01-08 07:01:23.3131 DEBUG attempting to download as s3 download /var/lib/amazon/ssm/download/update/7a4ff195772425f3c5473cd77f242f854b373701
+2026-01-08 07:01:23.3131 DEBUG Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.3171 DEBUG Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.3435 DEBUG failed to download from s3, AccessDenied: Access Denied
+	status code: 403, request id: Z37HVVDNP68A0PMF, host id: Gy1fwtxM1UcfmQRpZk/+33yYC3EZg4Iw2Qj+pWAgqak7e/W/DJIqj7DwLfqckQRJNzoMQFiJ1VU=
+2026-01-08 07:01:23.3436 INFO An error occurred when attempting s3 download. Attempting http/https download as fallback.
+2026-01-08 07:01:23.3436 DEBUG attempting to download as http/https download from https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3572.0/amazon-ssm-agent-linux-amd64.tar.gz to /var/lib/amazon/ssm/download/update/7a4ff195772425f3c5473cd77f242f854b373701
+2026-01-08 07:01:23.4043 DEBUG file eTagValue is "daf9058bc760b7d5f9fc9fe648889dda-4"
+2026-01-08 07:01:23.6076 INFO /var/lib/amazon/ssm/download/update/7a4ff195772425f3c5473cd77f242f854b373701 with 25920023 bytes downloaded
+2026-01-08 07:01:23.6874 DEBUG Hash=df9790a381a7c284720a100674597a642e834e45d181779aa2ffb92f3afd7b1f, FilePath=/var/lib/amazon/ssm/download/update/7a4ff195772425f3c5473cd77f242f854b373701
+2026-01-08 07:01:23.6875 INFO Successfully downloaded https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3572.0/amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:23.6878 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3572.0/amazon-ssm-agent.rpm with -rw-r--r-- mode
+2026-01-08 07:01:23.7076 DEBUG Uncompressed file mode is -rw-r--r--
+2026-01-08 07:01:23.7076 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3572.0/install.sh with -rwxr-xr-x mode
+2026-01-08 07:01:23.7077 DEBUG Uncompressed file mode is -rwxr-xr-x
+2026-01-08 07:01:23.7077 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3572.0/uninstall.sh with -rwxr-xr-x mode
+2026-01-08 07:01:23.7079 DEBUG Uncompressed file mode is -rwxr-xr-x
+2026-01-08 07:01:23.7079 INFO Preparing artifacts for version 3.3.3598.0
+2026-01-08 07:01:23.7079 DEBUG Found no match of regex "^((.+)\.)?(bucket|accesspoint|control)\.vpce-[-a-z0-9]+\.s3[.-](([-a-z0-9]+)\.)?vpce\.(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com"
+
+2026-01-08 07:01:23.7079 DEBUG Found matches of regex "^((.+)\.)?s3[.-](website[-.])?(accelerate\.)?(dualstack[-.])?(([-a-z0-9]+)\.)?(amazonaws\.com|amazonaws\.com\.cn|amazonaws\.eu|c2s\.ic\.gov|sc2s\.sgov\.gov|cloud\.adc-e\.uk|csp\.hci\.ic\.gov)" in S3 url host "s3.us-east-1.amazonaws.com": {Bucket: "", Region: "us-east-1"}
+
+2026-01-08 07:01:23.7079 DEBUG attempting to download as s3 download /var/lib/amazon/ssm/download/update/fa8cc49a4d2c0406832beec94b888eb6aeb6808b
+2026-01-08 07:01:23.7080 DEBUG Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.7113 DEBUG Determining endpoint for service s3 in region us-east-1
+2026-01-08 07:01:23.7413 DEBUG failed to download from s3, AccessDenied: Access Denied
+	status code: 403, request id: Z37QG381N5DDPX7V, host id: jJ5W3nvVO93t03gjbm4OSni7xKZXpR9hJFBmhxq/jxP3MHqnUh/0vygoUm/8XTrj/9ygmf3hAVc=
+2026-01-08 07:01:23.7413 INFO An error occurred when attempting s3 download. Attempting http/https download as fallback.
+2026-01-08 07:01:23.7413 DEBUG attempting to download as http/https download from https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3598.0/amazon-ssm-agent-linux-amd64.tar.gz to /var/lib/amazon/ssm/download/update/fa8cc49a4d2c0406832beec94b888eb6aeb6808b
+2026-01-08 07:01:23.7695 DEBUG file eTagValue is "99013a370889eafa842b4e468349aea8-4"
+2026-01-08 07:01:24.0112 INFO /var/lib/amazon/ssm/download/update/fa8cc49a4d2c0406832beec94b888eb6aeb6808b with 25908288 bytes downloaded
+2026-01-08 07:01:24.0902 DEBUG Hash=464241dc9c7016ba68a93577ebc294995fc2c2e95708fa9919a942edaeea105d, FilePath=/var/lib/amazon/ssm/download/update/fa8cc49a4d2c0406832beec94b888eb6aeb6808b
+2026-01-08 07:01:24.0902 INFO Successfully downloaded https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3598.0/amazon-ssm-agent-linux-amd64.tar.gz
+2026-01-08 07:01:24.0904 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3598.0/amazon-ssm-agent.rpm with -rw-r--r-- mode
+2026-01-08 07:01:24.1117 DEBUG Uncompressed file mode is -rw-r--r--
+2026-01-08 07:01:24.1118 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3598.0/install.sh with -rwxr-xr-x mode
+2026-01-08 07:01:24.1119 DEBUG Uncompressed file mode is -rwxr-xr-x
+2026-01-08 07:01:24.1119 DEBUG Uncompressing file /var/lib/amazon/ssm/update/amazon-ssm-agent/3.3.3598.0/uninstall.sh with -rwxr-xr-x mode
+2026-01-08 07:01:24.1119 DEBUG Uncompressed file mode is -rwxr-xr-x
+2026-01-08 07:01:24.1120 INFO Initiating amazon-ssm-agent update to 3.3.3598.0
+2026-01-08 07:01:24.1120 DEBUG Waiting for cloud-init completion...
+2026-01-08 07:01:24.3886 DEBUG cloud-init is finished execution.
+2026-01-08 07:01:24.3886 INFO Attempting to upgrade from 3.3.3572.0 to 3.3.3598.0
+2026-01-08 07:01:24.3887 WARN [UpdaterTests] [TestUnixEc2Detector] Could not find file /sys/hypervisor/version/extra. Will skip caching the data
+2026-01-08 07:01:24.3887 WARN [UpdaterTests] [TestUnixEc2Detector] Could not find file /sys/hypervisor/uuid. Will skip caching the data
+2026-01-08 07:01:24.3928 DEBUG [AuthRegisterService] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:24.3929 DEBUG [EC2Identity] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:01:24.3940 INFO [ECSIdentity] Agent not taking ECS identity: Could not fetch metadata endpoint
+2026-01-08 07:01:24.3968 DEBUG Calling UpdateInstanceInformation with params{
+  AgentName: "amazon-ssm-agent",
+  AgentStatus: "TestPassed_UnixEc2Detector_p1_s1_phn_pe0_shn_se0-3.3.3598.0",
+  AgentVersion: "3.3.3572.0",
+  AvailabilityZone: "us-east-1b",
+  AvailabilityZoneId: "use1-az4",
+  ComputerName: "ip-172-31-30-250.ec2.internal",
+  IPAddress: <sensitive>,
+  InstanceId: "i-0baef22ad0ce7d233",
+  PlatformName: "Amazon Linux",
+  PlatformType: "Linux",
+  PlatformVersion: "2023",
+  SSMConnectionChannel: ""
+}
+2026-01-08 07:01:24.4084 DEBUG UpdateInstanceInformation Response{
+
+}
+2026-01-08 07:01:24.4085 INFO Initiating amazon-ssm-agent 3.3.3598.0 installation
+2026-01-08 07:02:01.6250 INFO amazon-ssm-agent 3.3.3598.0 installed successfully
+2026-01-08 07:02:01.6250 INFO Initiating Agent service check
+2026-01-08 07:02:01.6385 INFO health check: amazon-ssm-agent is running
+2026-01-08 07:02:01.6440 INFO health check: ssm-agent-worker is not running
+2026-01-08 07:02:01.6440 INFO Retrying update health check 2 out of 36
+2026-01-08 07:02:06.6613 INFO health check: amazon-ssm-agent is running
+2026-01-08 07:02:06.6660 INFO Detect SSM Agent worker running
+2026-01-08 07:02:06.6660 INFO health check: ssm-agent-worker is running
+2026-01-08 07:02:06.6660 INFO amazon-ssm-agent is running
+2026-01-08 07:02:06.6661 INFO amazon-ssm-agent updated successfully to 3.3.3598.0
+2026-01-08 07:02:06.6661 DEBUG Assuming v2.2 document is being executed
+2026-01-08 07:02:06.6665 DEBUG Successfully persisted update response for 2026-01-08T07-02-06.666321_aws.ssm.4579e496-a3f3-4f9e-8cd4-1d7fffe5f44b.i-0baef22ad0ce7d233_update
+2026-01-08 07:02:06.6665 DEBUG output s3 bucket name is 
+2026-01-08 07:02:06.6691 DEBUG [AuthRegisterService] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:02:06.6692 DEBUG [EC2Identity] Determining endpoint for service ssm in region us-east-1
+2026-01-08 07:02:06.6700 INFO [ECSIdentity] Agent not taking ECS identity: Could not fetch metadata endpoint
+2026-01-08 07:02:06.6728 DEBUG Calling UpdateInstanceInformation with params{
+  AgentName: "amazon-ssm-agent",
+  AgentStatus: "UpdateSucceeded-3.3.3598.0",
+  AgentVersion: "3.3.3572.0",
+  AvailabilityZone: "us-east-1b",
+  AvailabilityZoneId: "use1-az4",
+  ComputerName: "ip-172-31-30-250.ec2.internal",
+  IPAddress: <sensitive>,
+  InstanceId: "i-0baef22ad0ce7d233",
+  PlatformName: "Amazon Linux",
+  PlatformType: "Linux",
+  PlatformVersion: "2023",
+  SSMConnectionChannel: ""
+}
+2026-01-08 07:02:06.6876 DEBUG UpdateInstanceInformation Response{
+
+}
+2026-01-08 07:02:06.6876 INFO Skipping move of files from update installation directory
+2026-01-08 07:02:06.6877 INFO initiating cleanup of other versions in amazon-ssm-agent and amazon-ssm-agent-updater folder
+2026-01-08 07:02:06.6877 INFO removing artifacts in the folder: /var/lib/amazon/ssm/update/amazon-ssm-agent
+2026-01-08 07:02:06.6896 INFO removed files and folders: 3.3.3572.0
+2026-01-08 07:02:06.6897 INFO removing artifacts in the folder: /var/lib/amazon/ssm/update/amazon-ssm-agent-updater
+2026-01-08 07:02:06.6897 INFO removed files and folders: 
+2026-01-08 07:02:06.6897 INFO initiating cleanup of files in update download folder
+2026-01-08 07:02:06.6941 INFO Successfully downloaded manifest
+Successfully downloaded updater version 3.3.3598.0
+Updating amazon-ssm-agent from 3.3.3572.0 to 3.3.3598.0
+Successfully downloaded https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3572.0/amazon-ssm-agent-linux-amd64.tar.gz
+Successfully downloaded https://s3.us-east-1.amazonaws.com/amazon-ssm-us-east-1/amazon-ssm-agent/3.3.3598.0/amazon-ssm-agent-linux-amd64.tar.gz
+Initiating amazon-ssm-agent update to 3.3.3598.0
+amazon-ssm-agent updated successfully to 3.3.3598.0

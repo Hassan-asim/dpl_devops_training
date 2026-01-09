@@ -13,6 +13,8 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2026-01-09 | **AWS Systems Manager (SSM) & EC2 logs automation:** Completed AWS Systems Manager course and implemented an SSM automation to upload EC2 logs to S3; verified logs in `2026-01-09/ec2-logs-20260108-083729/` and evidence in `2026-01-09/images/`. |
+| 2026-01-08 | **Cloud Computing + Labs:** Completed Cloud Computing Essentials and lab exercises (Cloud First Steps & Computing Solutions labs); certificates and lab evidence saved in `2026-01-08/images/`. |
 | 2026-01-07 | **Certifications completed:** Completed four courses — Advanced Linux Commands; Configuration Management & Cloud; Development with Amazon Q; Google AI Essentials. All certificates and screenshots saved to `2026-01-07/images/`. |
 | 2026-01-06 | **CDK course completed + EC2 website hosted:** Completed the CDK course and lab (`hello-cdk/`), launched an EC2-hosted static website with Nginx and Certbot (Let’s Encrypt); Elastic IP allocated and associated — awaiting DNS A record propagation to finalize the certificate. Screenshots and evidence: `2026-01-06/images/`. |
 | 2026-01-05 | **Static site deployed + DNS fix:** Added website code to `static-website/` and `static-website-with-domain.yaml`; uploaded screenshots to `2026-01-05/images/`; fixed site access issue by changing VPN DNS to a public resolver (1.1.1.1) and flushing cache — site now works on and off VPN. |

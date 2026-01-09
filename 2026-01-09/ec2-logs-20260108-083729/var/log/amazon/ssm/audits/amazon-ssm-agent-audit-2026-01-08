@@ -1,0 +1,10 @@
+SchemaVersion=1
+agent_telemetry amazon-ssm-agent.start 3.3.3572.0 06:32:59
+agent_telemetry ssm-agent-worker.start 3.3.3572.0 07:01:09
+agent_telemetry amazon-ssm-agent.start 3.3.3598.0 07:01:49
+agent_telemetry ssm-agent-worker.start 3.3.3598.0 07:01:50
+agent_telemetry amazon-ssm-agent.start 3.3.3598.0 07:02:00
+agent_telemetry ssm-agent-worker.start 3.3.3598.0 07:02:01
+agent_update_result UpdateSucceeded-3.3.3598.0 3.3.3572.0 07:02:06
+agent_telemetry amazon-ssm-agent.start 3.3.3598.0 07:07:05
+agent_telemetry ssm-agent-worker.start 3.3.3598.0 07:07:07

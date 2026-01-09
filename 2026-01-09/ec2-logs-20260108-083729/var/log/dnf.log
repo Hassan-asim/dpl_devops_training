@@ -1,0 +1,93 @@
+2026-01-08T06:33:02+0000 INFO --- logging initialized ---
+2026-01-08T06:33:02+0000 DDEBUG timer: config: 34 ms
+2026-01-08T06:33:02+0000 DEBUG Loaded plugins: builddep, changelog, config-manager, copr, debug, debuginfo-install, download, generate_completion_cache, groups-manager, needs-restarting, playground, release-notification, repoclosure, repodiff, repograph, repomanage, reposync, supportinfo
+2026-01-08T06:33:02+0000 DEBUG DNF version: 4.14.0
+2026-01-08T06:33:02+0000 DDEBUG Command: dnf --debuglevel 2 updateinfo 
+2026-01-08T06:33:02+0000 DDEBUG Installroot: /
+2026-01-08T06:33:02+0000 DDEBUG Releasever: 2023.10.20260105
+2026-01-08T06:33:02+0000 DEBUG cachedir: /var/cache/dnf
+2026-01-08T06:33:02+0000 DDEBUG Base command: updateinfo
+2026-01-08T06:33:02+0000 DDEBUG Extra commands: ['--debuglevel', '2', 'updateinfo']
+2026-01-08T06:33:02+0000 DEBUG User-Agent: constructed: 'libdnf (Amazon Linux 2023; generic; Linux.x86_64)'
+2026-01-08T06:33:02+0000 DEBUG repo: downloading from remote: amazonlinux
+2026-01-08T07:01:33+0000 INFO --- logging initialized ---
+2026-01-08T07:01:33+0000 DDEBUG timer: config: 2 ms
+2026-01-08T07:01:34+0000 DEBUG Loaded plugins: builddep, changelog, config-manager, copr, debug, debuginfo-install, download, generate_completion_cache, groups-manager, needs-restarting, playground, release-notification, repoclosure, repodiff, repograph, repomanage, reposync, supportinfo
+2026-01-08T07:01:34+0000 DEBUG YUM version: 4.14.0
+2026-01-08T07:01:34+0000 DDEBUG Command: yum -y --cacheonly localinstall amazon-ssm-agent.rpm 
+2026-01-08T07:01:34+0000 DDEBUG Installroot: /
+2026-01-08T07:01:34+0000 DDEBUG Releasever: 2023.10.20260105
+2026-01-08T07:01:34+0000 DEBUG cachedir: /var/cache/dnf
+2026-01-08T07:01:34+0000 DDEBUG Base command: localinstall
+2026-01-08T07:01:34+0000 DDEBUG Extra commands: ['-y', '--cacheonly', 'localinstall', 'amazon-ssm-agent.rpm']
+2026-01-08T07:01:34+0000 DEBUG User-Agent: constructed: 'libdnf (Amazon Linux 2023; generic; Linux.x86_64)'
+2026-01-08T07:01:34+0000 DEBUG repo: using cache for: amazonlinux
+2026-01-08T07:01:44+0000 DEBUG amazonlinux: using metadata from Wed Dec 31 18:33:08 2025.
+2026-01-08T07:01:44+0000 WARNING Error: Cache-only enabled but no cache for 'kernel-livepatch'
+2026-01-08T07:01:44+0000 WARNING Ignoring repositories: kernel-livepatch
+2026-01-08T07:01:44+0000 INFO Last metadata expiration check: 0:28:41 ago on Thu Jan  8 06:33:03 2026.
+2026-01-08T07:01:44+0000 DDEBUG timer: sack setup: 10188 ms
+2026-01-08T07:01:44+0000 DEBUG Completion plugin: Generating completion cache...
+2026-01-08T07:01:45+0000 DEBUG --> Starting dependency resolution
+2026-01-08T07:01:45+0000 DEBUG ---> Package amazon-ssm-agent.x86_64 3.3.3572.0-1.amzn2023 will be upgraded
+2026-01-08T07:01:45+0000 DEBUG ---> Package amazon-ssm-agent.x86_64 3.3.3598.0-1 will be an upgrade
+2026-01-08T07:01:45+0000 DEBUG --> Finished dependency resolution
+2026-01-08T07:01:45+0000 DDEBUG timer: depsolve: 77 ms
+2026-01-08T07:01:45+0000 INFO Dependencies resolved.
+2026-01-08T07:01:45+0000 INFO ================================================================================
+ Package               Arch        Version              Repository         Size
+================================================================================
+Upgrading:
+ amazon-ssm-agent      x86_64      3.3.3598.0-1         @commandline       25 M
+
+Transaction Summary
+================================================================================
+Upgrade  1 Package
+
+2026-01-08T07:01:45+0000 INFO Total size: 25 M
+2026-01-08T07:01:45+0000 INFO Downloading Packages:
+2026-01-08T07:01:45+0000 INFO Running transaction check
+2026-01-08T07:01:45+0000 INFO Transaction check succeeded.
+2026-01-08T07:01:45+0000 INFO Running transaction test
+2026-01-08T07:01:45+0000 INFO Transaction test succeeded.
+2026-01-08T07:01:45+0000 DDEBUG timer: transaction test: 229 ms
+2026-01-08T07:01:45+0000 INFO Running transaction
+2026-01-08T07:01:45+0000 DEBUG RPMDB altered outside of YUM.
+2026-01-08T07:01:45+0000 DDEBUG RPM transaction start.
+2026-01-08T07:02:00+0000 DDEBUG RPM transaction over.
+2026-01-08T07:02:00+0000 DDEBUG timer: verify transaction: 57 ms
+2026-01-08T07:02:00+0000 DDEBUG timer: transaction: 15174 ms
+2026-01-08T07:02:00+0000 DEBUG Completion plugin: Generating completion cache...
+2026-01-08T07:02:00+0000 DEBUG Upgraded: amazon-ssm-agent-3.3.3598.0-1.x86_64
+2026-01-08T07:02:00+0000 INFO Complete!
+2026-01-08T07:02:00+0000 DDEBUG Cleaning up.
+2026-01-08T07:07:07+0000 INFO --- logging initialized ---
+2026-01-08T07:07:07+0000 DDEBUG timer: config: 28 ms
+2026-01-08T07:07:07+0000 DEBUG Loaded plugins: builddep, changelog, config-manager, copr, debug, debuginfo-install, download, generate_completion_cache, groups-manager, needs-restarting, playground, release-notification, repoclosure, repodiff, repograph, repomanage, reposync, supportinfo
+2026-01-08T07:07:07+0000 DEBUG DNF version: 4.14.0
+2026-01-08T07:07:07+0000 DDEBUG Command: dnf --debuglevel 2 updateinfo 
+2026-01-08T07:07:07+0000 DDEBUG Installroot: /
+2026-01-08T07:07:07+0000 DDEBUG Releasever: 2023.10.20260105
+2026-01-08T07:07:07+0000 DEBUG cachedir: /var/cache/dnf
+2026-01-08T07:07:07+0000 DDEBUG Base command: updateinfo
+2026-01-08T07:07:07+0000 DDEBUG Extra commands: ['--debuglevel', '2', 'updateinfo']
+2026-01-08T07:07:07+0000 DEBUG User-Agent: constructed: 'libdnf (Amazon Linux 2023; generic; Linux.x86_64)'
+2026-01-08T07:07:07+0000 DEBUG repo: using cache for: amazonlinux
+2026-01-08T07:07:08+0000 DEBUG amazonlinux: using metadata from Wed Dec 31 18:33:08 2025.
+2026-01-08T07:07:08+0000 DEBUG repo: downloading from remote: kernel-livepatch
+2026-01-08T07:07:09+0000 DEBUG kernel-livepatch: using metadata from Mon Dec 29 22:09:30 2025.
+2026-01-08T07:07:09+0000 INFO Last metadata expiration check: 0:00:01 ago on Thu Jan  8 07:07:08 2026.
+2026-01-08T07:07:09+0000 DDEBUG timer: sack setup: 1371 ms
+2026-01-08T07:07:09+0000 DEBUG Completion plugin: Generating completion cache...
+2026-01-08T07:07:09+0000 DDEBUG Cleaning up.
+2026-01-08T07:07:10+0000 INFO --- logging initialized ---
+2026-01-08T07:07:10+0000 DDEBUG timer: config: 73 ms
+2026-01-08T07:07:10+0000 DEBUG Loaded plugins: builddep, changelog, config-manager, copr, debug, debuginfo-install, download, generate_completion_cache, groups-manager, needs-restarting, playground, release-notification, repoclosure, repodiff, repograph, repomanage, reposync, supportinfo
+2026-01-08T07:07:10+0000 DEBUG DNF version: 4.14.0
+2026-01-08T07:07:10+0000 DDEBUG Command: dnf check-release-update 
+2026-01-08T07:07:10+0000 DDEBUG Installroot: /
+2026-01-08T07:07:10+0000 DDEBUG Releasever: 2023.10.20260105
+2026-01-08T07:07:10+0000 DEBUG cachedir: /var/cache/dnf
+2026-01-08T07:07:10+0000 DDEBUG Base command: check-release-update
+2026-01-08T07:07:10+0000 DDEBUG Extra commands: ['check-release-update']
+2026-01-08T07:07:11+0000 DDEBUG Cleaning up.

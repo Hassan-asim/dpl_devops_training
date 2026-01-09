@@ -1,0 +1,715 @@
+type=DAEMON_START msg=audit(1767853975.454:4903): op=start ver=3.1.5 format=enriched kernel=6.1.159-181.297.amzn2023.x86_64 auid=4294967295 pid=1264 uid=0 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=successAUID="unset" UID="root"
+type=SYSCALL msg=audit(1767853975.460:133): arch=c000003e syscall=44 success=yes exit=60 a0=3 a1=7ffc3b5ebe50 a2=3c a3=0 items=0 ppid=1260 pid=1264 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditd" exe="/usr/sbin/auditd" subj=system_u:system_r:auditd_t:s0 key=(null)ARCH=x86_64 SYSCALL=sendto AUID="unset" UID="root" GID="root" EUID="root" SUID="root" FSUID="root" EGID="root" SGID="root" FSGID="root"
+type=PROCTITLE msg=audit(1767853975.460:133): proctitle="/sbin/auditd"
+type=SERVICE_START msg=audit(1767853975.520:134): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-journal-catalog-update comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CONFIG_CHANGE msg=audit(1767853975.600:135): auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=add_rule key=(null) list=1 res=1AUID="unset"
+type=SYSCALL msg=audit(1767853975.600:135): arch=c000003e syscall=44 success=yes exit=1056 a0=3 a1=7ffd16c7daa0 a2=420 a3=0 items=0 ppid=1267 pid=1313 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditctl" exe="/usr/sbin/auditctl" subj=system_u:system_r:unconfined_service_t:s0 key=(null)ARCH=x86_64 SYSCALL=sendto AUID="unset" UID="root" GID="root" EUID="root" SUID="root" FSUID="root" EGID="root" SGID="root" FSGID="root"
+type=PROCTITLE msg=audit(1767853975.600:135): proctitle=2F7362696E2F617564697463746C002D52002F6574632F61756469742F61756469742E72756C6573
+type=SERVICE_START msg=audit(1767853975.600:136): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=auditd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SYSTEM_BOOT msg=audit(1767853975.620:137): pid=1318 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg=' comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853975.670:138): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853975.670:139): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-resolved comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853976.070:140): prog-id=43 op=LOAD
+type=BPF msg=audit(1767853976.070:141): prog-id=42 op=UNLOAD
+type=BPF msg=audit(1767853976.070:142): prog-id=44 op=LOAD
+type=BPF msg=audit(1767853976.070:143): prog-id=37 op=UNLOAD
+type=BPF msg=audit(1767853976.070:144): prog-id=45 op=LOAD
+type=BPF msg=audit(1767853976.070:145): prog-id=46 op=LOAD
+type=BPF msg=audit(1767853976.070:146): prog-id=38 op=UNLOAD
+type=BPF msg=audit(1767853976.070:147): prog-id=39 op=UNLOAD
+type=BPF msg=audit(1767853976.070:148): prog-id=47 op=LOAD
+type=BPF msg=audit(1767853976.070:149): prog-id=48 op=LOAD
+type=BPF msg=audit(1767853976.070:150): prog-id=40 op=UNLOAD
+type=BPF msg=audit(1767853976.070:151): prog-id=41 op=UNLOAD
+type=SERVICE_START msg=audit(1767853976.190:152): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_mod comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853976.190:153): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_mod comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.210:154): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@efi_pstore comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853976.210:155): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@efi_pstore comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.260:156): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853976.260:157): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.300:158): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-fsck@dev-disk-by\x2duuid-A1F2\x2dF73A comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.440:159): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-boot-update comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.510:160): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-done comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.510:161): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=acpid comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.520:162): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=irqbalance comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.520:163): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=libstoragemgmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853976.530:164): prog-id=49 op=LOAD
+type=BPF msg=audit(1767853976.540:165): prog-id=50 op=LOAD
+type=BPF msg=audit(1767853976.550:166): prog-id=51 op=LOAD
+type=BPF msg=audit(1767853976.550:167): prog-id=52 op=LOAD
+type=SERVICE_START msg=audit(1767853976.580:168): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-init-local comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.610:169): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dracut-shutdown comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.650:170): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853976.650:171): prog-id=53 op=LOAD
+type=BPF msg=audit(1767853976.710:172): prog-id=54 op=LOAD
+type=SERVICE_START msg=audit(1767853976.750:173): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dbus-broker comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.760:174): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.810:175): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.810:176): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed-activate comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.810:177): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-logind comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.880:178): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@drm comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853976.880:179): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@drm comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853976.880:180): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=gssproxy comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853977.690:181): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd-wait-online comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853977.860:182): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853978.730:183): prog-id=55 op=LOAD
+type=BPF msg=audit(1767853978.730:184): prog-id=56 op=LOAD
+type=BPF msg=audit(1767853978.730:185): prog-id=57 op=LOAD
+type=SERVICE_START msg=audit(1767853978.820:186): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-hostnamed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=ADD_GROUP msg=audit(1767853979.250:187): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-group acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=ADD_USER msg=audit(1767853979.250:188): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-user acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:189): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-user-to-group grp="adm" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:190): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-user-to-group grp="wheel" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:191): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-user-to-group grp="systemd-journal" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:192): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-to-shadow-group grp="adm" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:193): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-to-shadow-group grp="wheel" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.250:194): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-to-shadow-group grp="systemd-journal" acct="ec2-user" exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_MGMT msg=audit(1767853979.360:195): pid=1558 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:cloud_init_t:s0 msg='op=add-home-dir id=1000 exe="/usr/sbin/useradd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset" ID="ec2-user"
+type=ACCT_LOCK msg=audit(1767853979.410:196): pid=1565 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:passwd_t:s0 msg='op=locked-password id=1000 exe="/usr/bin/passwd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset" ID="ec2-user"
+type=SERVICE_START msg=audit(1767853979.610:197): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-init comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.650:198): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.720:199): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-user-sessions comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.720:200): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sshd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.740:201): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=rpc-statd-notify comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.780:202): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=atd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.780:203): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=getty@tty1 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.780:204): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=serial-getty@ttyS0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853979.820:205): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chrony-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853979.820:206): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chrony-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853979.820:207): prog-id=58 op=LOAD
+type=SERVICE_START msg=audit(1767853980.036:208): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chronyd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853980.416:209): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853980.466:210): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=hibinit-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767853980.946:211): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=hibinit-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767853981.326:212): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-final comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767853981.326:213): prog-id=59 op=LOAD
+type=SERVICE_STOP msg=audit(1767854009.918:214): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-hostnamed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767854010.098:215): prog-id=57 op=UNLOAD
+type=BPF msg=audit(1767854010.098:216): prog-id=56 op=UNLOAD
+type=BPF msg=audit(1767854010.098:217): prog-id=55 op=UNLOAD
+type=SERVICE_START msg=audit(1767854010.948:218): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854010.948:219): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854012.618:220): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=update-motd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854012.618:221): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=update-motd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767854012.658:222): prog-id=59 op=UNLOAD
+type=SYSTEM_RUNLEVEL msg=audit(1767854012.658:223): pid=1702 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='old-level=N new-level=5 comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854012.678:224): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp-runlevel comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854012.678:225): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp-runlevel comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854106.418:226): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854106.418:227): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854226.419:228): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854226.419:229): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854346.419:230): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854346.419:231): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854413.959:232): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854413.959:233): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854414.059:234): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854414.059:235): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854526.440:236): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854526.440:237): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854646.460:238): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854646.460:239): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854766.451:240): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854766.451:241): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854886.351:242): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-clean comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854886.351:243): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-clean comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767854886.421:244): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767854886.421:245): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855006.342:246): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855006.342:247): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855006.412:248): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855006.412:249): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855126.422:250): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855126.422:251): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855246.423:252): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855246.423:253): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855366.463:254): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855366.463:255): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855486.454:256): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855486.454:257): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855606.334:258): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855606.334:259): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855606.444:260): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855606.444:261): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855686.594:262): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855686.594:263): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855693.575:264): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767855693.805:265): prog-id=60 op=LOAD
+type=BPF msg=audit(1767855693.805:266): prog-id=43 op=UNLOAD
+type=BPF msg=audit(1767855693.805:267): prog-id=61 op=LOAD
+type=BPF msg=audit(1767855693.805:268): prog-id=53 op=UNLOAD
+type=BPF msg=audit(1767855693.805:269): prog-id=62 op=LOAD
+type=BPF msg=audit(1767855693.805:270): prog-id=44 op=UNLOAD
+type=BPF msg=audit(1767855693.805:271): prog-id=63 op=LOAD
+type=BPF msg=audit(1767855693.805:272): prog-id=64 op=LOAD
+type=BPF msg=audit(1767855693.805:273): prog-id=45 op=UNLOAD
+type=BPF msg=audit(1767855693.805:274): prog-id=46 op=UNLOAD
+type=BPF msg=audit(1767855693.805:275): prog-id=65 op=LOAD
+type=BPF msg=audit(1767855693.805:276): prog-id=58 op=UNLOAD
+type=BPF msg=audit(1767855693.805:277): prog-id=66 op=LOAD
+type=BPF msg=audit(1767855693.805:278): prog-id=67 op=LOAD
+type=BPF msg=audit(1767855693.805:279): prog-id=47 op=UNLOAD
+type=BPF msg=audit(1767855693.805:280): prog-id=48 op=UNLOAD
+type=BPF msg=audit(1767855693.805:281): prog-id=68 op=LOAD
+type=BPF msg=audit(1767855693.805:282): prog-id=50 op=UNLOAD
+type=BPF msg=audit(1767855693.805:283): prog-id=69 op=LOAD
+type=BPF msg=audit(1767855693.805:284): prog-id=70 op=LOAD
+type=BPF msg=audit(1767855693.805:285): prog-id=51 op=UNLOAD
+type=BPF msg=audit(1767855693.805:286): prog-id=52 op=UNLOAD
+type=BPF msg=audit(1767855693.815:287): prog-id=71 op=LOAD
+type=BPF msg=audit(1767855693.815:288): prog-id=54 op=UNLOAD
+type=BPF msg=audit(1767855693.815:289): prog-id=72 op=LOAD
+type=BPF msg=audit(1767855693.815:290): prog-id=49 op=UNLOAD
+type=BPF msg=audit(1767855706.135:291): prog-id=73 op=LOAD
+type=BPF msg=audit(1767855706.135:292): prog-id=60 op=UNLOAD
+type=BPF msg=audit(1767855706.135:293): prog-id=74 op=LOAD
+type=BPF msg=audit(1767855706.135:294): prog-id=61 op=UNLOAD
+type=BPF msg=audit(1767855706.135:295): prog-id=75 op=LOAD
+type=BPF msg=audit(1767855706.135:296): prog-id=62 op=UNLOAD
+type=BPF msg=audit(1767855706.135:297): prog-id=76 op=LOAD
+type=BPF msg=audit(1767855706.135:298): prog-id=77 op=LOAD
+type=BPF msg=audit(1767855706.135:299): prog-id=63 op=UNLOAD
+type=BPF msg=audit(1767855706.135:300): prog-id=64 op=UNLOAD
+type=BPF msg=audit(1767855706.135:301): prog-id=78 op=LOAD
+type=BPF msg=audit(1767855706.135:302): prog-id=65 op=UNLOAD
+type=BPF msg=audit(1767855706.135:303): prog-id=79 op=LOAD
+type=BPF msg=audit(1767855706.135:304): prog-id=80 op=LOAD
+type=BPF msg=audit(1767855706.135:305): prog-id=66 op=UNLOAD
+type=BPF msg=audit(1767855706.135:306): prog-id=67 op=UNLOAD
+type=BPF msg=audit(1767855706.135:307): prog-id=81 op=LOAD
+type=BPF msg=audit(1767855706.135:308): prog-id=68 op=UNLOAD
+type=BPF msg=audit(1767855706.135:309): prog-id=82 op=LOAD
+type=BPF msg=audit(1767855706.135:310): prog-id=83 op=LOAD
+type=BPF msg=audit(1767855706.135:311): prog-id=69 op=UNLOAD
+type=BPF msg=audit(1767855706.135:312): prog-id=70 op=UNLOAD
+type=BPF msg=audit(1767855706.135:313): prog-id=84 op=LOAD
+type=BPF msg=audit(1767855706.135:314): prog-id=71 op=UNLOAD
+type=BPF msg=audit(1767855706.145:315): prog-id=85 op=LOAD
+type=BPF msg=audit(1767855706.145:316): prog-id=72 op=UNLOAD
+type=BPF msg=audit(1767855709.385:317): prog-id=86 op=LOAD
+type=BPF msg=audit(1767855709.385:318): prog-id=73 op=UNLOAD
+type=BPF msg=audit(1767855709.385:319): prog-id=87 op=LOAD
+type=BPF msg=audit(1767855709.385:320): prog-id=74 op=UNLOAD
+type=BPF msg=audit(1767855709.385:321): prog-id=88 op=LOAD
+type=BPF msg=audit(1767855709.385:322): prog-id=75 op=UNLOAD
+type=BPF msg=audit(1767855709.385:323): prog-id=89 op=LOAD
+type=BPF msg=audit(1767855709.385:324): prog-id=90 op=LOAD
+type=BPF msg=audit(1767855709.385:325): prog-id=76 op=UNLOAD
+type=BPF msg=audit(1767855709.385:326): prog-id=77 op=UNLOAD
+type=BPF msg=audit(1767855709.395:327): prog-id=91 op=LOAD
+type=BPF msg=audit(1767855709.395:328): prog-id=78 op=UNLOAD
+type=BPF msg=audit(1767855709.395:329): prog-id=92 op=LOAD
+type=BPF msg=audit(1767855709.395:330): prog-id=93 op=LOAD
+type=BPF msg=audit(1767855709.395:331): prog-id=79 op=UNLOAD
+type=BPF msg=audit(1767855709.395:332): prog-id=80 op=UNLOAD
+type=BPF msg=audit(1767855709.395:333): prog-id=94 op=LOAD
+type=BPF msg=audit(1767855709.395:334): prog-id=81 op=UNLOAD
+type=BPF msg=audit(1767855709.395:335): prog-id=95 op=LOAD
+type=BPF msg=audit(1767855709.395:336): prog-id=96 op=LOAD
+type=BPF msg=audit(1767855709.395:337): prog-id=82 op=UNLOAD
+type=BPF msg=audit(1767855709.395:338): prog-id=83 op=UNLOAD
+type=BPF msg=audit(1767855709.395:339): prog-id=97 op=LOAD
+type=BPF msg=audit(1767855709.395:340): prog-id=84 op=UNLOAD
+type=BPF msg=audit(1767855709.395:341): prog-id=98 op=LOAD
+type=BPF msg=audit(1767855709.395:342): prog-id=85 op=UNLOAD
+type=SERVICE_START msg=audit(1767855709.485:343): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767855709.755:344): prog-id=99 op=LOAD
+type=BPF msg=audit(1767855709.755:345): prog-id=86 op=UNLOAD
+type=BPF msg=audit(1767855709.765:346): prog-id=100 op=LOAD
+type=BPF msg=audit(1767855709.765:347): prog-id=87 op=UNLOAD
+type=BPF msg=audit(1767855709.765:348): prog-id=101 op=LOAD
+type=BPF msg=audit(1767855709.765:349): prog-id=88 op=UNLOAD
+type=BPF msg=audit(1767855709.765:350): prog-id=102 op=LOAD
+type=BPF msg=audit(1767855709.765:351): prog-id=103 op=LOAD
+type=BPF msg=audit(1767855709.765:352): prog-id=89 op=UNLOAD
+type=BPF msg=audit(1767855709.765:353): prog-id=90 op=UNLOAD
+type=BPF msg=audit(1767855709.765:354): prog-id=104 op=LOAD
+type=BPF msg=audit(1767855709.765:355): prog-id=91 op=UNLOAD
+type=BPF msg=audit(1767855709.765:356): prog-id=105 op=LOAD
+type=BPF msg=audit(1767855709.765:357): prog-id=106 op=LOAD
+type=BPF msg=audit(1767855709.765:358): prog-id=92 op=UNLOAD
+type=BPF msg=audit(1767855709.765:359): prog-id=93 op=UNLOAD
+type=BPF msg=audit(1767855709.765:360): prog-id=107 op=LOAD
+type=BPF msg=audit(1767855709.765:361): prog-id=94 op=UNLOAD
+type=BPF msg=audit(1767855709.765:362): prog-id=108 op=LOAD
+type=BPF msg=audit(1767855709.765:363): prog-id=109 op=LOAD
+type=BPF msg=audit(1767855709.765:364): prog-id=95 op=UNLOAD
+type=BPF msg=audit(1767855709.765:365): prog-id=96 op=UNLOAD
+type=BPF msg=audit(1767855709.765:366): prog-id=110 op=LOAD
+type=BPF msg=audit(1767855709.765:367): prog-id=97 op=UNLOAD
+type=BPF msg=audit(1767855709.775:368): prog-id=111 op=LOAD
+type=BPF msg=audit(1767855709.775:369): prog-id=98 op=UNLOAD
+type=BPF msg=audit(1767855710.345:370): prog-id=112 op=LOAD
+type=BPF msg=audit(1767855710.345:371): prog-id=99 op=UNLOAD
+type=BPF msg=audit(1767855710.345:372): prog-id=113 op=LOAD
+type=BPF msg=audit(1767855710.345:373): prog-id=100 op=UNLOAD
+type=BPF msg=audit(1767855710.345:374): prog-id=114 op=LOAD
+type=BPF msg=audit(1767855710.345:375): prog-id=101 op=UNLOAD
+type=BPF msg=audit(1767855710.345:376): prog-id=115 op=LOAD
+type=BPF msg=audit(1767855710.345:377): prog-id=116 op=LOAD
+type=BPF msg=audit(1767855710.345:378): prog-id=102 op=UNLOAD
+type=BPF msg=audit(1767855710.345:379): prog-id=103 op=UNLOAD
+type=BPF msg=audit(1767855710.345:380): prog-id=117 op=LOAD
+type=BPF msg=audit(1767855710.345:381): prog-id=104 op=UNLOAD
+type=BPF msg=audit(1767855710.355:382): prog-id=118 op=LOAD
+type=BPF msg=audit(1767855710.355:383): prog-id=119 op=LOAD
+type=BPF msg=audit(1767855710.355:384): prog-id=105 op=UNLOAD
+type=BPF msg=audit(1767855710.355:385): prog-id=106 op=UNLOAD
+type=BPF msg=audit(1767855710.355:386): prog-id=120 op=LOAD
+type=BPF msg=audit(1767855710.355:387): prog-id=107 op=UNLOAD
+type=BPF msg=audit(1767855710.355:388): prog-id=121 op=LOAD
+type=BPF msg=audit(1767855710.355:389): prog-id=122 op=LOAD
+type=BPF msg=audit(1767855710.355:390): prog-id=108 op=UNLOAD
+type=BPF msg=audit(1767855710.355:391): prog-id=109 op=UNLOAD
+type=BPF msg=audit(1767855710.355:392): prog-id=123 op=LOAD
+type=BPF msg=audit(1767855710.355:393): prog-id=110 op=UNLOAD
+type=BPF msg=audit(1767855710.355:394): prog-id=124 op=LOAD
+type=BPF msg=audit(1767855710.355:395): prog-id=111 op=UNLOAD
+type=SERVICE_STOP msg=audit(1767855720.605:396): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855720.665:397): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767855721.585:398): prog-id=125 op=LOAD
+type=BPF msg=audit(1767855721.585:399): prog-id=112 op=UNLOAD
+type=BPF msg=audit(1767855721.585:400): prog-id=126 op=LOAD
+type=BPF msg=audit(1767855721.585:401): prog-id=113 op=UNLOAD
+type=BPF msg=audit(1767855721.585:402): prog-id=127 op=LOAD
+type=BPF msg=audit(1767855721.585:403): prog-id=114 op=UNLOAD
+type=BPF msg=audit(1767855721.585:404): prog-id=128 op=LOAD
+type=BPF msg=audit(1767855721.585:405): prog-id=129 op=LOAD
+type=BPF msg=audit(1767855721.585:406): prog-id=115 op=UNLOAD
+type=BPF msg=audit(1767855721.585:407): prog-id=116 op=UNLOAD
+type=BPF msg=audit(1767855721.585:408): prog-id=130 op=LOAD
+type=BPF msg=audit(1767855721.585:409): prog-id=117 op=UNLOAD
+type=BPF msg=audit(1767855721.585:410): prog-id=131 op=LOAD
+type=BPF msg=audit(1767855721.585:411): prog-id=132 op=LOAD
+type=BPF msg=audit(1767855721.585:412): prog-id=118 op=UNLOAD
+type=BPF msg=audit(1767855721.585:413): prog-id=119 op=UNLOAD
+type=BPF msg=audit(1767855721.585:414): prog-id=133 op=LOAD
+type=BPF msg=audit(1767855721.585:415): prog-id=120 op=UNLOAD
+type=BPF msg=audit(1767855721.595:416): prog-id=134 op=LOAD
+type=BPF msg=audit(1767855721.595:417): prog-id=135 op=LOAD
+type=BPF msg=audit(1767855721.595:418): prog-id=121 op=UNLOAD
+type=BPF msg=audit(1767855721.595:419): prog-id=122 op=UNLOAD
+type=BPF msg=audit(1767855721.595:420): prog-id=136 op=LOAD
+type=BPF msg=audit(1767855721.595:421): prog-id=123 op=UNLOAD
+type=BPF msg=audit(1767855721.595:422): prog-id=137 op=LOAD
+type=BPF msg=audit(1767855721.595:423): prog-id=124 op=UNLOAD
+type=SERVICE_START msg=audit(1767855786.445:424): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855786.445:425): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767855906.435:426): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767855906.435:427): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.706:428): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-final comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.706:429): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.706:430): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.766:431): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.766:432): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-machine-id-commit comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRYPTO_KEY_USER msg=audit(1767856006.766:433): pid=1572 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:1d:c3:e1:95:01:18:9d:a4:fd:cf:d9:d5:da:62:64:4c:dd:50:d4:35:44:37:0b:6f:55:87:08:14:70:22:a7:e3 direction=? spid=1572 suid=0  exe="/usr/sbin/sshd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset" SUID="root"
+type=SERVICE_STOP msg=audit(1767856006.826:434): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=acpid comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.866:435): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=irqbalance comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.906:436): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=libstoragemgmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.946:437): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-logind comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856006.986:438): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sshd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.026:439): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=atd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.076:440): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=getty@tty1 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.116:441): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=serial-getty@ttyS0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.166:442): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chronyd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856007.206:443): prog-id=130 op=UNLOAD
+type=SERVICE_START msg=audit(1767856007.226:444): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.226:445): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.326:446): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dracut-shutdown comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.366:447): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-random-seed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856007.366:448): prog-id=133 op=UNLOAD
+type=SERVICE_STOP msg=audit(1767856007.606:449): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-user-sessions comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.646:450): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=gssproxy comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.676:451): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed-activate comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856007.736:452): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856007.796:453): prog-id=137 op=UNLOAD
+type=SERVICE_STOP msg=audit(1767856013.776:454): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856013.776:455): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd-wait-online comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856013.956:456): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856013.956:457): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-init-local comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856013.996:458): prog-id=136 op=UNLOAD
+type=SERVICE_STOP msg=audit(1767856013.996:459): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-network-generator comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.046:460): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dbus-broker comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856014.076:461): prog-id=126 op=UNLOAD
+type=SERVICE_STOP msg=audit(1767856014.086:462): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-done comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.086:463): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-boot-update comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.086:464): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-journal-catalog-update comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SYSTEM_SHUTDOWN msg=audit(1767856014.126:465): pid=2933 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg=' comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.166:466): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-resolved comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.166:467): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-sysctl comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856014.186:468): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=DAEMON_END msg=audit(1767856014.198:4904): op=terminate auid=0 uid=0 ses=4294967295 pid=1 subj=system_u:system_r:init_t:s0 res=successAUID="root" UID="root"
+type=DAEMON_START msg=audit(1767856021.968:6259): op=start ver=3.1.5 format=enriched kernel=6.1.159-181.297.amzn2023.x86_64 auid=4294967295 pid=1262 uid=0 ses=4294967295 subj=system_u:system_r:auditd_t:s0 res=successAUID="unset" UID="root"
+type=SYSCALL msg=audit(1767856021.970:126): arch=c000003e syscall=44 success=yes exit=60 a0=3 a1=7ffda7f476b0 a2=3c a3=0 items=0 ppid=1259 pid=1262 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditd" exe="/usr/sbin/auditd" subj=system_u:system_r:auditd_t:s0 key=(null)ARCH=x86_64 SYSCALL=sendto AUID="unset" UID="root" GID="root" EUID="root" SUID="root" FSUID="root" EGID="root" SGID="root" FSGID="root"
+type=PROCTITLE msg=audit(1767856021.970:126): proctitle="/sbin/auditd"
+type=CONFIG_CHANGE msg=audit(1767856022.060:127): auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 op=add_rule key=(null) list=1 res=1AUID="unset"
+type=SYSCALL msg=audit(1767856022.060:127): arch=c000003e syscall=44 success=yes exit=1056 a0=3 a1=7ffcabd86b80 a2=420 a3=0 items=0 ppid=1266 pid=1284 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="auditctl" exe="/usr/sbin/auditctl" subj=system_u:system_r:unconfined_service_t:s0 key=(null)ARCH=x86_64 SYSCALL=sendto AUID="unset" UID="root" GID="root" EUID="root" SUID="root" FSUID="root" EGID="root" SGID="root" FSGID="root"
+type=PROCTITLE msg=audit(1767856022.060:127): proctitle=2F7362696E2F617564697463746C002D52002F6574632F61756469742F61756469742E72756C6573
+type=SERVICE_START msg=audit(1767856022.070:128): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=auditd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SYSTEM_BOOT msg=audit(1767856022.100:129): pid=1288 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg=' comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.140:130): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.160:131): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-resolved comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856022.610:132): prog-id=40 op=LOAD
+type=BPF msg=audit(1767856022.610:133): prog-id=41 op=LOAD
+type=BPF msg=audit(1767856022.610:134): prog-id=37 op=UNLOAD
+type=BPF msg=audit(1767856022.610:135): prog-id=38 op=UNLOAD
+type=BPF msg=audit(1767856022.610:136): prog-id=42 op=LOAD
+type=BPF msg=audit(1767856022.610:137): prog-id=34 op=UNLOAD
+type=BPF msg=audit(1767856022.610:138): prog-id=43 op=LOAD
+type=BPF msg=audit(1767856022.610:139): prog-id=44 op=LOAD
+type=BPF msg=audit(1767856022.610:140): prog-id=35 op=UNLOAD
+type=BPF msg=audit(1767856022.610:141): prog-id=36 op=UNLOAD
+type=BPF msg=audit(1767856022.610:142): prog-id=45 op=LOAD
+type=BPF msg=audit(1767856022.610:143): prog-id=39 op=UNLOAD
+type=SERVICE_START msg=audit(1767856022.720:144): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_mod comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856022.720:145): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@dm_mod comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.740:146): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@efi_pstore comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856022.740:147): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@efi_pstore comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.780:148): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856022.780:149): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@loop comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.820:150): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-fsck@dev-disk-by\x2duuid-A1F2\x2dF73A comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.950:151): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-boot-update comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.960:152): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=acpid comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.970:153): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=irqbalance comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856022.970:154): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=libstoragemgmt comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856022.980:155): prog-id=46 op=LOAD
+type=BPF msg=audit(1767856022.990:156): prog-id=47 op=LOAD
+type=BPF msg=audit(1767856022.990:157): prog-id=48 op=LOAD
+type=BPF msg=audit(1767856022.990:158): prog-id=49 op=LOAD
+type=SERVICE_START msg=audit(1767856023.030:159): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-init-local comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.070:160): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dracut-shutdown comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.110:161): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856023.110:162): prog-id=50 op=LOAD
+type=BPF msg=audit(1767856023.170:163): prog-id=51 op=LOAD
+type=SERVICE_START msg=audit(1767856023.220:164): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=dbus-broker comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.230:165): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.230:166): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-homed-activate comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.230:167): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-logind comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.230:168): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.280:169): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@drm comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856023.280:170): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=modprobe@drm comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856023.290:171): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=gssproxy comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856024.120:172): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-networkd-wait-online comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856024.320:173): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.440:174): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-init comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.480:175): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=amazon-ssm-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.530:176): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-user-sessions comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.580:177): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=rpc-statd-notify comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.580:178): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sshd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.610:179): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=atd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.610:180): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=getty@tty1 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.610:181): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=serial-getty@ttyS0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856025.670:182): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chrony-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856025.670:183): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chrony-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856025.670:184): prog-id=52 op=LOAD
+type=SERVICE_START msg=audit(1767856025.889:185): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=chronyd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856026.069:186): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-config comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856026.109:187): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=hibinit-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856026.339:188): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=hibinit-agent comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856026.539:189): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=cloud-final comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856026.539:190): prog-id=53 op=LOAD
+type=SERVICE_START msg=audit(1767856031.597:191): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=update-motd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856031.597:192): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=update-motd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767856031.651:193): prog-id=53 op=UNLOAD
+type=SYSTEM_RUNLEVEL msg=audit(1767856031.651:194): pid=1638 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='old-level=N new-level=5 comm="systemd-update-utmp" exe="/usr/lib/systemd/systemd-update-utmp" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856031.694:195): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp-runlevel comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856031.694:196): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-update-utmp-runlevel comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856071.226:197): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856071.226:198): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856191.256:199): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856191.256:200): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856252.796:201): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856252.796:202): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856311.237:203): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856311.237:204): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856431.247:205): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856431.247:206): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856551.228:207): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856551.228:208): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856671.238:209): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856671.238:210): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856791.239:211): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856791.239:212): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856852.799:213): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856852.799:214): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856911.199:215): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856911.199:216): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767856971.179:217): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-clean comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767856971.179:218): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-tmpfiles-clean comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857031.279:219): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857031.279:220): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857151.240:221): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857151.240:222): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857271.250:223): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857271.250:224): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857391.221:225): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857391.221:226): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857452.781:227): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857452.781:228): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857452.861:229): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857452.861:230): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857571.212:231): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857571.212:232): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857691.242:233): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857691.242:234): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857811.233:235): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857811.233:236): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767857906.203:237): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_CMD msg=audit(1767857906.203:238): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='cwd="/usr/bin" cmd=746172202D637A66202F746D702F6563322D6C6F67732D32303236303130382D3037333832362E7461722E677A202F7661722F6C6F67 exe="/usr/bin/sudo" terminal=? res=success'UID="root" AUID="unset"
+type=CRED_REFR msg=audit(1767857906.203:239): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=BPF msg=audit(1767857906.263:240): prog-id=54 op=LOAD
+type=BPF msg=audit(1767857906.263:241): prog-id=55 op=LOAD
+type=BPF msg=audit(1767857906.263:242): prog-id=56 op=LOAD
+type=SERVICE_START msg=audit(1767857906.293:243): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=systemd-userdbd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857906.403:244): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857906.443:245): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857906.443:246): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767857906.523:247): pid=2532 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_ACQ msg=audit(1767857906.523:248): pid=2532 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=USER_ROLE_CHANGE msg=audit(1767857906.523:249): pid=2532 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='pam: default-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 selected-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=LOGIN msg=audit(1767857906.523:250): pid=2532 uid=0 subj=system_u:system_r:init_t:s0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=1 res=1UID="root" OLD-AUID="unset" AUID="root"
+type=USER_START msg=audit(1767857906.533:251): pid=2532 uid=0 auid=0 ses=1 subj=system_u:system_r:init_t:s0 msg='op=PAM:session_open grantors=pam_selinux,pam_selinux,pam_loginuid,pam_keyinit,pam_namespace,pam_systemd_home,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="root"
+type=BPF msg=audit(1767857906.553:252): prog-id=57 op=LOAD
+type=BPF msg=audit(1767857906.553:253): prog-id=57 op=UNLOAD
+type=BPF msg=audit(1767857906.553:254): prog-id=58 op=LOAD
+type=BPF msg=audit(1767857906.553:255): prog-id=58 op=UNLOAD
+type=BPF msg=audit(1767857906.553:256): prog-id=59 op=LOAD
+type=BPF msg=audit(1767857906.553:257): prog-id=59 op=UNLOAD
+type=BPF msg=audit(1767857906.553:258): prog-id=60 op=LOAD
+type=BPF msg=audit(1767857906.553:259): prog-id=60 op=UNLOAD
+type=BPF msg=audit(1767857906.553:260): prog-id=61 op=LOAD
+type=BPF msg=audit(1767857906.553:261): prog-id=61 op=UNLOAD
+type=BPF msg=audit(1767857906.553:262): prog-id=62 op=LOAD
+type=BPF msg=audit(1767857906.553:263): prog-id=62 op=UNLOAD
+type=BPF msg=audit(1767857906.563:264): prog-id=63 op=LOAD
+type=BPF msg=audit(1767857906.573:265): prog-id=64 op=LOAD
+type=BPF msg=audit(1767857906.573:266): prog-id=63 op=UNLOAD
+type=BPF msg=audit(1767857906.573:267): prog-id=64 op=UNLOAD
+type=BPF msg=audit(1767857906.573:268): prog-id=65 op=LOAD
+type=BPF msg=audit(1767857906.573:269): prog-id=65 op=UNLOAD
+type=BPF msg=audit(1767857906.573:270): prog-id=66 op=LOAD
+type=BPF msg=audit(1767857906.573:271): prog-id=66 op=UNLOAD
+type=BPF msg=audit(1767857906.583:272): prog-id=67 op=LOAD
+type=BPF msg=audit(1767857906.583:273): prog-id=67 op=UNLOAD
+type=BPF msg=audit(1767857906.583:274): prog-id=68 op=LOAD
+type=BPF msg=audit(1767857906.583:275): prog-id=68 op=UNLOAD
+type=BPF msg=audit(1767857906.583:276): prog-id=69 op=LOAD
+type=BPF msg=audit(1767857906.583:277): prog-id=70 op=LOAD
+type=BPF msg=audit(1767857906.583:278): prog-id=70 op=UNLOAD
+type=BPF msg=audit(1767857906.583:279): prog-id=71 op=LOAD
+type=BPF msg=audit(1767857906.583:280): prog-id=69 op=UNLOAD
+type=BPF msg=audit(1767857906.583:281): prog-id=71 op=UNLOAD
+type=SERVICE_START msg=audit(1767857906.693:282): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_START msg=audit(1767857906.703:283): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_open grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_END msg=audit(1767857906.843:284): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_close grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767857906.843:285): pid=2475 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767857917.073:286): pid=2536 uid=0 auid=0 ses=1 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="root"
+type=SERVICE_STOP msg=audit(1767857917.123:287): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857917.293:288): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767857991.243:289): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767857991.243:290): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858052.794:291): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858052.794:292): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858111.224:293): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858111.224:294): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858231.234:295): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858231.234:296): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858351.225:297): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858351.225:298): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858471.235:299): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858471.235:300): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858591.246:301): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858591.246:302): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858652.796:303): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858652.796:304): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858711.236:305): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858711.236:306): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858831.227:307): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858831.227:308): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767858903.057:309): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_CMD msg=audit(1767858903.057:310): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='cwd="/usr/bin" cmd=746172202D637A66202F746D702F6563322D6C6F67732D32303236303130382D3037353530322E7461722E677A202F7661722F6C6F67 exe="/usr/bin/sudo" terminal=? res=success'UID="root" AUID="unset"
+type=CRED_REFR msg=audit(1767858903.057:311): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858903.167:312): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767858903.217:313): pid=3018 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_ACQ msg=audit(1767858903.217:314): pid=3018 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=USER_ROLE_CHANGE msg=audit(1767858903.217:315): pid=3018 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='pam: default-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 selected-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=LOGIN msg=audit(1767858903.217:316): pid=3018 uid=0 subj=system_u:system_r:init_t:s0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=2 res=1UID="root" OLD-AUID="unset" AUID="root"
+type=USER_START msg=audit(1767858903.217:317): pid=3018 uid=0 auid=0 ses=2 subj=system_u:system_r:init_t:s0 msg='op=PAM:session_open grantors=pam_selinux,pam_selinux,pam_loginuid,pam_keyinit,pam_namespace,pam_systemd_home,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="root"
+type=BPF msg=audit(1767858903.277:318): prog-id=72 op=LOAD
+type=BPF msg=audit(1767858903.277:319): prog-id=72 op=UNLOAD
+type=BPF msg=audit(1767858903.277:320): prog-id=73 op=LOAD
+type=BPF msg=audit(1767858903.277:321): prog-id=73 op=UNLOAD
+type=BPF msg=audit(1767858903.277:322): prog-id=74 op=LOAD
+type=BPF msg=audit(1767858903.277:323): prog-id=74 op=UNLOAD
+type=BPF msg=audit(1767858903.277:324): prog-id=75 op=LOAD
+type=BPF msg=audit(1767858903.277:325): prog-id=75 op=UNLOAD
+type=BPF msg=audit(1767858903.277:326): prog-id=76 op=LOAD
+type=BPF msg=audit(1767858903.277:327): prog-id=76 op=UNLOAD
+type=BPF msg=audit(1767858903.277:328): prog-id=77 op=LOAD
+type=BPF msg=audit(1767858903.277:329): prog-id=77 op=UNLOAD
+type=BPF msg=audit(1767858903.287:330): prog-id=78 op=LOAD
+type=BPF msg=audit(1767858903.307:331): prog-id=79 op=LOAD
+type=BPF msg=audit(1767858903.307:332): prog-id=78 op=UNLOAD
+type=BPF msg=audit(1767858903.307:333): prog-id=79 op=UNLOAD
+type=BPF msg=audit(1767858903.307:334): prog-id=80 op=LOAD
+type=BPF msg=audit(1767858903.307:335): prog-id=80 op=UNLOAD
+type=BPF msg=audit(1767858903.307:336): prog-id=81 op=LOAD
+type=BPF msg=audit(1767858903.307:337): prog-id=81 op=UNLOAD
+type=BPF msg=audit(1767858903.307:338): prog-id=82 op=LOAD
+type=BPF msg=audit(1767858903.307:339): prog-id=82 op=UNLOAD
+type=BPF msg=audit(1767858903.307:340): prog-id=83 op=LOAD
+type=BPF msg=audit(1767858903.307:341): prog-id=83 op=UNLOAD
+type=BPF msg=audit(1767858903.307:342): prog-id=84 op=LOAD
+type=BPF msg=audit(1767858903.307:343): prog-id=85 op=LOAD
+type=BPF msg=audit(1767858903.307:344): prog-id=85 op=UNLOAD
+type=BPF msg=audit(1767858903.307:345): prog-id=86 op=LOAD
+type=BPF msg=audit(1767858903.307:346): prog-id=84 op=UNLOAD
+type=BPF msg=audit(1767858903.307:347): prog-id=86 op=UNLOAD
+type=SERVICE_START msg=audit(1767858903.317:348): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858903.317:349): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767858903.387:350): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_START msg=audit(1767858903.397:351): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_open grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_END msg=audit(1767858903.527:352): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_close grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767858903.537:353): pid=2992 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767858913.817:354): pid=3037 uid=0 auid=0 ses=2 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="root"
+type=SERVICE_STOP msg=audit(1767858913.867:355): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767858914.007:356): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859011.238:357): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859011.238:358): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859131.228:359): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859131.228:360): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859251.149:361): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859251.149:362): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859251.239:363): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859251.239:364): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859371.229:365): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859371.229:366): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859491.239:367): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859491.239:368): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859611.270:369): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859611.270:370): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767859705.770:371): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_CMD msg=audit(1767859705.770:372): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='cwd="/usr/bin" cmd=746172202D637A66202F746D702F6563322D6C6F67732D32303236303130382D3038303832352E7461722E677A202F7661722F6C6F67 exe="/usr/bin/sudo" terminal=? res=success'UID="root" AUID="unset"
+type=CRED_REFR msg=audit(1767859705.780:373): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859705.890:374): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859705.950:375): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859705.950:376): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767859705.950:377): pid=3426 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_ACQ msg=audit(1767859705.950:378): pid=3426 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=USER_ROLE_CHANGE msg=audit(1767859705.950:379): pid=3426 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='pam: default-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 selected-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=LOGIN msg=audit(1767859705.950:380): pid=3426 uid=0 subj=system_u:system_r:init_t:s0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=3 res=1UID="root" OLD-AUID="unset" AUID="root"
+type=USER_START msg=audit(1767859705.960:381): pid=3426 uid=0 auid=0 ses=3 subj=system_u:system_r:init_t:s0 msg='op=PAM:session_open grantors=pam_selinux,pam_selinux,pam_loginuid,pam_keyinit,pam_namespace,pam_systemd_home,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="root"
+type=BPF msg=audit(1767859705.970:382): prog-id=87 op=LOAD
+type=BPF msg=audit(1767859705.970:383): prog-id=87 op=UNLOAD
+type=BPF msg=audit(1767859705.970:384): prog-id=88 op=LOAD
+type=BPF msg=audit(1767859705.970:385): prog-id=88 op=UNLOAD
+type=BPF msg=audit(1767859705.970:386): prog-id=89 op=LOAD
+type=BPF msg=audit(1767859705.970:387): prog-id=89 op=UNLOAD
+type=BPF msg=audit(1767859705.970:388): prog-id=90 op=LOAD
+type=BPF msg=audit(1767859705.970:389): prog-id=90 op=UNLOAD
+type=BPF msg=audit(1767859705.970:390): prog-id=91 op=LOAD
+type=BPF msg=audit(1767859705.970:391): prog-id=91 op=UNLOAD
+type=BPF msg=audit(1767859705.970:392): prog-id=92 op=LOAD
+type=BPF msg=audit(1767859705.970:393): prog-id=92 op=UNLOAD
+type=BPF msg=audit(1767859705.990:394): prog-id=93 op=LOAD
+type=BPF msg=audit(1767859706.000:395): prog-id=94 op=LOAD
+type=BPF msg=audit(1767859706.000:396): prog-id=93 op=UNLOAD
+type=BPF msg=audit(1767859706.000:397): prog-id=94 op=UNLOAD
+type=BPF msg=audit(1767859706.000:398): prog-id=95 op=LOAD
+type=BPF msg=audit(1767859706.000:399): prog-id=95 op=UNLOAD
+type=BPF msg=audit(1767859706.000:400): prog-id=96 op=LOAD
+type=BPF msg=audit(1767859706.000:401): prog-id=96 op=UNLOAD
+type=BPF msg=audit(1767859706.000:402): prog-id=97 op=LOAD
+type=BPF msg=audit(1767859706.000:403): prog-id=97 op=UNLOAD
+type=BPF msg=audit(1767859706.000:404): prog-id=98 op=LOAD
+type=BPF msg=audit(1767859706.000:405): prog-id=98 op=UNLOAD
+type=BPF msg=audit(1767859706.000:406): prog-id=99 op=LOAD
+type=BPF msg=audit(1767859706.000:407): prog-id=100 op=LOAD
+type=BPF msg=audit(1767859706.000:408): prog-id=100 op=UNLOAD
+type=BPF msg=audit(1767859706.000:409): prog-id=101 op=LOAD
+type=BPF msg=audit(1767859706.000:410): prog-id=99 op=UNLOAD
+type=BPF msg=audit(1767859706.000:411): prog-id=101 op=UNLOAD
+type=SERVICE_START msg=audit(1767859706.090:412): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_START msg=audit(1767859706.100:413): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_open grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_END msg=audit(1767859706.240:414): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_close grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767859706.240:415): pid=3392 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_DISP msg=audit(1767859716.340:416): pid=3448 uid=0 auid=0 ses=3 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="root"
+type=SERVICE_STOP msg=audit(1767859716.360:417): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859716.490:418): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859791.251:419): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859791.251:420): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859852.791:421): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859852.791:422): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767859911.231:423): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767859911.231:424): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860031.212:425): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860031.212:426): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860151.222:427): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860151.222:428): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860271.243:429): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860271.243:430): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860391.233:431): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860391.233:432): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860452.783:433): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860452.783:434): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860452.863:435): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860452.863:436): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860571.254:437): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860571.254:438): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860691.244:439): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860691.244:440): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860811.245:441): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860811.245:442): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767860931.255:443): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767860931.255:444): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861051.146:445): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767861051.146:446): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=sysstat-collect comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861051.236:447): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767861051.236:448): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861171.216:449): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767861171.216:450): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861291.257:451): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767861291.257:452): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861411.227:453): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_STOP msg=audit(1767861411.227:454): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=refresh-policy-routes@ens5 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767861449.337:455): pid=4270 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_CMD msg=audit(1767861449.337:456): pid=4270 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='cwd="/usr/bin" cmd=746172202D637A66202F746D702F6563322D6C6F67732D32303236303130382D3038333732392E7461722E677A202F7661722F6C6F67 exe="/usr/bin/sudo" terminal=? res=success'UID="root" AUID="unset"
+type=CRED_REFR msg=audit(1767861449.337:457): pid=4270 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:setcred grantors=pam_env,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=SERVICE_START msg=audit(1767861449.467:458): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_ACCT msg=audit(1767861449.497:459): pid=4275 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:accounting grantors=pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=CRED_ACQ msg=audit(1767861449.497:460): pid=4275 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=failed'UID="root" AUID="unset"
+type=USER_ROLE_CHANGE msg=audit(1767861449.497:461): pid=4275 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='pam: default-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 selected-context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=LOGIN msg=audit(1767861449.497:462): pid=4275 uid=0 subj=system_u:system_r:init_t:s0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=4 res=1UID="root" OLD-AUID="unset" AUID="root"
+type=USER_START msg=audit(1767861449.507:463): pid=4275 uid=0 auid=0 ses=4 subj=system_u:system_r:init_t:s0 msg='op=PAM:session_open grantors=pam_selinux,pam_selinux,pam_loginuid,pam_keyinit,pam_namespace,pam_systemd_home,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="root"
+type=BPF msg=audit(1767861449.567:464): prog-id=102 op=LOAD
+type=BPF msg=audit(1767861449.567:465): prog-id=102 op=UNLOAD
+type=BPF msg=audit(1767861449.567:466): prog-id=103 op=LOAD
+type=BPF msg=audit(1767861449.567:467): prog-id=103 op=UNLOAD
+type=BPF msg=audit(1767861449.567:468): prog-id=104 op=LOAD
+type=BPF msg=audit(1767861449.567:469): prog-id=104 op=UNLOAD
+type=BPF msg=audit(1767861449.567:470): prog-id=105 op=LOAD
+type=BPF msg=audit(1767861449.567:471): prog-id=105 op=UNLOAD
+type=BPF msg=audit(1767861449.567:472): prog-id=106 op=LOAD
+type=BPF msg=audit(1767861449.567:473): prog-id=106 op=UNLOAD
+type=BPF msg=audit(1767861449.567:474): prog-id=107 op=LOAD
+type=BPF msg=audit(1767861449.567:475): prog-id=107 op=UNLOAD
+type=BPF msg=audit(1767861449.577:476): prog-id=108 op=LOAD
+type=BPF msg=audit(1767861449.587:477): prog-id=109 op=LOAD
+type=BPF msg=audit(1767861449.587:478): prog-id=108 op=UNLOAD
+type=BPF msg=audit(1767861449.587:479): prog-id=109 op=UNLOAD
+type=BPF msg=audit(1767861449.587:480): prog-id=110 op=LOAD
+type=BPF msg=audit(1767861449.587:481): prog-id=110 op=UNLOAD
+type=BPF msg=audit(1767861449.587:482): prog-id=111 op=LOAD
+type=BPF msg=audit(1767861449.587:483): prog-id=111 op=UNLOAD
+type=BPF msg=audit(1767861449.587:484): prog-id=112 op=LOAD
+type=BPF msg=audit(1767861449.587:485): prog-id=112 op=UNLOAD
+type=BPF msg=audit(1767861449.587:486): prog-id=113 op=LOAD
+type=BPF msg=audit(1767861449.587:487): prog-id=113 op=UNLOAD
+type=BPF msg=audit(1767861449.587:488): prog-id=114 op=LOAD
+type=BPF msg=audit(1767861449.587:489): prog-id=115 op=LOAD
+type=BPF msg=audit(1767861449.587:490): prog-id=115 op=UNLOAD
+type=BPF msg=audit(1767861449.587:491): prog-id=116 op=LOAD
+type=BPF msg=audit(1767861449.587:492): prog-id=114 op=UNLOAD
+type=BPF msg=audit(1767861449.587:493): prog-id=116 op=UNLOAD
+type=SERVICE_START msg=audit(1767861449.727:494): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=user@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"
+type=USER_START msg=audit(1767861449.737:495): pid=4270 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:unconfined_service_t:s0 msg='op=PAM:session_open grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'UID="root" AUID="unset"

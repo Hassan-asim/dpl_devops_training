@@ -1,0 +1,10 @@
+bucket name : ec2-ssm-log-automation-123
+automation assume role : SSM-Automation-Execution-Role
+InstanceId : i-0baef22ad0ce7d233
+
+
+the below is the cli command to run the automation 
+
+
+aws ssm start-automation-execution --document-name "EC2-Log-Upload-Automation" --parameters "InstanceId=i-0baef22ad0ce7d233,S3BucketName=ec2-ssm-log-automation-123,AutomationAssumeRole=arn:aws:iam::522044907690:role/SSM-Automation-Execution-Role" --region us-east-1
+

@@ -1,0 +1,6 @@
+2026-01-08T06:33:02+0000 INFO --- logging initialized ---
+2026-01-08T07:01:33+0000 INFO --- logging initialized ---
+2026-01-08T07:01:45+0000 SUBDEBUG Upgrade: amazon-ssm-agent-3.3.3598.0-1.x86_64
+2026-01-08T07:01:49+0000 SUBDEBUG Upgraded: amazon-ssm-agent-3.3.3572.0-1.amzn2023.x86_64
+2026-01-08T07:07:07+0000 INFO --- logging initialized ---
+2026-01-08T07:07:10+0000 INFO --- logging initialized ---
