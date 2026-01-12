@@ -45,14 +45,23 @@ All access is auditable and stays inside the AWS network; no public IPs involved
 ---
 
 ## 📁 Evidence (images)
-- `adding aws creindintials using aws configuration .png` — local AWS config setup
-- `aws cli version cheack using cmd on my local mechine.png` — CLI confirmation
-- `stack creation in progress varification in the management consol .png` — stack creation
-- `creating an EC2 machine with only a private subnet using  cloud formation no public subnet no internet gateway .png` — création template summary
-- `private instence details confermation on the management console.png` — EC2 private details
-- `installing the ssm plugin on windows .png` — SSM plugin install (Windows)
-- `successfully created the private ec2 machine and  access it using teh ssm session .png` — SSM start-session proof
-- `varifing that teh machine is private using teh ip routes matric bu accessing it in the local mechine via the ssm session pf teh private mechine .png` — route check inside SSM session
+Below are the embedded screenshots from the `images/` folder (click to open full size):
+
+![AWS credentials (aws configure)](./images/adding%20aws%20creindintials%20using%20aws%20configuration%20.png)
+
+![AWS CLI version check](./images/aws%20cli%20version%20cheack%20using%20cmd%20on%20my%20local%20mechine.png)
+
+![Stack creation in progress (console)](./images/stack%20creation%20in%20progress%20varification%20in%20the%20management%20consol%20.png)
+
+![CloudFormation summary / EC2 private subnet](./images/creating%20an%20EC2%20machine%20with%20only%20a%20private%20subnet%20using%20%20cloud%20formation%20no%20public%20subnet%20no%20internet%20gateway%20.png)
+
+![EC2 private instance details (console)](./images/private%20instence%20details%20confermation%20on%20the%20management%20console.png)
+
+![SSM plugin installed on Windows](./images/installing%20the%20ssm%20plugin%20on%20windows%20.png)
+
+![SSM start-session success](./images/successfully%20created%20the%20private%20ec2%20machine%20and%20%20access%20it%20using%20teh%20ssm%20session%20.png)
+
+![Private instance route check (inside SSM)](./images/varifing%20that%20teh%20machine%20is%20private%20using%20teh%20ip%20routes%20matric%20bu%20accessing%20it%20in%20the%20local%20mechine%20via%20the%20ssm%20session%20pf%20teh%20private%20mechine%20.png)
 
 ---
 
