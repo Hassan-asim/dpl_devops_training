@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2026-01-12 | **Private EC2 w/ SSM (CloudFormation):** Built a CloudFormation template to deploy a fully private EC2 (no public IP/IGW/NAT) plus VPC interface endpoints for SSM/SSMMessages/EC2Messages, IAM role and security groups; verified SSM start-session and saved evidence to `2026-01-12/images/`. |
 | 2026-01-09 | **AWS Systems Manager (SSM) & EC2 logs automation:** Completed AWS Systems Manager course and implemented an SSM automation to upload EC2 logs to S3; verified logs in `2026-01-09/ec2-logs-20260108-083729/` and evidence in `2026-01-09/images/`. |
 | 2026-01-08 | **Cloud Computing + Labs:** Completed Cloud Computing Essentials and lab exercises (Cloud First Steps & Computing Solutions labs); certificates and lab evidence saved in `2026-01-08/images/`. |
 | 2026-01-07 | **Certifications completed:** Completed four courses — Advanced Linux Commands; Configuration Management & Cloud; Development with Amazon Q; Google AI Essentials. All certificates and screenshots saved to `2026-01-07/images/`. |
