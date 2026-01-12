@@ -45,19 +45,19 @@ All access is auditable and stays inside the AWS network; no public IPs involved
 ---
 
 ## 📁 Evidence (images)
-Below are the embedded screenshots from the `images/` folder (click to open full size):
+Below are the embedded screenshots from the `images/` folder shown in chronological order (setup → deploy → verify). Click any image to open full size.
+
+![AWS CLI version check](./images/aws%20cli%20version%20cheack%20using%20cmd%20on%20my%20local%20mechine.png)
 
 ![AWS credentials (aws configure)](./images/adding%20aws%20creindintials%20using%20aws%20configuration%20.png)
 
-![AWS CLI version check](./images/aws%20cli%20version%20cheack%20using%20cmd%20on%20my%20local%20mechine.png)
+![SSM plugin installed on Windows](./images/installing%20the%20ssm%20plugin%20on%20windows%20.png)
 
 ![Stack creation in progress (console)](./images/stack%20creation%20in%20progress%20varification%20in%20the%20management%20consol%20.png)
 
 ![CloudFormation summary / EC2 private subnet](./images/creating%20an%20EC2%20machine%20with%20only%20a%20private%20subnet%20using%20%20cloud%20formation%20no%20public%20subnet%20no%20internet%20gateway%20.png)
 
 ![EC2 private instance details (console)](./images/private%20instence%20details%20confermation%20on%20the%20management%20console.png)
-
-![SSM plugin installed on Windows](./images/installing%20the%20ssm%20plugin%20on%20windows%20.png)
 
 ![SSM start-session success](./images/successfully%20created%20the%20private%20ec2%20machine%20and%20%20access%20it%20using%20teh%20ssm%20session%20.png)
 
