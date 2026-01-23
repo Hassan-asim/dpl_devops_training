@@ -2,5 +2,26 @@
 creadintials.txt
 /2026-01-06/ec2-key.pem
 
+# Environment files with secrets
+.env
+*.env
+.env.local
+.env.production
+.env.staging
+
+# API Keys and Tokens
+*token*
+*key*
+*secret*
+*credential*
+*password*
+
+# Python virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
 # Optional: ignore any similarly named files
 *creadintials*
