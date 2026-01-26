@@ -1,0 +1,2 @@
+liostner rules on lode balancer 
+aws s3 sync,/template s3.<bucket name>
