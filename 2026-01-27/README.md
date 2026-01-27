@@ -55,6 +55,20 @@ Checked PostgreSQL server parameters:
 - **Key Observation:** Found multiple connections in idle state, predominantly from the same application user (`prod_app_user`).
 - Confirmed that connection count grows with each simultaneous login, eventually hitting the server limit of 838.
 
+### 6. Rate-Limiting Policy Research (Briefing from Khurrun Bhai)
+Khurrun Bhai mentioned that there is a rate-limiting policy applied in the codebase to restrict API calls in the **Dev and UAT environments**. Key findings:
+- **Current Issue:** The policy is currently too restrictive, preventing legitimate requests from being processed (Oski mentioned the issue is occurring).
+- **Action Required:** Increase the rate-limiting policy threshold to allow more API calls per time window.
+- **Primary Endpoints to Review:** The complaint submission endpoints are explicitly rate-limited in `Program.cs`, as these are high-traffic endpoints that need careful throttling.
+- **Strategy:** Need to adjust rate-limiting parameters (requests per minute/second, time window) to balance security with functionality.
+
+### 7. Codebase Understanding & Rate-Limiting Implementation
+- Reviewed `Program.cs` to understand middleware and policy configuration.
+- Identified that rate-limiting is implemented using middleware (likely using a library like AspNetCoreRateLimit or similar).
+- Complaint submission endpoints are specifically configured with rate-limiting decorators/policies.
+- Policy enforcement appears to be applied at multiple levels: global middleware and endpoint-specific configurations.
+- Gained foundational understanding of how the codebase structures API protection and throttling mechanisms.
+
 ---
 
 ## 🔍 Root Cause Analysis
@@ -76,7 +90,9 @@ Checked PostgreSQL server parameters:
 
 ## ✅ Recommendations
 
-### Immediate Actions
+### For 429 Connection Pooling Issue
+
+#### Immediate Actions
 1. **Enable Connection Pooling in Repositories:**
    - Modify repository classes to use connection pooling (e.g., NpgsqlConnectionStringBuilder with Pooling=true).
    - Ensure connections are properly disposed or returned to the pool after use.
@@ -91,11 +107,28 @@ Checked PostgreSQL server parameters:
    - Request secure delivery of actual PROD credentials.
    - Update the connection string securely (use AWS Secrets Manager or similar).
 
-### Post-Deployment Validation
+#### Post-Deployment Validation
 1. Monitor connection usage via `pg_stat_activity` after applying changes.
 2. Ensure idle connections are properly managed and recycled by the pool.
 3. Load test with simulated simultaneous logins to verify the fix.
 4. Set up CloudWatch alarms for connection pool utilization.
+
+### For Rate-Limiting Policy Issue
+
+#### Actions Required
+1. **Increase Rate-Limiting Policy Threshold:**
+   - Review current rate-limiting configuration in `Program.cs` middleware setup.
+   - Adjust requests-per-minute/second limits for complaint submission endpoints.
+   - Balance between security (preventing abuse) and functionality (allowing legitimate users).
+
+2. **Endpoints to Reconfigure:**
+   - Focus on complaint submission endpoints that are explicitly rate-limited.
+   - Consider environment-specific configurations (Dev/UAT vs Prod).
+   - Ensure rate-limiting is more lenient in Dev/UAT but remains strict in production.
+
+3. **Testing:**
+   - Load test with concurrent requests to verify the new policy allows legitimate traffic.
+   - Monitor rate-limiting logs to ensure false positives are eliminated.
 
 ---
 
@@ -118,12 +151,16 @@ Checked PostgreSQL server parameters:
 ---
 
 ## ✅ Status & Next Steps
-- **STATUS:** 429 error root cause identified; recommendations ready for implementation.
+- **STATUS:** 
+  - 429 error root cause identified; recommendations ready for implementation.
+  - Rate-limiting policy issue identified; codebase understanding initiated.
 - **NEXT:** 
   - Implement connection pooling in application code.
   - Coordinate credentials with Ali Bhai and deploy updated connection string.
   - Monitor production database connections post-deployment.
-  - Begin deep-dive into The Breath Source project codebase.
+  - Work with Khurrun Bhai to adjust rate-limiting policy thresholds in Dev/UAT.
+  - Review and reconfigure complaint submission endpoint rate-limiting.
+  - Continue deep-dive into The Breath Source project codebase.
 
 ---
 
