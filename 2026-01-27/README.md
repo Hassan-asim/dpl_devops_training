@@ -1,4 +1,3 @@
-```markdown
 <h1 align="center">dpl_devops_training</h1>
 
 <h3 align="center" style="color:#007bff;">Daily DevOps Practice • 429 Error Investigation & Sindh Ombudsman Onboarding</h3>
@@ -124,10 +123,8 @@ Checked PostgreSQL server parameters:
   - Implement connection pooling in application code.
   - Coordinate credentials with Ali Bhai and deploy updated connection string.
   - Monitor production database connections post-deployment.
-  - Begin deep-dive into Sindh Ombudsman project codebase.
+  - Begin deep-dive into The Breath Source project codebase.
 
 ---
 
 Made by Sufi Hassan Asim — 2026-01-27
-
-```
