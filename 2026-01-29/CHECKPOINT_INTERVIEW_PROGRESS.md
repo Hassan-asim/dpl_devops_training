@@ -8,6 +8,19 @@
 
 ---
 
+## 🟢 Onboarding & Access (Jan 2026)
+
+**Onboarding Summary:**
+- ✅ Onboarded to Ngage platform (internal orientation and resources)
+- ✅ AWS account access provisioned (console + CLI access; role assigned for training)
+- ✅ GitLab access granted to `GTO` group and `cdk-ecs-cicd` repository
+
+**Notes / Action Items:**
+- Confirm IAM role name and least-privilege permissions; request adjustments if any missing scopes are required for CI/CD tasks
+- Add SSH public key to GitLab account and verify repository clone/push permissions
+- Enable MFA for AWS console access and confirm `aws sts get-caller-identity` returns expected principal
+
+
 ## 📊 Executive Summary
 
 This document outlines a comprehensive 4-week DevOps learning checkpoint (Jan 1-28, 2026) demonstrating significant progress across cloud infrastructure, automation, and full-stack deployment technologies. The candidate has successfully progressed from foundational AWS concepts to implementing production-grade CI/CD pipelines and multi-tier cloud architectures.

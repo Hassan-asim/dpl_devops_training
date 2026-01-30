@@ -1,58 +1,78 @@
-# PowerPoint Presentation Outline
-## DevOps Learning Journey: January 1-28, 2026
+ # PowerPoint — 10 Slide Highlights
+ ## DevOps Checkpoint: Jan 1–28, 2026 (Concise)
 
----
+ ---
 
-## SLIDE 1: Title Slide
-**Title:** DevOps Learning Checkpoint  
-**Subtitle:** 28 Days of Intensive AWS Training & Hands-On Practice  
-**Name:** Sufi Hassan Asim  
-**Date:** January 1-28, 2026  
-**Status:** Ready for Interview & Onboarding
+ ## Slide 1 — Title
+ - DevOps Learning Checkpoint
+ - Sufi Hassan Asim | Jan 1–28, 2026
+ - 28 days, hands-on, interview-ready
 
----
+ ---
 
-## SLIDE 2: Executive Summary
-### Key Metrics
-- **Duration:** 28 days of continuous training
-- **Learning Hours:** 150+ hours
-- **Projects Completed:** 6/6 (100% success rate)
-- **AWS Certifications:** 3 earned
-- **CloudFormation Templates:** 5+ created
-- **Hands-on Labs:** 4 advanced AWS labs
+ ## Slide 2 — Executive Highlights
+ - 6 projects completed, 100% success
+ - 3 AWS certifications + 4 hands-on labs
+ - 150+ hours practical learning
 
-### Status: ✅ READY FOR PRODUCTION
+ ---
 
----
+ ## Slide 3 — Onboarding & Access (Main)
+ - Onboarded: Tehsindh, TBS, NGAGE (orientation & resources)
+ - Company test accounts: AWS console/CLI access granted
+ - GitLab access: `GTO` group & `cdk-ecs-cicd` repo
+ - Quick proof items: Ngage confirmation, AWS role, GitLab membership
 
-## SLIDE 3: Learning Timeline (4 Weeks)
+ ---
 
-```
-Week 1 (Jan 1-6)
-├─ CloudFormation & Static Websites
-├─ S3 + CloudFront deployment
-└─ Domain registration & ACM certificates
+ ## Slide 4 — Timeline (1-line per week)
+ - Week 1: S3 + CloudFront (static sites)
+ - Week 2: EC2, Nginx, SSL, SSM automation
+ - Week 3: Private VPC, SSM-only EC2, CI/CD design
+ - Week 4: Advanced labs, Cloud Practitioner, HA patterns
 
-Week 2 (Jan 5-12)
-├─ EC2 hosting with Nginx
-├─ Let's Encrypt SSL setup
-├─ AWS Systems Manager
-└─ SSM log automation
+ ---
 
-Week 3 (Jan 12-19)
-├─ Private VPC architecture
-├─ VPC Interface Endpoints
-├─ CI/CD pipeline design
-└─ CodePipeline + CodeBuild integration
+ ## Slide 5 — Top Project Highlights
+ - CI/CD pipeline (CodePipeline + CodeBuild + CDK)
+ - Private infra with SSM-only access (VPC endpoints)
+ - Static websites (S3 + CloudFront + ACM)
 
-Week 4 (Jan 19-28)
-├─ AWS Cloud Practitioner Cert
-├─ Advanced AWS labs (4 labs)
-├─ High availability patterns
-└─ Security & compliance review
-```
+ ---
 
----
+ ## Slide 6 — Key Technical Skills Learned
+ - IaC: CloudFormation & AWS CDK (TypeScript)
+ - CI/CD: CodePipeline, CodeBuild, GitLab integration
+ - Networking & Security: VPC, Endpoints, IAM, MFA
+
+ ---
+
+ ## Slide 7 — Security & Production Readiness
+ - Private EC2 access via SSM (no public IPs)
+ - IAM least-privilege, MFA recommended
+ - Monitoring: CloudWatch, logging to S3
+
+ ---
+
+ ## Slide 8 — Certifications & Labs
+ - AWS Cloud Practitioner + Systems Manager course
+ - Labs: Auto-healing, VPC peering, Security, HA web apps
+
+ ---
+
+ ## Slide 9 — Metrics & Evidence
+ - 6 projects, 15+ deployments, 50+ screenshots
+ - Templates: 5+ CloudFormation, CDK pipeline
+ - Quick checks: `aws sts get-caller-identity`, `git clone` repo
+
+ ---
+
+ ## Slide 10 — Next Steps & Closing
+ - Verify IAM scopes, add SSH key to GitLab, enable MFA
+ - Convert slides to PPTX and add 3 proof screenshots (NGAGE, AWS, GitLab)
+ - Ready for interview and onboarding discussion
+
+ ---
 
 ## SLIDE 4: Milestone 1 - Static Website Deployment (Jan 1-2)
 

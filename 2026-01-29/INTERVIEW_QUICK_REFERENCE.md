@@ -25,6 +25,15 @@
 
 ---
 
+## 🟢 Onboarding Status (Important)
+
+- ✅ Onboarded to Ngage platform for internal orientation and resources
+- ✅ AWS console + CLI access provisioned for training (verify role and MFA)
+- ✅ GitLab access granted (member of `GTO` group; repo `cdk-ecs-cicd` available)
+
+*Interview note:* Mention onboarding access early in the presentation to confirm you can demonstrate direct access to company test accounts.
+
+
 ## 💼 Top 6 Projects (Order of Importance)
 
 ### 1. CI/CD Pipeline (Jan 15) ⭐⭐⭐⭐⭐
