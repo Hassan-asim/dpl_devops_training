@@ -1,0 +1,44 @@
+Query #1
+
+SELECT 
+    t.tgname                  AS trigger_name,
+    t.tgrelid::regclass      AS table_name,
+    p.proname                 AS function_name,
+    p.prosrc                  AS function_body     -- ← this is the PL/pgSQL / SQL code
+FROM pg_trigger t
+JOIN pg_proc    p ON t.tgfoid = p.oid
+WHERE t.tgrelid = 'tbl_complain'::regclass
+  AND p.prosrc ILIKE '%diary_number%'          -- case-insensitive search
+ORDER BY t.tgname;
+
+
+
+Query #2
+
+
+CREATE OR REPLACE FUNCTION public.set_diary_number()
+RETURNS TRIGGER AS $$
+DECLARE
+    current_year TEXT := EXTRACT(YEAR FROM CURRENT_DATE)::TEXT;
+ 
+    -- NEW sequence version (starts fresh)
+    seq_name TEXT := 'diary_number_seq_' || current_year || '_v2';
+ 
+    seq_val BIGINT;
+BEGIN
+    IF NEW.diary_number IS NULL OR NEW.diary_number = '' THEN
+ 
+        EXECUTE format(
+            'CREATE SEQUENCE IF NOT EXISTS %I START 1 INCREMENT 1',
+            seq_name
+        );
+ 
+        seq_val := NEXTVAL(seq_name);
+ 
+        NEW.diary_number :=
+            LPAD(seq_val::TEXT, 7, '0') || '/' || current_year;
+    END IF;
+ 
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql VOLATILE;
