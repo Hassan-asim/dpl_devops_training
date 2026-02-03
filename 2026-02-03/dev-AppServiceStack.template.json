@@ -1,0 +1,947 @@
+{
+ "Description": "App Service for dev environment",
+ "Resources": {
+  "HttpListenerappserviceListenerRule22A643AD": {
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
+   "Properties": {
+    "Actions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "AppServiceTargetGroup90E8FEF9"
+      },
+      "Type": "forward"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "path-pattern",
+      "PathPatternConfig": {
+       "Values": [
+        "/api*"
+       ]
+      }
+     }
+    ],
+    "ListenerArn": {
+     "Fn::ImportValue": "dev-HttpListenerArn"
+    },
+    "Priority": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/HttpListener/app-serviceListenerRule/Resource"
+   }
+  },
+  "AppServiceServiceSecurityGroup6105937D": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Security group for app-service service",
+    "GroupName": "dev-app-service-sg",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ],
+    "VpcId": {
+     "Fn::ImportValue": "dev-NetworkStack:ExportsOutputRefVpc8378EB38272D6E3A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/ServiceSecurityGroup/Resource"
+   }
+  },
+  "AppServiceServiceSecurityGroupfromdevAppServiceStackAlbSecurityGroupEB63187F3000756A8D1A": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Allow traffic from ALB on port 3000",
+    "FromPort": 3000,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "AppServiceServiceSecurityGroup6105937D",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::ImportValue": "dev-AlbSecurityGroupId"
+    },
+    "ToPort": 3000
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/ServiceSecurityGroup/from devAppServiceStackAlbSecurityGroupEB63187F:3000"
+   }
+  },
+  "AppServiceLogGroupC7CB970C": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/ecs/dev/app-service",
+    "RetentionInDays": 7,
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/LogGroup/Resource"
+   }
+  },
+  "AppServiceTaskExecutionRole3FCB0028": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "Execution role for app-service ECS task",
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TaskExecutionRole/Resource"
+   }
+  },
+  "AppServiceTaskExecutionRoleDefaultPolicy02B772A8": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "AppServiceLogGroupC7CB970C",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "AppServiceTaskExecutionRoleDefaultPolicy02B772A8",
+    "Roles": [
+     {
+      "Ref": "AppServiceTaskExecutionRole3FCB0028"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TaskExecutionRole/DefaultPolicy/Resource"
+   }
+  },
+  "AppServiceTaskRole30E9686C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "Task role for app-service ECS tasks",
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TaskRole/Resource"
+   }
+  },
+  "AppServiceTaskRoleDefaultPolicy3F939E80": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:us-west-2:471464546186:secret:dev-db-appuser-secret-??????"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:us-west-2:471464546186:secret:dev-db-appuser-secret*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:secretsmanager:us-west-2:471464546186:secret:dev-media-cdn-private-key-*",
+        {
+         "Fn::ImportValue": "dev-SecretsStack:ExportsOutputRefFirebasePrivateKey3A433C720FA5D2C2"
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:GetObjectAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::ImportValue": "dev-UploadsBucketArn"
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::ImportValue": "dev-UploadsBucketArn"
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "cognito-idp:AdminDeleteUser",
+        "cognito-idp:AdminDeleteUserAttributes",
+        "cognito-idp:AdminEnableUser",
+        "cognito-idp:AdminCreateUser",
+        "cognito-idp:AdminDisableUser",
+        "cognito-idp:AdminSetUserPassword",
+        "cognito-idp:AdminAddUserToGroup",
+        "cognito-idp:AdminUpdateUserAttributes",
+        "cognito-idp:AdminGetUser",
+        "cognito-idp:AdminResetUserPassword"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::ImportValue": "dev-CognitoUserPoolArn"
+       }
+      },
+      {
+       "Action": [
+        "mediaconvert:CreateJob",
+        "mediaconvert:GetJob",
+        "mediaconvert:ListJobs",
+        "mediaconvert:CancelJob",
+        "mediaconvert:DescribeEndpoints"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "iam:PassRole",
+       "Condition": {
+        "StringEquals": {
+         "iam:PassedToService": "mediaconvert.amazonaws.com"
+        }
+       },
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::ImportValue": "dev-MediaConvertRoleArn"
+       }
+      },
+      {
+       "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket",
+        "s3:GetObjectAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::ImportValue": "dev-MediaInputBucketArn"
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::ImportValue": "dev-MediaInputBucketArn"
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:GetObjectAttributes"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::ImportValue": "dev-MediaOutputBucketArn"
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::ImportValue": "dev-MediaOutputBucketArn"
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "ssmmessages:CreateControlChannel",
+        "ssmmessages:CreateDataChannel",
+        "ssmmessages:OpenControlChannel",
+        "ssmmessages:OpenDataChannel"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "logs:DescribeLogGroups",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:DescribeLogStreams",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "AppServiceTaskRoleDefaultPolicy3F939E80",
+    "Roles": [
+     {
+      "Ref": "AppServiceTaskRole30E9686C"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TaskRole/DefaultPolicy/Resource"
+   }
+  },
+  "AppServiceTaskDefinition576A8666": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Environment": [
+       {
+        "Name": "NODE_ENV",
+        "Value": "dev"
+       },
+       {
+        "Name": "PORT",
+        "Value": "3000"
+       },
+       {
+        "Name": "API_PREFIX",
+        "Value": "api/v1"
+       },
+       {
+        "Name": "SERVICE_NAME",
+        "Value": "app-service"
+       },
+       {
+        "Name": "DB_TYPE",
+        "Value": "postgres"
+       },
+       {
+        "Name": "DB_SYNCHRONIZE",
+        "Value": "false"
+       },
+       {
+        "Name": "DB_LOGGING",
+        "Value": "false"
+       },
+       {
+        "Name": "DB_SSL",
+        "Value": "true"
+       },
+       {
+        "Name": "LOG_LEVEL",
+        "Value": "info"
+       },
+       {
+        "Name": "CORS_ALLOWED_ORIGINS",
+        "Value": "http://localhost:5173,https://d1wf2nz9e07iqk.cloudfront.net"
+       },
+       {
+        "Name": "APP_PORT",
+        "Value": "3000"
+       },
+       {
+        "Name": "DB_HOST",
+        "Value": {
+         "Fn::ImportValue": "dev-DatabaseEndpoint"
+        }
+       },
+       {
+        "Name": "DB_PORT",
+        "Value": {
+         "Fn::ImportValue": "dev-DatabasePort"
+        }
+       },
+       {
+        "Name": "DB_NAME",
+        "Value": {
+         "Fn::ImportValue": "dev-DatabaseName"
+        }
+       },
+       {
+        "Name": "DB_SECRET_NAME",
+        "Value": "dev-db-appuser-secret"
+       },
+       {
+        "Name": "AWS_COGNITO_USER_POOL_ID",
+        "Value": {
+         "Fn::ImportValue": "dev-CognitoUserPoolId"
+        }
+       },
+       {
+        "Name": "AWS_COGNITO_CLIENT_ID",
+        "Value": {
+         "Fn::ImportValue": "dev-CognitoClientId"
+        }
+       },
+       {
+        "Name": "AWS_COGNITO_REGION",
+        "Value": "us-west-2"
+       },
+       {
+        "Name": "UPLOADS_BUCKET_NAME",
+        "Value": {
+         "Fn::ImportValue": "dev-UploadsBucketName"
+        }
+       },
+       {
+        "Name": "MEDIA_INPUT_BUCKET_NAME",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaInputBucketName"
+        }
+       },
+       {
+        "Name": "MEDIA_OUTPUT_BUCKET_NAME",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaOutputBucketName"
+        }
+       },
+       {
+        "Name": "MEDIA_CONVERT_ROLE_ARN",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaConvertRoleArn"
+        }
+       },
+       {
+        "Name": "AWS_REGION",
+        "Value": "us-west-2"
+       },
+       {
+        "Name": "MEDIA_CDN_DISTRIBUTION_ID",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaCdnDistributionId"
+        }
+       },
+       {
+        "Name": "MEDIA_CDN_DOMAIN",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaCdnDomainName"
+        }
+       },
+       {
+        "Name": "MEDIA_CDN_KEY_PAIR_ID",
+        "Value": {
+         "Fn::ImportValue": "dev-MediaCdnPublicKeyId"
+        }
+       },
+       {
+        "Name": "MEDIA_CDN_PRIVATE_KEY_SECRET_NAME",
+        "Value": "dev-media-cdn-private-key"
+       },
+       {
+        "Name": "FIREBASE_SECRET_NAME",
+        "Value": {
+         "Fn::ImportValue": "dev-SecretsStack:ExportsOutputRefFirebasePrivateKey3A433C720FA5D2C2"
+        }
+       }
+      ],
+      "Essential": true,
+      "Image": {
+       "Fn::Join": [
+        "",
+        [
+         {
+          "Fn::Select": [
+           4,
+           {
+            "Fn::Split": [
+             ":",
+             {
+              "Fn::ImportValue": "dev-ECRStack:ExportsOutputFnGetAttAppServiceRepository49D8570CArn6EE596D9"
+             }
+            ]
+           }
+          ]
+         },
+         ".dkr.ecr.",
+         {
+          "Fn::Select": [
+           3,
+           {
+            "Fn::Split": [
+             ":",
+             {
+              "Fn::ImportValue": "dev-ECRStack:ExportsOutputFnGetAttAppServiceRepository49D8570CArn6EE596D9"
+             }
+            ]
+           }
+          ]
+         },
+         ".",
+         {
+          "Ref": "AWS::URLSuffix"
+         },
+         "/",
+         {
+          "Fn::ImportValue": "dev-ECRStack:ExportsOutputRefAppServiceRepository49D8570CBD6EF496"
+         },
+         ":latest"
+        ]
+       ]
+      },
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "AppServiceLogGroupC7CB970C"
+        },
+        "awslogs-stream-prefix": "app-service",
+        "awslogs-region": "us-west-2"
+       }
+      },
+      "Name": "Container",
+      "PortMappings": [
+       {
+        "ContainerPort": 3000,
+        "Protocol": "tcp"
+       }
+      ]
+     }
+    ],
+    "Cpu": "256",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "AppServiceTaskExecutionRole3FCB0028",
+      "Arn"
+     ]
+    },
+    "Family": "dev-app-service",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "AppServiceTaskRole30E9686C",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TaskDefinition/Resource"
+   }
+  },
+  "AppService7F8F0CA1": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": {
+     "Fn::ImportValue": "dev-EcsClusterName"
+    },
+    "DeploymentConfiguration": {
+     "Alarms": {
+      "AlarmNames": [],
+      "Enable": false,
+      "Rollback": false
+     },
+     "DeploymentCircuitBreaker": {
+      "Enable": true,
+      "Rollback": true
+     },
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DeploymentController": {
+     "Type": "ECS"
+    },
+    "DesiredCount": 1,
+    "EnableECSManagedTags": false,
+    "EnableExecuteCommand": true,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "Container",
+      "ContainerPort": 3000,
+      "TargetGroupArn": {
+       "Ref": "AppServiceTargetGroup90E8FEF9"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "AppServiceServiceSecurityGroup6105937D",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       {
+        "Fn::ImportValue": "dev-NetworkStack:ExportsOutputRefPrivateSubnet0Subnet89D21D78BDFAACD1"
+       },
+       {
+        "Fn::ImportValue": "dev-NetworkStack:ExportsOutputRefPrivateSubnet1Subnet51DDBC2FF0743ECA"
+       }
+      ]
+     }
+    },
+    "ServiceName": "dev-app-service",
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ],
+    "TaskDefinition": {
+     "Ref": "AppServiceTaskDefinition576A8666"
+    }
+   },
+   "DependsOn": [
+    "AppServiceTaskRoleDefaultPolicy3F939E80",
+    "AppServiceTaskRole30E9686C",
+    "HttpListenerappserviceListenerRule22A643AD"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/Service/Service"
+   }
+  },
+  "AppServiceTargetGroup90E8FEF9": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckEnabled": true,
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/api/v1",
+    "HealthCheckTimeoutSeconds": 5,
+    "HealthyThresholdCount": 2,
+    "Matcher": {
+     "HttpCode": "200-299"
+    },
+    "Name": "dev-app-service-tg",
+    "Port": 3000,
+    "Protocol": "HTTP",
+    "Tags": [
+     {
+      "Key": "CostCenter",
+      "Value": "engineering"
+     },
+     {
+      "Key": "Environment",
+      "Value": "dev"
+     },
+     {
+      "Key": "ManagedBy",
+      "Value": "CDK"
+     },
+     {
+      "Key": "Owner",
+      "Value": "devops-team"
+     }
+    ],
+    "TargetGroupAttributes": [
+     {
+      "Key": "deregistration_delay.timeout_seconds",
+      "Value": "30"
+     },
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "ip",
+    "UnhealthyThresholdCount": 3,
+    "VpcId": {
+     "Fn::ImportValue": "dev-NetworkStack:ExportsOutputRefVpc8378EB38272D6E3A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/AppService/TargetGroup/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/32OTWvDMAyGf0vvrpZll17HxsagsJH0PlRHNWpcO1h2SjH+7yPNVtLLTu8Hr9BTQ/1UQbXCs6x1168t7yG3EXWvGhKfgiaFZ/nOZFEia+ux26NFp9mZsYb8PAyWNUb2bssSyVFokiX1crjPi90Og6H4HnwaptkiFkW6htySToHj5Tb5v/hwJpBIUdYbgbz15rb780UxniA3fia76pe3rC9TnN30XCC/YTAYaYfSv9KBHU/IM+d9411EdhQW3e9tS2FkTTPo1ZYyhc8UhxSLcr4jOMrD+LiBuoLN6ijM65Bc5BNBM+sPaUFhwpoBAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "dev-AppServiceStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "ServiceName": {
+   "Description": "App Service Name",
+   "Value": {
+    "Fn::GetAtt": [
+     "AppService7F8F0CA1",
+     "Name"
+    ]
+   },
+   "Export": {
+    "Name": "dev-AppServiceName"
+   }
+  },
+  "ServiceArn": {
+   "Description": "App Service ARN",
+   "Value": {
+    "Ref": "AppService7F8F0CA1"
+   },
+   "Export": {
+    "Name": "dev-AppServiceArn"
+   }
+  },
+  "TargetGroupArn": {
+   "Description": "App Service Target Group ARN",
+   "Value": {
+    "Ref": "AppServiceTargetGroup90E8FEF9"
+   },
+   "Export": {
+    "Name": "dev-AppServiceTargetGroupArn"
+   }
+  },
+  "ServiceSecurityGroupId": {
+   "Description": "App Service Security Group ID",
+   "Value": {
+    "Fn::GetAtt": [
+     "AppServiceServiceSecurityGroup6105937D",
+     "GroupId"
+    ]
+   },
+   "Export": {
+    "Name": "dev-AppServiceSecurityGroupId"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

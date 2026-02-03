@@ -1,0 +1,161 @@
+Delete from tbl_report_queries  where entity_type = 'COMPLAINT' and query_name = 'ADVISORS_REPORT';
+
+
+INSERT INTO tbl_report_queries (entity_type, query_name, query_sql, description, is_active, created_by, updated_by)
+VALUES (
+    'COMPLAINT',
+    'ADVISORS_REPORT',
+    'WITH advisor_users AS (
+    SELECT id, email, full_name
+    FROM tbl_user
+    WHERE user_type = 1
+      AND is_active = true
+      AND (@AdvisorUserIds::int[] IS NULL OR id = ANY(@AdvisorUserIds::int[]))
+),
+advisor_row_types AS (
+    SELECT 
+        au.id AS advisor_id,
+        au.full_name AS advisor_name,
+        au.email AS advisor_email,
+        row_type.row_label
+    FROM advisor_users au
+    CROSS JOIN (
+        SELECT ''Head office'' AS row_label
+        UNION ALL
+        SELECT ''Vetting Regions'' AS row_label
+    ) row_type
+),
+io_complaints AS (
+    SELECT 
+        au.id AS advisor_id,
+        au.full_name AS advisor_name,
+        au.email AS advisor_email,
+        ''Head office'' AS row_label,
+        c.id AS complaint_id,
+        c.complain_status
+    FROM advisor_users au
+    LEFT JOIN tbl_complain c 
+        ON c.assign_officer_id = au.id
+       AND c.is_active = true
+       AND (@FromDate::date IS NULL OR DATE(c.created_date) >= @FromDate::date)
+       AND (@ToDate::date IS NULL OR DATE(c.created_date) <= @ToDate::date)
+),
+region_complaints AS (
+    SELECT 
+        au.id AS advisor_id,
+        au.full_name AS advisor_name,
+        au.email AS advisor_email,
+        ''Vetting Regions'' AS row_label,
+        c.id AS complaint_id,
+        c.complain_status
+    FROM advisor_users au
+    LEFT JOIN tbl_region r 
+        ON r.advisor_id = au.id
+       AND r.is_active = true
+    LEFT JOIN tbl_complain c 
+        ON c.region_id = r.id     -- ✅ FIXED
+       AND c.is_active = true
+       AND (@FromDate::date IS NULL OR DATE(c.created_date) >= @FromDate::date)
+       AND (@ToDate::date IS NULL OR DATE(c.created_date) <= @ToDate::date)
+),
+all_complaints AS (
+    SELECT advisor_id, advisor_name, advisor_email, row_label, complaint_id, complain_status
+    FROM io_complaints
+    WHERE complaint_id IS NOT NULL
+    UNION ALL
+    SELECT advisor_id, advisor_name, advisor_email, row_label, complaint_id, complain_status
+    FROM region_complaints
+    WHERE complaint_id IS NOT NULL
+),
+active_statuses AS (
+    SELECT name, COALESCE(order_no, 999) AS order_no
+    FROM tbl_complain_status
+    WHERE is_active = true
+),
+advisor_row_statuses AS (
+    SELECT 
+        art.advisor_id,
+        art.advisor_name,
+        art.advisor_email,
+        art.row_label,
+        ac.complaint_id,
+        ac.complain_status,
+        ast.name AS status_name,
+        ast.order_no AS status_order_no
+    FROM advisor_row_types art
+    CROSS JOIN active_statuses ast
+    LEFT JOIN all_complaints ac
+        ON ac.advisor_id = art.advisor_id
+       AND ac.row_label = art.row_label
+       AND ac.complain_status = ast.name
+),
+status_counts AS (
+    SELECT
+        ars.advisor_id,
+        ars.advisor_name,
+        ars.advisor_email,
+        ars.row_label,
+        ars.status_name AS complain_status,
+        COUNT(ars.complaint_id) AS status_count,
+        ARRAY_AGG(DISTINCT ars.complaint_id ORDER BY ars.complaint_id)
+            FILTER (WHERE ars.complaint_id IS NOT NULL) AS complaint_ids,
+        ars.status_order_no AS order_no
+    FROM advisor_row_statuses ars
+    GROUP BY
+        ars.advisor_id,
+        ars.advisor_name,
+        ars.advisor_email,
+        ars.row_label,
+        ars.status_name,
+        ars.status_order_no
+),
+advisor_row_complaint_ids AS (
+    SELECT
+        sc.advisor_id,
+        sc.row_label,
+        ARRAY_AGG(DISTINCT complaint_id ORDER BY complaint_id) AS all_complaint_ids
+    FROM status_counts sc
+    CROSS JOIN LATERAL UNNEST(sc.complaint_ids) AS complaint_id
+    WHERE sc.complaint_ids IS NOT NULL
+    GROUP BY sc.advisor_id, sc.row_label
+)
+SELECT
+    art.advisor_name || '' ('' || art.row_label || '')'' AS "OfficerNameDesignation",
+    art.row_label AS "Region",
+    COALESCE(SUM(sc.status_count), 0) AS "TotalComplaints",
+    jsonb_object_agg(
+        sc.complain_status,
+        sc.status_count
+        ORDER BY sc.order_no, sc.complain_status
+    ) FILTER (WHERE sc.complain_status IS NOT NULL) AS "StatusCounts",
+    jsonb_object_agg(
+        sc.complain_status,
+        jsonb_build_object(
+            ''count'', sc.status_count,
+            ''complaintIds'', sc.complaint_ids
+        )
+        ORDER BY sc.order_no, sc.complain_status
+    ) FILTER (WHERE sc.complain_status IS NOT NULL) AS "StatusDetails",
+    arci.all_complaint_ids AS "ComplaintIds",
+    0.0 AS "PercentageOfTotal"
+FROM advisor_row_types art
+LEFT JOIN status_counts sc
+    ON sc.advisor_id = art.advisor_id
+   AND sc.row_label = art.row_label
+LEFT JOIN advisor_row_complaint_ids arci
+    ON arci.advisor_id = art.advisor_id
+   AND arci.row_label = art.row_label
+GROUP BY
+    art.advisor_id,
+    art.advisor_name,
+    art.advisor_email,
+    art.row_label,
+    arci.all_complaint_ids
+ORDER BY
+    art.advisor_name,
+    art.row_label',
+    'Advisors report showing two rows per advisor: Head office (IO assignments) and Vetting Regions (region assignments) with all active statuses from tbl_complain_status as JSON',
+    true,
+    'SYSTEM',
+    'SYSTEM'
+);

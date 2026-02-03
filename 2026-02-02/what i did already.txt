@@ -1,0 +1,33 @@
+1. Billing Report & Alert
+
+Created a monthly Cost & Usage Report (MonthlyServiceReport) in the Workload account.
+
+Configured it to export to S3 bucket dplit-monthly-billing-reports with monthly granularity.
+
+Created a Lambda function FilterMonthlyBillingReport to process the report and send notifications.
+
+Configured SNS topic for email notifications to sindh-ombudsman-ai-cloud-cost@dplit.com.
+
+Realized the SNS subscription needs to be confirmed via email before Lambda test works.
+
+2. Bedrock Access
+
+Izza needed bedrock:PutModelInvocationLoggingConfiguration.
+
+Gave her the AmazonBedrockFullAccess policy instead of managing individual permissions.
+
+3. S3 & Athena Access for Izza
+
+Created S3 bucket s3bucketforizza in Workload account.
+
+Created a permission set in Sindh account giving Izza:
+
+Read/write access to the S3 bucket.
+
+Full access to Athena.
+
+Assigned this permission set to her via AWS Identity Center (SSO).
+
+Decided that the manually created IAM role in Workload account is no longer needed and can be deleted.
+
+In short, you set up monthly billing reporting, gave Bedrock access, and provisioned S3 + Athena access for Izza via SSO.

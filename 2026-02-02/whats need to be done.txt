@@ -1,0 +1,55 @@
+1. Confirm SNS Subscription
+
+Hazar clicks Confirm Subscription in the email.
+
+Verify in the SNS console under the topic that the subscription status changes from PendingConfirmation → Confirmed.
+
+2. Test the Lambda Function
+
+Go to your Lambda function FilterMonthlyBillingReport.
+
+Click Test.
+
+Use a sample event JSON that mimics the billing report (you can create a simple JSON like below for testing):
+
+{
+  "reportBucket": "dplit-monthly-billing-reports",
+  "reportPrefix": "monthly-reports/MonthlyServiceReport/date-range/"
+}
+
+
+Execute the function synchronously.
+
+Check CloudWatch logs for the output. If it processes correctly, you’ll see a message showing it read the report and attempted to publish to SNS.
+
+3. Verify SNS Delivery
+
+Go to the SNS topic you created for the alert.
+
+Check that a message is delivered to the email: sindh-ombudsman-ai-cloud-cost@dplit.com.
+
+If the email is received, the connection between Lambda → SNS → email works.
+
+4. Schedule the Lambda Function
+
+Open EventBridge (CloudWatch Events).
+
+Create a new rule:
+
+Event Source: Schedule → cron or rate.
+
+For monthly: cron(0 0 1 * ? *) → 1st of every month at midnight UTC.
+
+Target: Lambda function FilterMonthlyBillingReport.
+
+This ensures the Lambda runs automatically every month.
+
+5. Optional: Verify Logs & Alerts
+
+After the first scheduled run, check CloudWatch Logs to ensure:
+
+Lambda executed successfully.
+
+SNS message sent.
+
+Any errors are caught and fixed.

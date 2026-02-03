@@ -1,0 +1,103 @@
+Here’s a clear Markdown summary of everything you did, step by step, including testing and results:
+
+````markdown
+# Monthly Billing Report Automation – Finance Team
+
+## Objective
+Automate the generation and delivery of filtered monthly AWS billing reports for the finance team, ensuring that only relevant services are included and that the reports are sent automatically every 1st of the month.
+
+---
+
+## Steps Followed
+
+### 1. Update Lambda Code
+- Modified the existing Lambda function (`FilterMonthlyBillingReport`) to:
+  - Remove the HTML table preview (since SNS email doesn’t render it properly).
+  - Keep only clickable links for:
+    - Filtered CSV (Izza’s services)
+    - Full CSV (all services)
+  - Added short descriptive text explaining what each link is for.
+
+### 2. Update SNS Topic
+- Deleted the old test topic.
+- Kept only the finance team topic:
+  - **Topic ARN:** `arn:aws:sns:us-west-2:353545917793:FinanceMonthlyBilling`
+  - Confirmed the email subscription endpoint:
+    - `sindh-ombudsman-ai-cloud-cost@dplit.com`
+- Updated Lambda inline IAM policy to allow publishing only to the Finance topic.
+
+### 3. Update IAM Permissions
+- Updated Lambda inline policy to:
+  - Remove access to the test SNS topic.
+  - Keep S3 permissions for:
+    - Reading the full CSV reports
+    - Writing filtered reports to `filtered-monthly-reports/`
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:us-west-2:353545917793:FinanceMonthlyBilling"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::dplit-monthly-billing-reports",
+        "arn:aws:s3:::dplit-monthly-billing-reports/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::dplit-monthly-billing-reports/filtered-monthly-reports/*"
+    }
+  ]
+}
+````
+
+### 4. Set Up Monthly Trigger
+
+* Configured **EventBridge** (CloudWatch Events) rule: `MonthlyBillingTrigger`.
+* Schedule expression: `cron(0 0 1 * ? *)` → triggers Lambda **at 00:00 UTC on the 1st of every month**.
+* Verified that the rule is enabled and linked to the Lambda.
+
+### 5. Testing
+
+* Manually invoked the Lambda function from the console to confirm:
+
+  * Filtered CSV is generated and uploaded to S3.
+  * SNS email is sent to finance team with correct links.
+  * Links point to:
+
+    * Filtered CSV of Izza’s services.
+    * Full CSV report for reference.
+* Verified that the email content is readable and presentable (no HTML table issues).
+
+---
+
+## Result
+
+* Lambda function successfully generates filtered monthly billing reports.
+* SNS email is sent to the finance team with:
+
+  * Clickable links for filtered and full CSV reports.
+  * Simple explanatory text.
+* Monthly trigger is confirmed to run automatically on the 1st of each month.
+* Finance team can now access reports easily without manual intervention.
+
+---
+
+## Next Steps
+
+* Monitor EventBridge invocations on the 1st of each month to ensure automatic delivery.
+* Adjust filters or report formatting if additional services need to be included in the future.
+
+
+```
