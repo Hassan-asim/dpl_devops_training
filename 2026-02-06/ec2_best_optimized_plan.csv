@@ -1,0 +1,11 @@
+Instance Name,Best Instance Type,1yr Reserved Cost ($/mo)
+prod-backend-app,t3a.xlarge,65
+prod-frontend-app,t3a.xlarge,65
+uat-backend-app,t3a.medium,16
+dev-backend-app,t3a.medium,16
+uat-frontend-app,t3a.medium,16
+dev-frontend-app,t3a.medium,16
+db-bastion,t3.nano,3
+nat-instance,t3.nano,3
+Database,db.t3.xlarge,180
+TOTAL,,380

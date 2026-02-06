@@ -1,0 +1,12 @@
+Instance Name,Current Type,RFP Requirement,Candidate Instance,vCPU,RAM (GB),Region,On-Demand ($/mo),1yr Savings Plan ($/mo),1yr Reserved ($/mo),Notes
+prod-backend-app,t3.small (2/2GB),RC-8G – 4 vCPU / 8GB,t3a.xlarge,4,16.0,us-west-2,110,72,65,Meets RFP. FileScan merged here.
+prod-backend-app,t3.small (2/2GB),RC-8G – 4 vCPU / 8GB,m6i.xlarge,4,16.0,us-west-2,124,80,72,Intel family option
+prod-frontend-app,t3.medium (2/4GB),RC-4G – 4 vCPU / 4GB,t3a.xlarge,4,16.0,us-west-2,110,72,65,Meets CPU requirement
+prod-frontend-app,t3.medium (2/4GB),RC-4G – 4 vCPU / 4GB,m6i.xlarge,4,16.0,us-west-2,124,80,72,Alt family
+uat-backend-app,t3.small (2/2GB),RC-4G – 2 vCPU / 4GB,t3a.medium,2,4.0,us-west-2,28,22,16,RFP RAM compliant
+dev-backend-app,t3.small (2/2GB),RC-4G – 2 vCPU / 4GB,t3a.medium,2,4.0,us-west-2,28,22,16,RFP RAM compliant
+uat-frontend-app,t3.medium (2/4GB),RC-4G – 2 vCPU / 4GB,t3a.medium,2,4.0,us-west-2,28,22,16,Already compliant
+dev-frontend-app,t3.medium (2/4GB),RC-4G – 2 vCPU / 4GB,t3a.medium,2,4.0,us-west-2,28,22,16,Already compliant
+db-bastion,t4g.micro,Not defined in RFP,t3.nano,1,0.5,us-west-2,4,3,3,Keep minimal cost
+nat-instance,t3.nano,Not defined in RFP,t3.nano,1,0.5,us-west-2,4,3,3,No change
+Database,db.t4g.large,RC-8G – 4 vCPU / 8GB,db.t3.xlarge,4,16.0,us-west-2,250,220,180,Single-AZ assumed
