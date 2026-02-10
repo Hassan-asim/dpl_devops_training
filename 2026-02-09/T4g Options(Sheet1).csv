@@ -1,0 +1,11 @@
+﻿Instance Name,Current Type,RFP Requirement,T4g Candidate,vCPU,RAM (GB),On-Demand ($/mo),1yr Savings Plan ($/mo),1yr Reserved ($/mo)
+prod-backend-app,t3.small (2/2GB),4 vCPU / 8 GB,t4g.xlarge,4,16,60,55,52
+prod-frontend-app,t3.medium (2/4GB),4 vCPU / 4 GB,t4g.xlarge,4,16,60,55,52
+uat-backend-app,t3.small (2/2GB),2 vCPU / 4 GB,t4g.medium,2,4,15,14,13
+dev-backend-app,t3.small (2/2GB),2 vCPU / 4 GB,t4g.medium,2,4,15,14,13
+uat-frontend-app,t3.medium (2/4GB),2 vCPU / 4 GB,t4g.medium,2,4,15,14,13
+dev-frontend-app,t3.medium (2/4GB),2 vCPU / 4 GB,t4g.medium,2,4,15,14,13
+db-bastion,t4g.micro,Not defined,t4g.nano,2,0.5,3,2.7,2.5
+nat-instance,t3.nano,Not defined,t4g.nano,2,0.5,3,2.7,2.5
+Database (RDS),db.t4g.large,4 vCPU / 8 GB,db.t4g.xlarge,4,16,200,160,140
+Total ( Approximatly  ~),,,,,,386,331.4,301

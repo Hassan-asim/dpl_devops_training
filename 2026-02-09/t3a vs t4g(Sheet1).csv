@@ -1,0 +1,27 @@
+﻿Instance Name,RFP Requirement,t3a Option,vCPU,RAM,1yr Reserved t3a ,t4g Option ,vCPU,RAM,1yr Reserved t4g,Notes,
+prod-backend-app,4 vCPU / 8 GB,t3a.xlarge,4,16 GB,65,t4g.xlarge,4,16 GB,52,Graviton gives better price/performance if app supports ARM,
+prod-frontend-app,4 vCPU / 4 GB,t3a.xlarge,4,16 GB,65,t4g.xlarge,4,16 GB,52,Frontend workloads are ARM-friendly (Node/NGINX etc.),
+uat-backend-app,2 vCPU / 4 GB,t3a.medium,2,4 GB,16,t4g.medium,2,4 GB,13,"Same specs, Graviton cheaper",
+dev-backend-app,2 vCPU / 4 GB,t3a.medium,2,4 GB,16,t4g.medium,2,4 GB,13,Dev workload — ideal for ARM cost savings,
+uat-frontend-app,2 vCPU / 4 GB,t3a.medium,2,4 GB,16,t4g.medium,2,4 GB,13,No architecture constraints expected,
+dev-frontend-app,2 vCPU / 4 GB,t3a.medium,2,4 GB,16,t4g.medium,2,4 GB,13,Same as above,
+db-bastion,Not in RFP,t3.nano,2,0.5 GB,3,t4g.nano,2,0.5 GB,2.5,Very low usage; ARM safe,
+nat-instance,Not in RFP,t3.nano,2,0.5 GB,3,t4g.nano,2,0.5 GB,2.5,NAT works fine on Graviton,
+Database,4 vCPU / 8 GB,db.t3.xlarge,4,16 GB,180,db.t4g.xlarge,4,16 GB,140,RDS Graviton significantly cheaper,
+Total,,,,,380,,,,301,,
+"t3a was selected because it delivers immediate cost savings while remaining on the same x86 architecture as the current environment, which means no application rebuilds, no dependency compatibility risks, and no CI/CD or container pipeline changes. It was the safest way to meet the RFP performance requirements while minimizing operational and migration risk, especially for production workloads. t4g (Graviton) offers better price-performance, but it introduces an architecture shift to ARM, which requires validation of containers, libraries, antivirus engines, and monitoring agents. Because of this, t4g is a strong option but is still relatively newer in many enterprise stacks.
+
+A safer approach would be to adopt t4g first in DEV and UAT, keeping PROD on the more mature and fully compatible x86-based t3a family. Using this mixed-family approach, the estimated cost for 1-year reserved instances is ≈ $367/month. Once t4g is validated and stable in DEV and UAT, we can plan to shift PROD to t4g, which could reduce the total monthly cost to ≈ $301/month.
+
+",,,,,,,,,,,
+Instance Name,Environment,Recommended Family,Instance Type,vCPU,RAM,1yr Reserved Est.,Reason,,,,
+prod-backend-app,PROD,t3a (x86),t3a.xlarge,4,16G,65,"Production stability, no architecture risk",,,,
+prod-frontend-app,PROD,t3a (x86),t3a.xlarge,4,16G,65,"Public-facing workload, safest architecture",,,,
+Database (RDS),PROD,t3a (x86 RDS),db.t3.xlarge,4,16G,180,Avoid DB engine/extension compatibility risk,,,,
+uat-backend-app,UAT,t4g (ARM),t4g.medium,2,4G,13,Safe place to validate ARM workloads,,,,
+dev-backend-app,DEV,t4g (ARM),t4g.medium,2,4G,13,Cost savings + testing ground,,,,
+uat-frontend-app,UAT,t4g (ARM),t4g.medium,2,4G,13,Frontend stacks are ARM-friendly,,,,
+dev-frontend-app,DEV,t4g (ARM),t4g.medium,2,4G,13,Same as above,,,,
+db-bastion,Infra,t4g (ARM),t4g.nano,2,0.5,2.5,Low-risk utility server,,,,
+nat-instance,Infra,t4g (ARM),t4g.nano,2,0.5,2.5,NAT works well on Graviton,,,,
+Total,,,,,,367,,,,,
