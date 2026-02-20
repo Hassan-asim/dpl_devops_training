@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Cleaning old dependencies..."
+      - rm -rf node_modules package-lock.json || true
+      - echo "Installing dependencies fresh..."
+      - npm install
+      - npm ci
+  pre_build:
+    commands:
+      - echo "Starting pre-build phase..."
+  build:
+    commands:
+      - echo "Building Next.js app..."
+      - npm run build
+      - mkdir -p build-output
+      - cp -r .next public package.json next.config.ts appspec.yml scripts build-output/
+
+cache:
+  paths:
+    - node_modules/**/*
+
+artifacts:
+  base-directory: build-output
+  files:
+    - "**/*"

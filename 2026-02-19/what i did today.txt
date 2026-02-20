@@ -1,0 +1,21 @@
+today i did the following 
+
+
+first fixed teh firebase secrects error that afifa was facing 
+
+after that i was given a task to dignose and fix a error in a dev frontend pipelind that khurrum was facing 
+that took a while 
+
+
+after that 
+i updated teh file scan stack to use teh t4g micro and teh arm ami 
+and only used teh main repo to add the changes 
+(i first added teh changes to teh branch that were latest used to trigered teh pipeline to updated that took the a while becouse i had to delete the changes of the olld branch that were added as mine when i pushed so i had to redo it with only main )
+
+
+after that i attended the all hands session 
+
+also i did the deployment on sindh prod dev and uat after khurrum will push teh changes and teh project is not being used by the clinet at around 10:00 pm
+
+also i have to deploy the teh file scan stack to the dev end at night aswell after ali will approve 
+and also i have to deploy the file scan stack to the prod as well after ali will approve it

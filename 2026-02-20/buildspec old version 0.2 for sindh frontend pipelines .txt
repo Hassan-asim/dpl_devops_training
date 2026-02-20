@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "phases": {
+    "install": {
+      "runtime-versions": {
+        "nodejs": "18"
+      },
+      "commands": [
+        "echo \"Installing dependencies...\"",
+        "npm install"
+      ]
+    },
+    "build": {
+      "commands": [
+        "echo \"Building Next.js app...\"",
+        "npm run build",
+        "mkdir -p build-output",
+        "cp -r .next public package.json next.config.ts appspec.yml scripts build-output/"
+      ]
+    }
+  },
+  "artifacts": {
+    "base-directory": "build-output",
+    "files": [
+      "**/*"
+    ]
+  }
+}

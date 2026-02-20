@@ -1,0 +1,18 @@
+i did the following 
+
+first i made teh pipelien code for teh lambda cdk repo 
+in which u made a pipeline stack that will auto deploy teh stack inteh lambda cdk repo to aws when ever teh code changes are pushed to the repo and made a MR its in review process by hazar 
+
+
+then i had a conflict of branches ina file scan service stack in teh sindh repo so i did not push teh code 
+but today i had a meeting with ali to resolve it io made all teh chamnges and stuff he asked me to do and made a MR and ali approved it 
+and now i have mearged it inteh clamvecode branch as instrusted 
+
+other then taht i was asked by khurrum to run some query on teh prod rds database i did taht 
+
+also there was some buildspes dependencies errors on te DEV, UAT , PROD  frontendpipeline and frontendadminpipeline 
+so i fixes those and runed teh pipeline sussfully 
+
+also i had a conversation whith haza about teh last task i di wher i added teh secret stack in teh nova via project 
+about the approch i used and made a MR for it he approved and merged it himself 
+

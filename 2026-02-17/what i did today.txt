@@ -1,0 +1,27 @@
+deploying the changes made in the lambda cdk sub repo to DEV and UAT in Sindh CMS Project
+
+# Set environment variable for DEV
+export TARGET_ENV=DEV
+
+# Preview changes
+npx cdk diff --profile sindh-project
+
+# Deploy
+npx cdk deploy --profile sindh-project
+
+
+
+# Set environment variable for UAT
+export TARGET_ENV=UAT
+
+# Preview changes
+npx cdk diff --profile sindh-project
+
+# Deploy
+npx cdk deploy --profile sindh-project
+
+
+
+doing 
+$ npx cdk deploy UAT-SqsStack UAT-LambdaStack --profile sindh-project
+$ npx cdk deploy DEV-SqsStack DEV-LambdaStack --profile sindh-project

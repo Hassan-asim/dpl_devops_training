@@ -1,0 +1,13 @@
+today i did teh following tasks 
+
+tryed to make teh pipeline for trh lambda cdk sub repo 
+but madeit using teh aws consol but after a lot of trouble shooting and fixng th errors 
+the pipeline was getting failed at teh deploy stage 
+so at teh end deleted the pipeline and its related resources 
+
+after that attended teh onboarding session 
+
+
+also added the new elevenlab secreat key pair in teh old eleven lab secrets manager 
+
+i also deployen teh lambda stac and sqsstack to update teh changes that were made by khurrum bhai 
