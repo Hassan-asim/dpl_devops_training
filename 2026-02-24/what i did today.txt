@@ -1,0 +1,14 @@
+first i helped afifa in teh nova via project we updating teh secrets values in teh eleven lab secrets in aws secrets manager 
+
+
+
+tehn i 
+
+Helped Khurrum fix the DevFrontendAdminPipeline build stage by updating the buildspec file, adding Node.js 18, and new build commands—now the pipeline works correctly.
+
+applied changes for PROD frontend and backend stacks to use T4g.xlarge ARM64 instances in a separate branch.
+and made teh MR for review 
+
+Running SQL scripts on the PROD RDS database for Khurrum’s changes after approval from Rohhan and confirmation from Ali Imran that it’s safe to execute the queries.
+
+and after that i attended a onboarded session on intro to scrum part 2 

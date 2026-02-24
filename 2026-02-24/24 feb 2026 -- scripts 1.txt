@@ -1,0 +1,1246 @@
+Insert into tbl_sub_menu values (53,4,'Change Complaint Status', true);
+
+Insert into tbl_sub_menu values (54,4, 'Edit Complaint', true);    
+
+------------------------------------------ 1 ---------------------------------------------------
+UPDATE tbl_escalations
+SET query_sql = $$
+    SELECT 
+        c.diary_number          AS ComplainNumber,
+        u.email                 AS Receiver,
+        u.id                    AS UserId
+    FROM tbl_complain c
+    JOIN tbl_user u 
+        ON c.assign_officer_id = u.id
+    WHERE 
+        c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+        AND u.is_active IS TRUE
+        AND c.examination_date < (
+            SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+            FROM generate_series(
+                     (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '21 day',
+                     (NOW() AT TIME ZONE 'UTC')::date,
+                     '1 day'
+                 ) AS d
+            WHERE EXTRACT(ISODOW FROM d) < 6          -- Mon–Fri (ISODOW 1–5)
+            ORDER BY d DESC
+            OFFSET 7                                  -- skip the most recent 7 working days
+            LIMIT 1
+        )
+        AND NOT EXISTS (
+            SELECT 1
+            FROM tbl_complain_investigation_action ia
+            WHERE ia.complain_id = c.id
+              AND ia.is_active IS TRUE
+              AND ia.created_at > c.examination_date
+        )
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM tbl_escalation_logs el
+            WHERE el.complaint_number = c.diary_number
+              AND el.escalation_code   = 'IO_REMINDER_REPORT_NOT_CALLED'
+              AND el.recipient_user_id::text = u.id::text
+              AND DATE(el.execution_date) = CURRENT_DATE
+              AND el.escalation_status = 'sent'
+        )
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM tbl_complain_type ct
+            WHERE ct.id = c.type_of_complaint_id
+              AND ct.name = 'Complaint u/s 33'
+        )
+	AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    LIMIT 10;
+$$
+WHERE escalation_code = 'IO_REMINDER_REPORT_NOT_CALLED'
+;
+
+ 					-------------------------------------------------- 2 ----------------------------------------------------------------- 
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action cia
+        WHERE cia.complain_id = c.id
+          AND cia.is_active IS TRUE
+          AND cia.action_id = 6
+          AND cia.action_type_id = 22
+    )
+    
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.is_active IS TRUE
+          AND ia.issue_to = 'agency'
+          AND ia.created_at < (
+              SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+              FROM generate_series(
+                       (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '21 day',
+                       (NOW() AT TIME ZONE 'UTC')::date,
+                       '1 day'
+                   ) AS d
+              WHERE EXTRACT(ISODOW FROM d) < 6
+              ORDER BY d DESC
+              OFFSET 7
+              LIMIT 1
+          )
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'AGENCY_REPORT_DUE'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'AGENCY_REPORT_DUE';
+
+
+
+					----------------------------------------------------- 3 ---------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action cia
+        WHERE cia.complain_id = c.id
+          AND cia.is_active IS TRUE
+          AND cia.action_id = 6
+          AND cia.action_type_id = 22
+    )
+    
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.is_active IS TRUE
+          AND ia.issue_to = 'agency'
+          AND ia.created_at < (
+              SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+              FROM generate_series(
+                       (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '30 day',
+                       (NOW() AT TIME ZONE 'UTC')::date,
+                       '1 day'
+                   ) AS d
+              WHERE EXTRACT(ISODOW FROM d) < 6
+              ORDER BY d DESC
+              OFFSET 10
+              LIMIT 1
+          )
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'AGENCY_FAILED_SUBMIT_REPORT'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'AGENCY_FAILED_SUBMIT_REPORT';
+
+
+ 			------------------------------------------------------------------------- 4 --------------------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.is_active IS TRUE
+          AND ia.action_id = 6
+          AND ia.action_type_id = 22
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'REJOINDER_PENDING'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'REJOINDER_PENDING_REPORT_NOT_SENT';
+
+
+					----------------------------------------------- 5 -------------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.is_active IS TRUE
+          AND ia.action_type_id = 22
+          AND ia.created_at < (
+              SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+              FROM generate_series(
+                       (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '14 day',
+                       (NOW() AT TIME ZONE 'UTC')::date,
+                       '1 day'
+                   ) AS d
+              WHERE EXTRACT(ISODOW FROM d) < 6
+              ORDER BY d DESC
+              OFFSET 3
+              LIMIT 1
+          )
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.is_active IS TRUE
+          AND ia.action_id = 1
+          AND ia.action_type_id = 3
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'HEARING_NOTICE_REQUIRED'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'HEARING_NOTICE_REQUIRED';
+
+				----------------------------------------------------------------- 6 ---------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.region_id = u.region_id
+   AND u.is_ombudsman = TRUE
+WHERE 
+    c.is_active = TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active = TRUE
+
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.is_active = TRUE
+    )
+
+    AND (
+        SELECT MAX(ia.created_at)
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.is_active = TRUE
+    ) <= (
+        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+        FROM generate_series(
+                (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '30 day',
+                (NOW() AT TIME ZONE 'UTC')::date,
+                '1 day'
+        ) AS d
+        WHERE EXTRACT(ISODOW FROM d) < 6
+        ORDER BY d DESC
+        OFFSET 15
+        LIMIT 1
+    )
+
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.action_id = 6
+          AND ia.action_type_id = 22
+          AND ia.is_active = TRUE
+    )
+
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'OFFICER_DID_NOT_APPEAR'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'OFFICER_DID_NOT_APPEAR';
+
+                              ------------------------------------------------------ 7 -------------------------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    
+    AND EXISTS (
+        SELECT 1
+        FROM public.tbl_complain_decision_draft cd
+        WHERE cd.complain_id = c.id
+          AND cd.status = 'submitted'
+          AND cd.is_active IS TRUE
+          AND cd.created_at < (
+              SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+              FROM generate_series(
+                       (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '21 day',
+                       (NOW() AT TIME ZONE 'UTC')::date,
+                       '1 day'
+                   ) AS d
+              WHERE EXTRACT(ISODOW FROM d) < 6
+              ORDER BY d DESC
+              OFFSET 7
+              LIMIT 1
+          )
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1
+        FROM public.tbl_complain_decision d
+        WHERE d.complain_id = c.id
+          AND d.is_active IS TRUE
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'DRAFT_DECISION_DELAY'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'DRAFT_DECISION_DELAY';
+
+                              ------------------------------------------------------- 8 -------------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active = TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active = TRUE
+
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.is_active = TRUE
+    )
+
+    AND (
+        SELECT MAX(ia.created_at)
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.is_active = TRUE
+    ) <= (
+        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+        FROM generate_series(
+                (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '30 day',
+                (NOW() AT TIME ZONE 'UTC')::date,
+                '1 day'
+        ) AS d
+        WHERE EXTRACT(ISODOW FROM d) < 6
+        ORDER BY d DESC
+        OFFSET 15
+        LIMIT 1
+    )
+
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_investigation_action ia
+        WHERE ia.complain_id = c.id
+          AND ia.issue_to = 'agency'
+          AND ia.action_id = 6
+          AND ia.action_type_id = 22
+          AND ia.is_active = TRUE
+    )
+
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.recipient_user_id::text = u.id::text
+          AND el.escalation_code = 'SUMMON_REQUIRED'
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'SUMMON_REQUIRED';
+
+				---------------------------------------------------------- 9 ---------------------------------------------------------------
+
+UPDATE tbl_escalations
+SET 
+    query_sql = $$
+SELECT 
+    c.diary_number AS ComplainNumber,
+    u.email AS Receiver,
+    u.id AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active = TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active = TRUE
+    AND c.complain_status NOT LIKE '%Disposed Off%'
+    AND c.created_date < (
+        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+        FROM generate_series(
+                 (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '120 day',  -- large enough range
+                 (NOW() AT TIME ZONE 'UTC')::date,
+                 '1 day'
+             ) AS d
+        WHERE EXTRACT(ISODOW FROM d) < 6   -- Monday–Friday only
+        ORDER BY d DESC
+        OFFSET 60                           -- skip 60 working days
+        LIMIT 1
+    )
+	AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+   AND NOT EXISTS (
+        SELECT 1 FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+        AND el.escalation_code = 'CRITICAL_ALERT_NOT_RESOLVED' AND el.recipient_user_id::text = u.id::text
+        AND DATE(el.execution_date) = CURRENT_DATE
+        AND el.escalation_status = 'sent'
+    )
+LIMIT 10;
+$$
+WHERE escalation_code = 'CRITICAL_ALERT_NOT_RESOLVED';
+
+
+----------------------------------------------------------10 ------------------------------------------------------------------
+
+
+UPDATE tbl_escalations
+SET query_sql = $$
+    SELECT 
+	c.diary_number AS ComplainNumber,
+    u.email AS Receiver,
+    u.id AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.region_id = u.region_id
+WHERE  c.examination_date IS NULL and (u.assign_new_or_transferred_cases IS TRUE OR u.is_registrar is true)
+    AND c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+    AND u.is_active IS TRUE
+    AND c.created_date < (
+        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+        FROM generate_series(
+                 (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '14 day',
+                 (NOW() AT TIME ZONE 'UTC')::date,
+                 '1 day'
+             ) AS d
+        WHERE EXTRACT(ISODOW FROM d) < 6   -- Monday–Friday only
+        ORDER BY d DESC
+        OFFSET 3                           -- Skip 3 working days
+        LIMIT 1
+    ) 
+	AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+	AND NOT EXISTS (
+        SELECT 1 FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+        AND el.escalation_code = 'COMPLAINT_NOT_FORWARDED' AND el.recipient_user_id::text = u.id::text
+        AND DATE(el.execution_date) = CURRENT_DATE
+        AND el.escalation_status = 'sent'
+    )
+    LIMIT 10;
+$$
+WHERE escalation_code = 'COMPLAINT_NOT_FORWARDED'
+;
+
+
+--------------------------------------------------- 11 -------------------------------------------------------
+
+
+
+UPDATE tbl_escalations
+SET query_sql = $$
+    
+SELECT 
+    c.diary_number          AS ComplainNumber,
+    u.email                 AS Receiver,
+    u.id                    AS UserId
+FROM tbl_complain c
+JOIN tbl_user u 
+    ON c.assign_officer_id = u.id
+WHERE 
+    c.is_active = TRUE
+    AND u.is_active = TRUE
+    
+    AND c.complain_status NOT LIKE '%Disposed Off%'
+    
+    AND c.created_date < (
+        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+        FROM generate_series(
+                 (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '360 day',
+                 (NOW() AT TIME ZONE 'UTC')::date,
+                 '1 day'
+             ) AS d
+        WHERE EXTRACT(ISODOW FROM d) < 6
+        ORDER BY d DESC
+        OFFSET 180
+        LIMIT 1
+    )
+    
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        JOIN tbl_disposal_reason dr 
+            ON cd.disposal_reason_id = dr.id
+        WHERE cd.complain_id = c.id
+          AND dr.name = 'With Directions'
+    )
+
+    AND NOT EXISTS (
+        SELECT 1 
+        FROM tbl_escalation_logs el
+        WHERE el.complaint_number = c.diary_number
+          AND el.escalation_code = 'IMPLEMENTATION_DELAY'
+          AND el.recipient_user_id::text = u.id::text
+          AND DATE(el.execution_date) = CURRENT_DATE
+          AND el.escalation_status = 'sent'
+    )
+
+LIMIT 10;
+$$
+WHERE escalation_code = 'IMPLEMENTATION_DELAY'
+;
+
+
+
+--------------------------------------Update Query Complete Copy and Execute --------------------------------
+
+
+UPDATE tbl_report_queries
+SET query_sql = q.updated_query
+FROM (
+    VALUES (
+        $$SELECT 
+    r.id AS regionalOfficeId,
+    r.region AS regionalOffice,
+    
+    -- 1. COMPLAINT_NOT_FORWARDED
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.region_id = u.region_id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.examination_date IS NULL 
+            AND (u.assign_new_or_transferred_cases IS TRUE OR u.is_registrar IS TRUE)
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND c.created_date IS NOT NULL
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND c.created_date < (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '10 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 3
+                LIMIT 1
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+
+    ) AS examinationDelayComplaintIds,
+    
+    -- 2. IO_REMINDER_REPORT_NOT_CALLED
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND c.examination_date IS NOT NULL
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND c.examination_date < (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '12 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 7
+                LIMIT 1
+            )
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+            AND NOT EXISTS (
+                SELECT 1
+                FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                  AND ia.is_active IS TRUE
+                  AND ia.created_at > c.examination_date
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS reportNotCalledComplaintIds,
+    
+    -- 3. AGENCY_REPORT_DUE
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND NOT EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action cia
+                WHERE cia.complain_id = c.id
+                    AND cia.is_active IS TRUE
+                    AND cia.action_id = 6
+                    AND cia.action_type_id = 22
+            )
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+            AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.is_active IS TRUE 
+                    AND ia.issue_to = 'agency'
+                    AND ia.created_at IS NOT NULL
+                    AND ia.created_at < (
+                        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                        FROM generate_series(
+                            (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '12 day',
+                            (NOW() AT TIME ZONE 'UTC')::date,
+                            '1 day'
+                        ) AS d
+                        WHERE EXTRACT(ISODOW FROM d) < 6
+                        ORDER BY d DESC
+                        OFFSET 7
+                        LIMIT 1
+                    )
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS agencyReportDueComplaintIds,
+    
+    -- 4. AGENCY_FAILED_SUBMIT_REPORT
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND NOT EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action cia
+                WHERE cia.complain_id = c.id
+                    AND cia.is_active IS TRUE
+                    AND cia.action_id = 6
+                    AND cia.action_type_id = 22
+            )
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+            AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.is_active IS TRUE 
+                    AND ia.issue_to = 'agency'
+                    AND ia.created_at IS NOT NULL
+                    AND ia.created_at < (
+                        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                        FROM generate_series(
+                            (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '15 day',
+                            (NOW() AT TIME ZONE 'UTC')::date,
+                            '1 day'
+                        ) AS d
+                        WHERE EXTRACT(ISODOW FROM d) < 6
+                        ORDER BY d DESC
+                        OFFSET 10
+                        LIMIT 1
+                    )
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS noticeNotIssuedComplaintIds,
+    
+    -- 5. REJOINDER_PENDING_REPORT_NOT_SENT
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+             AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+            )
+             AND NOT EXISTS (
+              SELECT 1 FROM tbl_complain_investigation_action iaa
+                WHERE iaa.complain_id = c.id
+                    AND iaa.is_active IS TRUE 
+                    AND iaa.action_id = 1 
+                    AND iaa.action_type_id = 10
+         )
+		AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.is_active IS TRUE 
+                    AND ia.action_id = 6 
+                    AND ia.action_type_id = 22
+                    AND ia.created_at IS NOT NULL
+                    AND ia.created_at < (
+                        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                        FROM generate_series(
+                            (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '12 day',
+                            (NOW() AT TIME ZONE 'UTC')::date,
+                            '1 day'
+                        ) AS d
+                        WHERE EXTRACT(ISODOW FROM d) < 6
+                        ORDER BY d DESC
+                        OFFSET 7
+                        LIMIT 1
+                    )
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS rejoinderNotIssuedComplaintIds,
+    
+    -- 6. HEARING_NOTICE_REQUIRED
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+             AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+			AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.is_active IS TRUE 
+                    AND ia.action_type_id = 22
+                    AND ia.created_at IS NOT NULL
+                    AND ia.created_at < (
+                        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                        FROM generate_series(
+                            (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '10 day',
+                            (NOW() AT TIME ZONE 'UTC')::date,
+                            '1 day'
+                        ) AS d
+                        WHERE EXTRACT(ISODOW FROM d) < 6
+                        ORDER BY d DESC
+                        OFFSET 3
+                        LIMIT 1
+                    )
+            )
+            AND NOT EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.is_active IS TRUE 
+                    AND ia.action_id = 1 
+                    AND ia.action_type_id = 3
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS hearingNoticeRequiredComplaintIds,
+    
+    -- 7. OFFICER_DID_NOT_APPEAR
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.region_id = u.region_id AND u.is_ombudsman IS TRUE
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+                    AND ia.is_active IS TRUE
+            )
+            AND (
+                SELECT MAX(ia.created_at)
+                FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+            ) IS NOT NULL
+            AND (
+                SELECT MAX(ia.created_at)
+                FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+            ) <= (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '22 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 15
+                LIMIT 1
+            )
+             AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+			AND NOT EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+                    AND ia.action_id = 6
+                    AND ia.action_type_id = 22
+                    AND ia.is_active IS TRUE
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS escalationOfficerComplaintIds,
+    
+    -- 8. CRITICAL_ALERT_NOT_RESOLVED
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND c.created_date IS NOT NULL
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND c.created_date < (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '90 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 60
+                LIMIT 1
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS criticalAlertComplaintIds,
+    
+    -- 9. DRAFT_DECISION_DELAY
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND EXISTS (
+                SELECT 1 FROM public.tbl_complain_decision_draft cd
+                WHERE cd.status = 'submitted' 
+                    AND cd.is_active IS TRUE 
+                    AND cd.complain_id = c.id 
+                    AND cd.created_at IS NOT NULL
+                    AND cd.created_at < (
+                        SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                        FROM generate_series(
+                            (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '12 day',
+                            (NOW() AT TIME ZONE 'UTC')::date,
+                            '1 day'
+                        ) AS d
+                        WHERE EXTRACT(ISODOW FROM d) < 6
+                        ORDER BY d DESC
+                        OFFSET 7
+                        LIMIT 1
+                    )
+            )
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+            AND NOT EXISTS (
+                SELECT 1 FROM public.tbl_complain_decision d
+                WHERE d.is_active IS TRUE 
+                    AND d.complain_id = c.id
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS draftDecisionDelayComplaintIds,
+    
+    -- 10. IMPLEMENTATION_DELAY
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE
+            AND u.is_active IS TRUE
+            AND c.created_date IS NOT NULL
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND c.created_date < (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '260 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 180
+                LIMIT 1
+            )
+            AND EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        JOIN tbl_disposal_reason dr 
+            ON cd.disposal_reason_id = dr.id
+        WHERE cd.complain_id = c.id
+          AND dr.name = 'With Directions'
+    )
+
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+    ) AS implementationDelayComplaintIds,
+    
+    -- 11. SUMMON_REQUIRED
+    (
+        SELECT ARRAY_AGG(DISTINCT c.id ORDER BY c.id) FILTER (WHERE c.id IS NOT NULL)
+        FROM tbl_complain c
+        JOIN tbl_user u ON c.assign_officer_id = u.id
+        WHERE c.region_id = r.id
+            AND c.id IS NOT NULL
+            AND c.is_active IS TRUE  AND c.complain_status <> 'Disposed Off (Non-Admissible)'
+            AND u.is_active IS TRUE
+            AND (c.complain_status IS NULL OR c.complain_status NOT IN ('Disposed Off (Implementation completed)', 'Disposed Off (Non-Admissible)', 'Disposed Off (Closed)', 'Disposed Off (Rejected)', 'Disposed Off (Relief Provided)', 'Closed (Rejected by Ombudsman)'))
+            AND EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+                    AND ia.is_active IS TRUE
+            )
+            AND (
+                SELECT MAX(ia.created_at)
+                FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+            ) IS NOT NULL
+            AND (
+                SELECT MAX(ia.created_at)
+                FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+            ) <= (
+                SELECT (d::date + TIME '00:00') AT TIME ZONE 'UTC'
+                FROM generate_series(
+                    (NOW() AT TIME ZONE 'UTC')::date - INTERVAL '22 day',
+                    (NOW() AT TIME ZONE 'UTC')::date,
+                    '1 day'
+                ) AS d
+                WHERE EXTRACT(ISODOW FROM d) < 6
+                ORDER BY d DESC
+                OFFSET 15
+                LIMIT 1
+            )
+			 AND NOT EXISTS (
+        SELECT 1 FROM tbl_complain_type ct
+        WHERE ct.id = c.type_of_complaint_id
+          AND ct.name = 'Complaint u/s 33'
+    )
+            AND NOT EXISTS (
+                SELECT 1 FROM tbl_complain_investigation_action ia
+                WHERE ia.complain_id = c.id
+                    AND ia.issue_to = 'agency'
+                    AND ia.action_id = 6
+                    AND ia.action_type_id = 22
+                    AND ia.is_active IS TRUE
+            )
+			AND NOT EXISTS (
+        SELECT 1
+        FROM tbl_complain_disposal cd
+        WHERE cd.complain_id = c.id
+          AND cd.is_Active is true
+    )
+    ) AS summonRequiredComplaintIds
+
+FROM tbl_region r
+WHERE r.is_active = TRUE
+ORDER BY r.region;$$
+    )
+) AS q(updated_query)
+WHERE tbl_report_queries.entity_type = 'ESCALATION'
+  AND tbl_report_queries.query_name   = 'REGIONAL_ESCALATION_REPORT';
+
+

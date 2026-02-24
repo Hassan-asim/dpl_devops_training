@@ -1,0 +1,27 @@
+Summary of Work – 23rd February 2026
+
+UAT Stack Migration to T4g.medium (ARM64)
+
+Updated FrontendStackUat and BackendStackUat to use T4g.medium instances.
+
+Verified changes with cdk diff to ensure only the intended differences were applied.
+
+Resolved AWS CDK deployment issues related to UserData and launch templates.
+
+Successfully deployed both UAT stacks to AWS using CDK.
+
+Git & Merge Tasks
+
+Created and worked on the branch feature/uat-t4g-medium-migration.
+
+Pulled the latest main branch and resolved merge conflicts in package-lock.json locally.
+
+Committed the resolved changes and prepared the branch for MR into main.
+
+Assisted Khurrum with Dev Frontend Admin Pipeline
+
+Helped resolve the build stage failure.
+
+Updated the buildspec.yml file with a newer version of Node.js and updated build commands.
+
+Verified the pipeline now builds successfully.
