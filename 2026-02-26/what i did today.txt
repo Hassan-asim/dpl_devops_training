@@ -1,0 +1,18 @@
+i started the coruse hazar bhai gave me https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/d28d64dd-cbb1-45ed-83c4-e8d4b0b0d08b/lesson/191587ad-e9a2-4892-acb5-528a6d38034c
+and 
+i did changes hazar asked for in teh Prod RDS stack to change the ec2 family from t4g large to t4g xlarge 
+During cdk diff, AWS indicated that changing the MultiAZ configuration may cause the DB instance to be replaced. To avoid any risk of unintended replacement, downtime, or endpoint change in this deployment, the MultiAZ configuration has been left unchanged (MultiAZ: true).
+Stack ProdRDSDatabaseStack
+Resources
+[] AWS::RDS::DBInstance prod-postgres-instance prodpostgresinstance3C2EBB85 may be replaced
+├─ [] DBInstanceClass
+│   ├─ [-] db.t4g.large
+│   └─ [+] db.t4g.xlarge
+└─ [~] MultiAZ (may cause replacement)
+
+after that i had a meeting for the cheackpoint feedback with muneeb so i prepaered for that
+
+
+
+
+

@@ -1,0 +1,11 @@
+i started the coruse hazar bhai gave me https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/d28d64dd-cbb1-45ed-83c4-e8d4b0b0d08b/lesson/191587ad-e9a2-4892-acb5-528a6d38034c
+and 
+after that i had a meeting for teh cheackpoint feedback with muneeb so i prepaered for that(got pospond to tommorow)
+
+after that i had an onboarding session  on how to minepulate people 
+
+and after that i dployed teh prod frontendand backend stack with teh changes i did yesterday 
+
+and colabed with salman for testing teh prod env 
+
+
