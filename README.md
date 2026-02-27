@@ -13,6 +13,7 @@ This repository now tracks my DevOps practice in **date-wise folders** so you ca
 
 | Date       | Highlights                                                          |
 |------------|---------------------------------------------------------------------|
+| 2026-02-27 | **Prod DB updates & notif deployment:** Executed approved Production RDS record updates; deployed Lambda+SQS notification stacks in PROD; consulted on RDS Multi-AZ replacement risk while upgrading to t4g.xlarge; continued KodeKloud AWS beginner training. |
 | 2026-02-26 | **PROD RDS Scaling & Checkpoint Feedback:** Scaled PROD RDS instance from t4g.large to t4g.xlarge; managed CDK deployment risks to avoid DB replacement/downtime; completed checkpoint feedback meeting with Muneeb; continued KodeKloud AWS hands-on training. |
 | 2026-02-25 | **PROD ARM64 Deployment & AWS Training:** Deployed PROD frontend/backend stacks with T4g ARM64 architecture; collaborated with Salman for production environment testing; initiated KodeKloud AWS Beginners course; prepared for checkpoint feedback session; attended communication onboarding session. |
 | 2026-02-24 | **Novavia Secrets, PROD ARM64 Migration & Scrum Training:** Updated Eleven Labs secrets in AWS Secrets Manager (Novavia); finalized Dev Frontend Admin Pipeline buildspec fixes; prepared PROD migration to T4g.xlarge ARM64 (MR pending); executed approved SQL scripts on Production RDS; completed Part 2 of Scrum onboarding. |
