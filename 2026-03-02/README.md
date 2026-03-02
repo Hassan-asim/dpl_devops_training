@@ -1,4 +1,3 @@
-```markdown
 <h1 align="center">dpl_devops_training</h1>
 
 <h3 align="center" style="color:#007bff;">Daily Report • AWS Training, Dev Troubleshooting & Environment Setup — 2026-03-02</h3>
@@ -83,5 +82,3 @@ Continued the KodeKloud AWS for Beginners training course. Investigated and reso
 
 **Author:** Sufi Hassan Asim  
 **Date:** 2026-03-02
-
-```
