@@ -1,0 +1,159 @@
+i watched a part of the coruse hazar bhai gave me https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/d28d64dd-cbb1-45ed-83c4-e8d4b0b0d08b/lesson/191587ad-e9a2-4892-acb5-528a6d38034c
+and 
+
+then investigated the bad gateway error the dev was facing on teh admin website for teh dev env 
+
+all the findings and tehir solution s=was shaiered with hazar 
+then he applied teh solution and teh error was fixed
+
+
+after that 
+
+salman asked 
+"We need to take a DB/Files backup, considering the situation our application being in public domain could be a target. You guys can suggest if we need to implement any security measures against DDoS or any such threats. 
+ 
+Sufi Hassan Asim"
+
+so i looked into teh security details and settings and told him the fillowing 
+
+Prod RDS (prod-postgres-instance) is secure:
+SSL is enabled (sslmode=verify-full) and connections are encrypted.
+Storage encryption is active (storageEncrypted: true).
+Security groups restrict access to only the application EC2 instances.
+The DB is not publicly accessible.
+We can, however, take a snapshot for backup.
+ 
+what do you suggest,  Hazar Hayat
+
+
+after that i attended teh onboarding session OD Career Growth - Onboarding Session By Muhammad Muneeb
+
+
+after taht 
+
+COMPLETE SUMMARY - ENVIRONMENT VARIABLES SETUP
+THE TASK
+Objective: Add 3 new AWS Lambda function name environment variables to the ASP.NET Core backend for DEV, UAT, and PROD environments.
+
+The variables are used by the developer to call AWS Lambda functions for AI operations.
+
+WHAT YOU DID TODAY (DEV COMPLETED)
+1. CODE CHANGES
+Modified file: start_server.sh
+
+Added these 3 lines to the env command in the nohup section:
+AI_EXAMINATION_FUNCTION_NAME=$AI_EXAMINATION_FUNCTION_NAME
+TEXT_REFINE_FUNCTION_NAME=$TEXT_REFINE_FUNCTION_NAME
+DRAFT_GENERATION_FUNCTION_NAME=$DRAFT_GENERATION_FUNCTION_NAME \
+
+2. DEV BACKEND SETUP - COMPLETED
+Connected to DEV backend EC2 via AWS Console > EC2 Instance Connect.
+
+Ran 3 commands to add variables to /etc/environment:
+
+sudo bash -c 'echo "AI_EXAMINATION_FUNCTION_NAME=AIFunction-dev" >> /etc/environment'
+sudo bash -c 'echo "TEXT_REFINE_FUNCTION_NAME=TextRefineFunction-dev" >> /etc/environment'
+sudo bash -c 'echo "DRAFT_GENERATION_FUNCTION_NAME=DraftGenerationFunction-dev" >> /etc/environment'
+
+Verified the variables were added by running:
+
+cat /etc/environment
+
+All 3 variables appeared in the output with correct values. Status: READY FOR USE
+
+HOW THE ENVIRONMENT VARIABLES WORK
+The Flow:
+
+/etc/environment (on EC2 server)
+|
+| source /etc/environment (in start_server.sh)
+|
+| nohup env VAR1=$VAR1 VAR2=$VAR2 (passes to dotnet)
+|
+| Program.cs loads builder.Configuration
+|
+| Services inject IConfiguration
+|
+| Developer accesses via config["VARIABLE_NAME"]
+
+Access Methods Available to Developer:
+
+METHOD 1 (RECOMMENDED):
+constructor(IConfiguration config)
+{
+var aiFunctionName = config["AI_EXAMINATION_FUNCTION_NAME"];
+}
+
+METHOD 2:
+var aiFunctionName = Environment.GetEnvironmentVariable("AI_EXAMINATION_FUNCTION_NAME");
+
+EXISTING VARIABLES ALREADY IN PLACE
+ASPNETCORE_ENVIRONMENT - Dev/UAT/Prod flag
+COGNITO_USER_POOL_ID - AWS Cognito user pool
+AWS_REGION - AWS region (us-west-2)
+DB_SECRET_NAME - Database credentials secret
+COGNITO_CLIENT_ID - Cognito client ID
+FILE_UPLOAD_BUCKET_NAME - S3 bucket for file uploads
+NOTIFICATION_QUEUE_URL - SQS queue for notifications
+
+NEW VARIABLES ADDED TODAY:
+AI_EXAMINATION_FUNCTION_NAME - Lambda function for AI examination
+TEXT_REFINE_FUNCTION_NAME - Lambda function for text refinement
+DRAFT_GENERATION_FUNCTION_NAME - Lambda function for draft generation
+
+NEXT STEPS FOR UAT AND PROD (TOMORROW)
+FOR UAT BACKEND:
+Open AWS Console
+Go to EC2 > Instances
+Find and select the UAT backend instance
+Click the "Connect" button
+In the browser terminal, run:
+sudo bash -c 'echo "AI_EXAMINATION_FUNCTION_NAME=AIFunction-uat" >> /etc/environment'
+sudo bash -c 'echo "TEXT_REFINE_FUNCTION_NAME=TextRefineFunction-uat" >> /etc/environment'
+sudo bash -c 'echo "DRAFT_GENERATION_FUNCTION_NAME=DraftGenerationFunction-uat" >> /etc/environment'
+
+Verify by running:
+cat /etc/environment
+
+Look for the 3 new variables at the bottom of the output
+FOR PROD BACKEND:
+Open AWS Console
+Go to EC2 > Instances
+Find and select the PROD backend instance
+Click the "Connect" button
+In the browser terminal, run:
+sudo bash -c 'echo "AI_EXAMINATION_FUNCTION_NAME=AIFunction-prod" >> /etc/environment'
+sudo bash -c 'echo "TEXT_REFINE_FUNCTION_NAME=TextRefineFunction-prod" >> /etc/environment'
+sudo bash -c 'echo "DRAFT_GENERATION_FUNCTION_NAME=DraftGenerationFunction-prod" >> /etc/environment'
+
+Verify by running:
+cat /etc/environment
+
+Look for the 3 new variables at the bottom of the output
+STATUS SUMMARY
+DEV Backend - COMPLETED on March 2, 2026
+UAT Backend - TODO for March 3, 2026
+PROD Backend - TODO for March 3, 2026
+
+TIPS FOR TOMORROW
+No restart needed for the variables to be available
+Take a screenshot before editing PROD (as backup)
+Always verify after each step by running: cat /etc/environment
+Same process for UAT and PROD - just different variable values
+Each environment gets its own function names (-dev, -uat, -prod)
+DEVELOPER COMMUNICATION
+Already prepared message for the developer with:
+
+How to access the variables in C# code
+Example Lambda service code
+Testing instructions
+Developer can start coding now using the DEV environment variables.
+
+IMPORTANT NOTE
+The same start_server.sh file works for all 3 environments (DEV, UAT, PROD).
+
+The difference is only in the VALUES stored in /etc/environment on each EC2 instance.
+
+
+
+
