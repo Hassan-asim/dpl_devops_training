@@ -1,0 +1,21 @@
+i watched a part of the coruse hazar bhai gave me https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/d28d64dd-cbb1-45ed-83c4-e8d4b0b0d08b/lesson/191587ad-e9a2-4892-acb5-528a6d38034c
+and 
+
+after that i was asked to investigate teh admin frontend deployment error that has been arised in teh sindh project 
+which i successfully dignosed and reported my finding in teh group and to hazar 
+tehn collabed with hazar to fix teh error 
+and tehn retried teh deploy stage in te pipeline but tehn a new error was arised 
+teh script fix_permission.sh was no where to be found ,a nd tehn hazar said he will do teh eoor fix himself 
+khurrum asked me to add teh new 3 variables and tehre values in teh aws so he can use them in code so i made teh changes in teh cicd sub repo and 
+
+
+i also made teh mr to add teh new env variables in teh backend ec2 (DEV , UAT , PROD) and have hazar reviewed it 
+
+but after the review he determined taht we dont need to add tehm usingteh env variables 
+and asked me to convay to teh devs taht since tehre valued will never change tehy must handled teh variables in te CODE
+
+after that Afifa asked me to update teh value of teh evelen lab web hook secrets 
+which i got teh approvel from hazar and tehn did teh update and notify afifa 
+
+
+after that i attended teh rabel speaker session 
