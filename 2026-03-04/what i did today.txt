@@ -1,0 +1,162 @@
+i was asked to look into an issue Afifa was having withteh access to teh media cdn private key 
+so forst i updated teh weabhook in teh secrets manager after that i varifiued teh private key 
+and tolde her the key is working 
+
+but after that she said she was having the issue with the signed cookies they were getting rejected 
+so i investigated and found out taht she was fetching teh private key as a secret string but teh private key was saved as a binarysecrets so after telling her to use the key as a binaresecret and decode it using base64 decoder and then try to generate teh signed cookies 
+
+after  that i also varified teh process useing teh aws consol cloud shell i first fetched teh key and decoded it and tested it 
+bash command to validate teh solution on myt end 
+
+aws secretsmanager get-secret-value \
+    --secret-id dev-media-cdn-private-key \
+    --query SecretBinary \
+    --output text | base64 --decode > /tmp/private_key.pem
+
+ls -l /tmp/private_key.pem
+openssl rsa -in /tmp/private_key.pem -check -noout
+
+python3 - <<EOF
+import base64, datetime, json
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+
+# Parameters
+key_pair_id = "KBVCZWF5LVCT2"
+private_key_file = "/tmp/private_key.pem"
+url = "https://d2g8ipkslr9kml.cloudfront.net/*"
+expire = int((datetime.datetime.utcnow() + datetime.timedelta(minutes=10)).timestamp())
+
+# Load private key
+with open(private_key_file, "rb") as f:
+    private_key = serialization.load_pem_private_key(f.read(), password=None)
+
+# Create policy
+policy = {
+    "Statement": [
+        {
+            "Resource": url,
+            "Condition": {
+                "DateLessThan": {"AWS:EpochTime": expire}
+            }
+        }
+    ]
+}
+policy_json = json.dumps(policy).replace(" ", "")
+
+# Sign policy
+signature = base64.b64encode(
+    private_key.sign(
+        policy_json.encode(),
+        padding.PKCS1v15(),
+        hashes.SHA1()
+    )
+).decode()
+
+# Output cookies
+print("CloudFront-Policy=" + base64.b64encode(policy_json.encode()).decode() + ";")
+print("CloudFront-Signature=" + signature + ";")
+print("CloudFront-Key-Pair-Id=" + key_pair_id + ";")
+EOF
+
+curl -v \
+  -H "Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMmc4aXBrc2xyOWttbC5jbG91ZGZyb250Lm5ldC8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzcyNjE3ODYxfX19XX0=; CloudFront-Signature=SgZgfzUkNumCN/FtSSwPU2QHfATrSW/MUS936mH4K+ttdFcQbeoJx3SGSNva9QctEBUMGB146HkbBravBqpM+nAZ7yiSBfb1qqPP1a7ydY3HGsU2ZhYPD0AoXsDFf3Gw3RN+SE/Op4w7fgwhZRpgvScXxSIVWm/wPTscF6nHQQjGN8nTx/+nqA1H+SikBua8weVpVFuai6Hj7wo73sVq3vLbfZ37wJV7Hm2t8FSUeQFodJN7HSuJvtN9y/wHM48+Oe0FToxVYuhdd1jo43ZxEOvmWe0CVmJY13XY1s9AG4Ag5NzlEIFS90ldCmFrP/JqcrFwdSmwhzVszD3EQbf2+w==; CloudFront-Key-Pair-Id=KBVCZWF5LVCT2;" \
+  https://d2g8ipkslr9kml.cloudfront.net/hls/1/output.m3u8
+
+
+HTTP/2 200
+content-type: application/vnd.apple.mpegurl
+server: AmazonS3
+x-cache: Miss from cloudfront
+
+That means:
+
+✅ CloudFront accepted your signed cookies
+
+✅ Signature + policy are valid
+
+✅ Key Pair ID matches a trusted key group
+
+✅ Policy is not expired
+
+✅ Resource path matches the policy
+
+✅ CloudFront successfully fetched from S3
+
+
+after that i told afifa teat it works on my end and if she fetches teh private key and decode it first before generatingteh signed cookies it should work for her as Oe0FToxVYuhdd1jo43ZxEOvmWe0CVmJY13XY1s9AG4Ag5NzlEIFS90ldCmFrP
+
+teh above was for teh Nova life project 
+and teh below is for teh sindh project 
+
+
+
+and after that i asked hazar how he solved the issue for teh deploystage error
+he told me to see teh gitlab changes he did to see what he did 
+and learn how 
+
+the below were teh changes he did in order to extend teh disk space as it was full disk space that ws giving teh error 
+extend disk space
+ parent 0ac595d4
+ Branches 
+main
+ No related tags found
+ No related merge requests found
+Changes
+2
+Showing 
+ with 18 additions and 0 deletions
+  source/cdk/stacks/Backend/BackendStack.ts 
++
+9
+−
+0
+@@ -145,6 +145,15 @@ export class BackendStack extends cdk.Stack {	@@ -145,6 +145,15 @@ export class BackendStack extends cdk.Stack {
+				role: ec2Role,
+				role: ec2Role,
+				securityGroup: ec2Sg,
+				securityGroup: ec2Sg,
+				userData,
+				userData,
+				blockDevices: [
+					{
+						deviceName: '/dev/xvda',
+						volume: ec2.BlockDeviceVolume.ebs(30, {
+							volumeType: ec2.EbsDeviceVolumeType.GP3,
+							encrypted: true,
+						}),
+					},
+				],
+			}
+			}
+		);
+		);
+
+
+  source/cdk/stacks/Frontend/FrontEndStack.ts 
++
+9
+−
+0
+@@ -107,6 +107,15 @@ export class FrontendStack extends cdk.Stack {	@@ -107,6 +107,15 @@ export class FrontendStack extends cdk.Stack {
+				role: ec2Role,
+				role: ec2Role,
+				securityGroup: ec2Sg,
+				securityGroup: ec2Sg,
+				userData,
+				userData,
+				blockDevices: [
+					{
+						deviceName: '/dev/xvda',
+						volume: ec2.BlockDeviceVolume.ebs(30, {
+							volumeType: ec2.EbsDeviceVolumeType.GP3,
+							encrypted: true,
+						}),
+					},
+				],
+			}
+			}
+		);
+		);
+
+

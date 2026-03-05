@@ -1,0 +1,21 @@
+first i viewed and monitered teh sindh project aqws consol and pipeline , ec2, stacks , ecs, alb, target group 
+cloudformation , cloud front etc 
+just to see everything is running an sis healthy 
+
+after taht i sent a msg to hazar asking if he wants me to do any task for today 
+
+and pro ceded to watch teh https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/68a80d2a-9ede-43f1-a18e-84e7efe89dc6/lesson/db3e7619-10f1-41f3-8ee2-7dda8c05fcff
+that was sent to me 
+
+i also looked into how to trouble shoot issues in teh aws consol (its still in teh bigenner stage )
+and also how to use cloud watch and cloud trail to monitor and log the aws resources and services(also was my first time learning this )
+
+tehn i colabed with abu rehan 
+and helpd and learned with him on how to setup teh taraform 
+the taraform init , plan , apply 
+
+after that hazar gave me a task to make a demo for afifa so she can easyly apply teh signed cookies issuew 
+
+other then that i also had a idea sharing meeting disscussion with m. daniyal to disscuss the new feature he is working on and come up with a new approch frp teh flow 
+
+tehn i attended teh onbpoarding session on DPL Marketing Strategy - Onboarding Session By Shahrukh Satti
