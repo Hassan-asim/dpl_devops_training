@@ -1,0 +1,32 @@
+first i viewed and monitered teh sindh project aqws consol and pipeline , ec2, stacks , ecs, alb, target group 
+cloudformation , cloud front etc 
+just to see everything is running an sis healthy 
+
+then later  khurrum deployed some changes on teh dev frontend and teh deploy stage failed and he asked me and haraz to investigate and fix teh issue 
+
+so i investigated the issue and found out teh teh after install in getting timeout but there is no critical error 
+tehn i shared my finding with hazar and the group
+tehn hazar asked me to change teh timeout from 300 to 600 
+
+which i did but i made a mistake and axcidently did teh changes in teh backend sub repo 
+and noyt in teh frontend repo taht was getting teh error 
+
+teh hazar pointed that out 
+so i deleted teh mr 
+and hazar too care of teh changes in teh frontend repo 
+and thr pipeline was trigered successfully 
+
+other tehn that 
+i ran a script sent by khurrum and approved by rohhan on the UAT database 
+
+after it ran successfully tehn i was asked to run teh same script on PROD which was also approved by rohhan 
+
+
+
+after taht i sent a msg to hazar asking if he wants me to do any task for today 
+
+and proceded to watch teh https://learn.kodekloud.com/user/courses/aws-for-beginners-with-hands-on-labs/module/68a80d2a-9ede-43f1-a18e-84e7efe89dc6/lesson/db3e7619-10f1-41f3-8ee2-7dda8c05fcff
+that was sent to me 
+
+i also looked into how to trouble shoot issues in teh aws consol (its still in teh bigenner stage )
+and also how to use cloud watch and cloud trail to monitor and log the aws resources and services(also was my first time learning this )
