@@ -1,0 +1,16 @@
+first i viewed and monitered teh sindh project aqws consol and pipeline , ec2, stacks , ecs, alb, target group 
+cloudformation , cloud front etc 
+just to see everything is running as is healthy 
+
+then khurerum had a deployment faliour which i investigsateed aznd fou d out that itwas due to the disk space being nearly full
+so i made teh reprot ad send it in th grou and to hazar aswell 
+i also addied teh same ec2 diskn space increment code in  teh UAT env which was giving teh rrror 
+the same code hazzar added in teh dev envc when it was having teh same issue 
+
+and made a mr and sent it to hazxazr aswell 
+
+afterthat i monitered teh pipelien 
+ahzar did not merge my code but fixed teh error somehow 
+aqfter taht i tried learning from various sourcesbhole to troubleshoot teh errors in teh codedeploy and pilelline i have alittle bit better understanding of it now 
+
+
