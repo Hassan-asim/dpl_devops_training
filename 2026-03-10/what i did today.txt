@@ -1,0 +1,9 @@
+first i viewed and monitered teh sindh project aqws consol and pipeline , ec2, stacks , ecs, alb, target group 
+cloudformation , cloud front etc 
+
+just to see everything is running as is healthy 
+
+
+and fter taht i tried learning from various sourcesbhole to troubleshoot teh errors in teh codedeploy and pilelline i have alittle bit better understanding of it now 
+
+then i prePARED FOR TEH REBAL SPEAKER session but at time of teh session it got canceled so i procedded to learn teh trobleshooting in aws 
