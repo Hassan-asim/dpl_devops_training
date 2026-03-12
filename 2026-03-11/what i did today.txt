@@ -1,0 +1,105 @@
+first i started a troubleshoot course 
+https://skillbuilder.aws/renderer/?module_id=AS76YCA638%3A001.000.000&product_id=BEMA4TNCQ7%3A001.000.000&registration_id=8c1e2648-b430-59d7-9e88-b3b6b71eba3e&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FWWAETUHGU3%2Famazon-elastic-block-store--troubleshooting%2FBEMA4TNCQ7&navigation=digital
+
+then asked hazar if there is any task he wanted me to do so he gave me the following first 
+can you research this how we can integrate into our gitlab pipelines https://claude.com/blog/code-review
+Code Review for Claude Code | Claude
+Claude Code now dispatches a team of agents on every PR to catch bugs that skims miss. Available in research preview for Team and Enterprise.
+ 
+
+ which i reserched 
+ the below is teh readme content oif teh demo reserch  i did 
+ # Claude Review Demo - Research & Development
+
+## Overview
+This repository is a **research and prototype project** for integrating **Claude AI** (Anthropic) into a GitLab CI/CD workflow. The goal was to **explore and understand automated AI-based code reviews** in a merge request pipeline.
+
+> ⚠️ This is a **demo/research project**. Full API execution requires Anthropic credits, which are not available in this environment.
+
+---
+
+## Research Goals
+- Understand how Claude AI can perform automated code review.
+- Explore GitLab CI/CD pipelines and runners for AI integration.
+- Investigate environment variables and secrets management for API keys.
+- Test the feasibility of automated review jobs in a merge-request workflow.
+
+---
+
+## Repository Structure
+claude-review-demo/
+├─ claude_review.py # Python script to call Claude API for reviews
+├─ .gitlab-ci.yml # GitLab CI/CD configuration
+├─ README.md # Project documentation (this file)
+└─ ... # Other files used for testing/demo
+
+
+---
+
+## CI/CD Setup & Pipeline
+
+- **Runner:** `Claude AI Review Runner` (shell runner on Windows)
+- **Pipeline Stage:** `review`
+- **Job Steps:**
+  1. Upgrade pip and install `anthropic`.
+  2. Fetch latest code from `main`.
+  3. Execute `claude_review.py` for AI code review.
+- **Trigger:** Only runs for merge requests (`$CI_PIPELINE_SOURCE == "merge_request_event"`).
+- **Environment Variables:**
+  - `ANTHROPIC_API_KEY` stored as a **protected & masked** GitLab CI/CD variable.
+
+---
+
+## Testing & Demo Actions
+
+1. Registered a **GitLab shell runner** on Windows.
+2. Installed dependencies and verified PowerShell (`pwsh`) availability.
+3. Committed and pushed `.gitlab-ci.yml` and `claude_review.py`.
+4. Triggered merge request pipelines to see job execution.
+5. Ran `claude_review.py` locally to test API calls and confirm environment setup.
+6. Observed pipeline behavior:
+   - Dependencies installed successfully.
+   - Git fetch/checkout works.
+   - Jobs fail if `ANTHROPIC_API_KEY` is missing or API credits are zero.
+
+---
+
+## Observations & Limitations
+
+- **API Access:** CI/CD jobs fail with:Your credit balance is too low to access the Anthropic API.
+
+- **Model Deprecation:** `claude-3-7-sonnet-latest` triggers a deprecation warning.
+- **Runner Issues:** Initial shell runner failed due to missing PowerShell (`pwsh`), resolved by installing and adding to PATH.
+- **Local vs CI/CD:** Full AI review requires a valid API key and credits; currently the pipeline can only simulate the workflow.
+
+---
+
+## Summary
+
+This project demonstrates a **research-driven approach** to integrating AI review in CI/CD. While actual API calls cannot run due to credit limitations, the pipelines, runner configuration, and testing scripts validate the workflow logic and provide a solid foundation for future implementation.
+
+> This README, along with the repository, serves as a **research report and demo documentation**.
+
+
+after that hazar also assigned me a new task 
+portal-dev.novalifeapp.com
+
+api-dev.novalifeapp.com
+
+video-cdn-dev.novalifeapp.com
+ 
+Follow this implemenatoin: https://gitlab.dplit.com/rahber-crm/cicd
+Do work in:  https://gitlab.dplit.com/nova-via/cicd  
+ 
+Task.
+Provision wildcard corticates : domain = novalifeapp.com
+Configure custom domain and SSL on web cloudfront : portal-dev.novalifeapp.com
+Configure custom domain and SSL on video CDN cloudfront: video-cdn-dev.novalifeapp.com
+Configure custom domain and SSL on ALB: api-dev.novalifeapp.com
+GitLab Community Edition
+ 
+
+
+ which i started but didnot finish on that day 
+
+ 

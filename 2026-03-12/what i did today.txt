@@ -1,0 +1,52 @@
+i contineued teh task that hazar also assigned me yesterday and finished teh changes in codebase in nova project which mirror the rahbar project 
+
+portal-dev.novalifeapp.com
+
+api-dev.novalifeapp.com
+
+video-cdn-dev.novalifeapp.com
+ 
+Follow this implemenatoin: https://gitlab.dplit.com/rahber-crm/cicd
+Do work in:  https://gitlab.dplit.com/nova-via/cicd  
+ 
+Task.
+Provision wildcard corticates : domain = novalifeapp.com
+Configure custom domain and SSL on web cloudfront : portal-dev.novalifeapp.com
+Configure custom domain and SSL on video CDN cloudfront: video-cdn-dev.novalifeapp.com
+Configure custom domain and SSL on ALB: api-dev.novalifeapp.com
+GitLab Community Edition
+ 
+
+
+then i made teh MR for rerviewed and sent it to hazar 
+https://gitlab.dplit.com/nova-via/cicd/-/merge_requests/11
+
+
+after that i did a little bit of the claude_review reserch and teh demo repo i made 
+but due to lack of cradit in teh API i was unable to test it compoletely but everything other tehn taht was successfull 
+
+after that i watched some of teh cource on teh troubleshooting which i started yesterday 
+still not finished 
+
+afterthat i attended the onboarding session by saad 
+Islamic Business Practices - Onboarding Session By Saad
+
+also Afifa asked me to give her a value of a secretin chat 
+which i responded to her that she can fetch teh value herself from the secrets manager like she has been doing before 
+as sharing secrets in chat is not the best practice 
+
+afterthat khurrum asked if teh chjanges to increese the disk space is applied on te prod env 
+after cheacking i told him they were not 
+and teh doisk space is 90% full 
+
+since i am not allowed to do changes without approvel i mentioned hazar and asked him what to do abpout that 
+as khurrum want to deploy some changes to prod 
+and dont want teh deplymet to fail 
+
+
+
+ 
+
+
+
+ 
