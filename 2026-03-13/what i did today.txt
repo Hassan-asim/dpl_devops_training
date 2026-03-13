@@ -1,0 +1,45 @@
+i contineued teh task that hazar also assigned me yesterday and finished teh changes in codebase in nova project which mirror the rahbar project 
+
+portal-dev.novalifeapp.com
+
+api-dev.novalifeapp.com
+
+video-cdn-dev.novalifeapp.com
+ 
+Follow this implemenatoin: https://gitlab.dplit.com/rahber-crm/cicd
+Do work in:  https://gitlab.dplit.com/nova-via/cicd  
+ 
+Task.
+Provision wildcard corticates : domain = novalifeapp.com
+Configure custom domain and SSL on web cloudfront : portal-dev.novalifeapp.com
+Configure custom domain and SSL on video CDN cloudfront: video-cdn-dev.novalifeapp.com
+Configure custom domain and SSL on ALB: api-dev.novalifeapp.com
+GitLab Community Edition
+ 
+
+
+then i made teh MR for rerviewed and sent it to hazar 
+https://gitlab.dplit.com/nova-via/cicd/-/merge_requests/11
+
+but tehn hazar asked me to only do teh task 1 teh wildcard and such and make a new mr only containing teh task 1 as all teh chages are not easy to review so only makea task 1 mr 
+which i did and sent him 
+still waiting his approval 
+
+after that i was asked by affifa to add 3 new env variable 
+but first i misunderstood and made changes in teh secrete stack and made an mr for hazar to review 
+but tehn he pointed out my mistake taht she wanted them to be adde din te env varibles i nte dev.yaml file not teh secrets maneager 
+so i fixedmy mistake and deleted teh mr 
+and created a new mr for teh env varibales chanegs 
+and sent it to hazar fpor review
+
+after that khurrum asked me do soem query rn on teh prod db for teh sindh project 
+after hazar do teh changes to increeser teh disk size and khurrum deploy teh cghanges 
+so i did taht 
+
+
+
+ 
+
+
+
+ 
