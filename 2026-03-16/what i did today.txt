@@ -1,0 +1,49 @@
+i contineued teh task that hazar also assigned me on friday and asked hazar how would he like me to proceed with teh task (as he has mentioned to ask him before doing anything and also to not deploy anything )
+portal-dev.novalifeapp.com
+
+api-dev.novalifeapp.com
+
+video-cdn-dev.novalifeapp.com
+ 
+Follow this implemenatoin: https://gitlab.dplit.com/rahber-crm/cicd
+Do work in:  https://gitlab.dplit.com/nova-via/cicd  
+ 
+Task.
+Provision wildcard corticates : domain = novalifeapp.com
+Configure custom domain and SSL on web cloudfront : portal-dev.novalifeapp.com
+Configure custom domain and SSL on video CDN cloudfront: video-cdn-dev.novalifeapp.com
+Configure custom domain and SSL on ALB: api-dev.novalifeapp.com
+GitLab Community Edition
+ 
+
+
+then after that khurrum asked me to execute some queries after they were approved by rohhan 
+update tbl_complain set complain_status = 'Disposed Off (Relief Allowed)' where id = 2785
+
+and diary_number = '0002427/2026';
+ 
+update tbl_complain_disposal set disposal_type_id = 5 , disposal_reason_id = 14
+
+where complain_id = 2785 and id = 787;
+ 
+-----------------
+ 
+Rohaan Ahmed Can you please review these queries,
+ 
+The complaint was mistakenly marked as “Closed (Sub-Judice)”. It has now been corrected to “Non-Monetary (with Direction)” and the disposal type and reason have been updated accordingly.
+ 
+Khurrum Ejaz
+update tbl_complain set complain_status = 'Disposed Off (Relief Allowed)' where id = 2785  and diary_number = '0002427/2026';     update tbl_complain_disposal set disposal_type_id = 5 , disposal_reason_id = 14  where complain_id = 2785 and id = 787;     -----------------     Rohaan Ahmed Can you pl…
+
+
+
+after that izza asked me to delete some tablkes from te dynamo db in te sindh project
+wjich i did after teh approval by hazar 
+
+
+then afifa asked me to add the code to update teh app service stack so she can get the jwt value in ther so after appro vel by hazar i didi teh changes and merged in main and deployed te stack to aws in nova via project 
+
+tehn she shek about teh old env variab,e addition which i hade the mr make last friday and askd hazar to review it after his approval 
+i merged the inmain as well teh dev.yaml a, dthe prod .yaml 
+
+after that i inquired about teh certificate stacks task and he said when he approves of it then proceed wait for now 

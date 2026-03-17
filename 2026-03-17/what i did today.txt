@@ -1,0 +1,35 @@
+i contineued teh task that hazar also assigned me on friday and asked hazar how would he like me to proceed with teh task (as he has mentioned to ask him before doing anything and also to not deploy anything )
+portal-dev.novalifeapp.com
+
+api-dev.novalifeapp.com
+
+video-cdn-dev.novalifeapp.com
+ 
+Follow this implemenatoin: https://gitlab.dplit.com/rahber-crm/cicd
+Do work in:  https://gitlab.dplit.com/nova-via/cicd  
+ 
+Task.
+Provision wildcard corticates : domain = novalifeapp.com
+Configure custom domain and SSL on web cloudfront : portal-dev.novalifeapp.com
+Configure custom domain and SSL on video CDN cloudfront: video-cdn-dev.novalifeapp.com
+Configure custom domain and SSL on ALB: api-dev.novalifeapp.com
+GitLab Community Edition
+ 
+after that i enrolled in a course 
+https://skillbuilder.aws/renderer/?module_id=AS76YCA638%3A001.000.000&product_id=BEMA4TNCQ7%3A001.000.000&registration_id=8c1e2648-b430-59d7-9e88-b3b6b71eba3e&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FWWAETUHGU3%2Famazon-elastic-block-store--troubleshooting%2FBEMA4TNCQ7&navigation=digital
+its almost half way finished 
+other then that i was asked by izza to give her teh bill estimate and in depth service brackdown cost from decenber till now for teh dservices used in teh sindh project
+
+which i provided her after getting them from the aws consol 
+
+she also asked me if teh paymet card was clints ot companies 
+which i confiormed with hazar that its teh company card 
+and told her 
+
+
+after that afifa asked me for teh update on teh env variables 
+which i told her i already updated tehcode and had it approved by hazar and merged in main 
+they should be accessable now 
+
+after that i did some reserch on the troubleshooting course in gpt and tested teh commands to describe teh ebs volumes to troubleshootiong in the Aws cli
+ 
