@@ -1,0 +1,19 @@
+
+i watched sone of trh content of the course i enrolled in yesterday 
+https://skillbuilder.aws/renderer/?module_id=AS76YCA638%3A001.000.000&product_id=BEMA4TNCQ7%3A001.000.000&registration_id=8c1e2648-b430-59d7-9e88-b3b6b71eba3e&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FWWAETUHGU3%2Famazon-elastic-block-store--troubleshooting%2FBEMA4TNCQ7&navigation=digital
+
+
+
+other then taht afifa asked me that she is unable to accecc teh env var i added in teh code 
+soi investigated that and found out we need to deploy teh app service stack for the env var to take effect 
+so i mentioned that to hazar and asked for teh next step i should take 
+
+but tehn hazar deployed teh stack him self and teh issue was resolved 
+
+after that i had a meeting with Daniyal he wanted to disscuss some issues he was facing for backend deployment on railway so gave him some advices 
+
+after that i monitered the sindh and nova aws consol account just to see everything is ok 
+
+then i contineued to watch the course 
+
+
