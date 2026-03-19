@@ -1,0 +1,36 @@
+
+i watched sone of trh content of the course i enrolled in
+https://skillbuilder.aws/renderer/?module_id=AS76YCA638%3A001.000.000&product_id=BEMA4TNCQ7%3A001.000.000&registration_id=8c1e2648-b430-59d7-9e88-b3b6b71eba3e&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FWWAETUHGU3%2Famazon-elastic-block-store--troubleshooting%2FBEMA4TNCQ7&navigation=digital
+
+
+izza told me she was getting some error in teh lambda function in teh uat env 
+so i invertigated that 
+and found taht teh policy dosent have teh resources attached that she was accessing in te hfunction 
+
+so after telling her that i made the obervation to hazar and asked him what dase he want me to do 
+either add the tables in resources that so she can access tehm in consol or is tehre any other approtch that he wants me top fololow 
+
+afte that khurrum asked me to be availabel for some prod changes deployment 
+so i said sure and kept myself available for that
+
+other then that wheni was miniteringteh pipelines today i saw taht eth uat frontend pipelines had beed failed at teh deploy datge 
+so i investigated that and found out that teh fix_permssion.sh file is giving tehissue specifixcluy teh node version at teh deploy stage 
+its not teh lts 
+
+so i made taht knows to hazar by attaching a screen shot of teh event logs errpr 
+
+
+after that 
+
+i was mentiond in a new group 
+and asked teh following 
+AoA Hazar, Sufi,
+ 
+We need to have a basic/low cost infra for deploying backend of the meeting room app Daniyal (GTO) is building.
+ 
+Please provide an environment at your earliest. It would be great if we can get it by Tuesday, thank you.
+
+but as i dont have teh permission to give access to anyone wothout approvel and hazar is offline 
+i did my reserch a little and left it as is and msg hazar for further instructions on this metter 
+
+
