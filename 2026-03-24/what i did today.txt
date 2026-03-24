@@ -1,0 +1,35 @@
+
+izza told me she was getting some error in teh lambda function in teh uat env 
+so i invertigated that 
+and found taht teh policy dosent have teh resources attached that she was accessing in te hfunction 
+
+so after telling her that i made the obervation to hazar and asked him what dase he want me to do 
+either add the tables in resources that so she can access tehm in consol or is tehre any other approtch that he wants me top fololow 
+
+after he approved teh action to add teh tables in teh permission list i didi teh changes 
+and asked izza to test teh changes (she confirmed its working now )
+
+
+afte that khurrum asked me to be availabel for some prod changes deployment 
+so i said sure and kept myself available for that
+
+other then that i asked izza to share teh list of tables for prod aswell that needs to be added in the policy so teh changes will work 
+which i added in teh policy after she shared it with me
+
+other then that 
+i was mentiond in a new group 
+and asked teh following 
+AoA Hazar, Sufi,
+ 
+We need to have a basic/low cost infra for deploying backend of the meeting room app Daniyal (GTO) is building.
+ 
+Please provide an environment at your earliest. It would be great if we can get it by Tuesday, thank you.
+
+but as i dont have teh permission to give access to anyone wothout approvel and hazar is offline 
+i did my reserch a little and left it as is and msg hazar for further instructions on this metter 
+
+and still havent goten any instruction regarding this 
+
+other then that i monitered teh health of the pipelines while teh prod changes were being deployed just in case if anytthing breaks 
+but it didnt and teh changes weree successfully deployed on teh prod pipelines 
+
