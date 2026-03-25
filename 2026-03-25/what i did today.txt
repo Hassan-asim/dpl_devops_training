@@ -1,0 +1,114 @@
+
+AWS SAM & IAM Policy Behavior Experiment Log
+Date: 2026-03-25
+
+Objective:
+To understand how AWS SAM/CloudFormation behaves when:
+1. Policies are modified manually in the console
+2. Templates are redeployed
+3. Resources already exist
+
+------------------------------------------------------------
+
+1. Initial Issue
+- Lambda function was failing due to missing DynamoDB permissions.
+- Required DynamoDB tables were not included in IAM role policy.
+
+------------------------------------------------------------
+
+2. Temporary Fix (Console)
+- Manually updated inline IAM policies in console for dev, uat, and prod roles.
+- Added required DynamoDB table ARNs in policy.
+- Function started working successfully.
+
+Observation:
+- Fix worked but was done manually in console.
+
+------------------------------------------------------------
+
+3. Permanent Fix (Template Update)
+- Updated SAM template.yaml to include required DynamoDB table ARNs in IAM policy.
+- Created MR for proper deployment.
+
+Reason:
+- To ensure changes persist after deployment.
+
+------------------------------------------------------------
+
+4. Experiment 1: Inline Policy Overwrite
+
+Steps:
+- Created IAM role using SAM with inline policy (s3:GetObject).
+- Manually edited policy in console and added:
+  - s3:PutObject
+  - s3:GetAccessPoint
+
+- Modified SAM template to include:
+  - s3:GetObject
+  - s3:PutObject
+  - s3:ListBucket
+
+- Redeployed SAM template.
+
+Result:
+- Inline policy was overwritten.
+- Console change (s3:GetAccessPoint) was removed.
+- Policy matched template exactly.
+
+Conclusion:
+- Inline policies managed by SAM are overwritten on deployment if template changes.
+
+------------------------------------------------------------
+
+5. Experiment 2: No Change Deployment
+
+Steps:
+- Manually edited inline policy in console.
+- Redeployed SAM template without any changes.
+
+Result:
+- Deployment returned: "No changes to deploy"
+- Manual changes remained intact.
+
+Conclusion:
+- SAM does NOT overwrite unless template changes.
+
+------------------------------------------------------------
+
+6. Experiment 3: Existing Role Conflict
+
+Steps:
+- Created IAM role manually in console.
+- Tried creating same role via SAM (same RoleName).
+
+Result:
+- Deployment failed with:
+  "Role already exists"
+- Stack rolled back.
+
+Conclusion:
+- SAM cannot overwrite or create existing manual roles.
+- Must use resource import to manage them.
+
+------------------------------------------------------------
+
+Final Understanding:
+
+1. Console changes to inline policies are TEMPORARY.
+2. If SAM template is redeployed with changes → policies are overwritten.
+3. If template is unchanged → no overwrite occurs.
+4. Existing manually created roles cannot be overwritten by SAM.
+5. Best practice:
+   - Always update template.yaml for permanent changes
+   - Avoid relying on console edits
+
+------------------------------------------------------------
+
+
+other then taht i compleated a course that i started some days ago the certificate of compleation in in the image folder 
+
+
+
+i also made the mr for teh changes that needs to be applied in the template.yaml to add teh tables foir teh function in teh sindh project and sent it to hazar for review 
+and in tern he aske me to do teh above testes and expariments 
+
