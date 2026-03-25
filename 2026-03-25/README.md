@@ -115,6 +115,19 @@
 
 ---
 
+## 📚 Training & Professional Development
+
+**1. AWS Course Completion:**
+- Completed AWS course started earlier in the week.
+- Certificate of completion saved in `images/` folder.
+
+**2. New Course Started - ECS Troubleshooting:**
+- Started new course: "Troubleshooting: Amazon Elastic Container Service"
+- Progress: Completed up to Module 3.
+- Building expertise in ECS diagnostic and troubleshooting techniques.
+
+---
+
 ## 🖼️ Evidence & Screenshots
 
 ### Course Completion Certificate

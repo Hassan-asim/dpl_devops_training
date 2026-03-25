@@ -112,3 +112,9 @@ other then taht i compleated a course that i started some days ago the certifica
 i also made the mr for teh changes that needs to be applied in the template.yaml to add teh tables foir teh function in teh sindh project and sent it to hazar for review 
 and in tern he aske me to do teh above testes and expariments 
 
+
+after that i started a new course 
+Troubleshooting: Amazon Elastic Container Service
+
+and made it to module 3 so far 
+
