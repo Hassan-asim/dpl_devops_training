@@ -131,7 +131,7 @@
 ## 🖼️ Evidence & Screenshots
 
 ### Course Completion Certificate
-- ![AWS Course Completion Certificate](./images/course_completion_certificate.png) — Certificate of completion for AWS course started earlier.
+- ![AWS Course Completion Certificate](./images/certificate%20of%20compleation%20for%20the%20amazon%20EBS%20troubleshooting.png) — Certificate of completion for AWS course started earlier.
 
 ---
 
