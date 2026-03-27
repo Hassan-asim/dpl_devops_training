@@ -1,0 +1,184 @@
+i watches teh course i inrolled in yesterday 
+Troubleshooting: Amazon Elastic Container Service
+
+then i asked hazar hor any task he wants me to do today (no responce from him as of yet)
+
+then hazar gave me a task 
+create table for all instances, including database , format : name, type, family
+ current monthly price -on demand
+one year reserved , upfront payment
+two year reserved , upfront payment
+
+
+which i did and gave him the table 
+| Name                   | Type          | Family | Current Monthly On-Demand ($) | 1-Year Reserved ($, All Upfront) | 3-Year Reserved ($, All Upfront) | Notes                                     |
+| ---------------------- | ------------- | ------ | ----------------------------- | -------------------------------- | -------------------------------- | ----------------------------------------- |
+| db-bastion             | t4g.micro     | t4g    | 6.13                          | 43                               | 83                               | Sequential 1-year RIs for 2-year coverage |
+| FileScanApiInstance    | t3.medium     | t3     | 30.37                         | 213                              | 411                              | Same as above                             |
+| Nat-instance           | t3.nano       | t3     | 3.8                           | 27                               | 51                               | Same                                      |
+| dev-backend-app        | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| prod-backend-app       | t4g.xlarge    | t4g    | 98.11                         | 689                              | 1327                             | Same                                      |
+| uat-backend-app        | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| dev-frontend-app       | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| uat-frontend-app       | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| prod-frontend-app      | t4g.xlarge    | t4g    | 98.11                         | 689                              | 1327                             | Same                                      |
+| postgres-instance      | db.t4g.micro  | t4g    | 13.98                         | 122.6                            | 226.6                            | Same                                      |
+| prod-postgres-instance | db.t4g.xlarge | t4g    | 190.64                        | 1544.6                           | 3219.6                           | Same                                      |
+
+
+
+after that afifa mentioned me and asked me to 
+Sufi Hassan Asim please set MEDIA_CDN_DOMAIN to video-cdn-dev.novalifeapp.com
+ 
+where do you want me to set this can you give me more details ?
+ 
+Sufi Hassan Asim
+where do you want me to set this can you give me more details ?
+In the app service stack’s environment variables array. It's currently set to d2g8ipkslr9kml.cloudfront.net
+ 
+
+
+ but tehn after disscussing with hazar he said teh 
+ i cheacked the code teh value is already set 
+and is available in teh cloudfront distribution 
+ 
+after discussing with Hazar 
+ 
+he has told me to leave this and focus on an other task that he gave me 
+
+and then after i told this to afifa she said she will cheack again 
+
+
+after that hazar gave me a new task to 
+add 2 years
+ 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html
+Reserved Instances for Amazon EC2 overview - Amazon Elastic Compute Cloud
+Learn how using Reserved Instances can save you money on Amazon EC2 compute costs compared to On-Demand Instances.
+ 
+this is as per services delivery letter
+
+read the complete docs , we need a solid plan for how to buy, use and what option is more suitable for us. i shared you the time line , we need to have support for 30 NOV 2027
+
+so then i did my reserch and found out teh following 
+Perfect, let’s create a **comprehensive plan with multiple options** for Hazar, fully aligned with AWS Reserved Instance (RI) rules, your timeline, and the DPL service delivery requirements. This plan will include **all EC2 and RDS instances**, cost estimates, and strategic recommendations.
+
+---
+
+# **EC2 & RDS Reserved Instance Strategy Plan – DPL Infrastructure**
+
+**Prepared for:** Hazar
+**Date:** 27 March 2026
+**Service Period:** 1 December 2025 → 30 November 2027
+
+---
+
+## **1. Executive Summary**
+
+* **Purpose:** Minimize infrastructure costs for EC2 & RDS while ensuring continuous service support through 30 Nov 2027.
+* **Scope:** All EC2 and RDS instances in the current final infrastructure.
+* **Challenge:** AWS does **not offer 2-year RIs**; only **1-year and 3-year** terms are available.
+* **Solution:** Develop multiple RI purchasing strategies to cover the 2-year support period cost-effectively.
+
+---
+
+## **2. AWS Reserved Instance Rules & Notes**
+
+| Feature                 | Detail                                                                                                                | Reference                                                                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Term length             | 1-year or 3-year only. 2-year RIs do **not exist**.                                                                   | [EC2 Reserved Instances User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html) |
+| Payment options         | All Upfront, Partial Upfront, No Upfront. All Upfront provides maximum discount.                                      | Same                                                                                                                 |
+| Standard vs Convertible | Standard: higher discount, cannot change instance type/family. Convertible: can change type/family, smaller discount. | Same                                                                                                                 |
+| Retroactive pricing     | RI savings **cannot be applied retroactively**; On-Demand costs already incurred remain billed.                       | Same                                                                                                                 |
+| Scope                   | Regional or AZ-specific; regional allows automatic instance size flexibility.                                         | Same                                                                                                                 |
+
+---
+
+## **3. Service Timeline & Gap Analysis**
+
+| Period              | Status                | Cost Type        | Notes                                                                                   |
+| ------------------- | --------------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| Dec 2025 – Mar 2026 | Past                  | On-Demand        | Retroactive coverage: cannot buy RIs for past months; already billed at On-Demand rates |
+| Mar 2026 – Nov 2026 | Current               | Option-dependent | RI purchases can start now; first RI covers until Mar/Nov 2027 depending on plan        |
+| Dec 2026 – Nov 2027 | Future                | Option-dependent | Second RI or On-Demand covers remaining months                                          |
+| Dec 2027 onward     | Beyond service period | N/A              | Not needed                                                                              |
+
+---
+
+## **4. Cost Table – EC2 & RDS Instances**
+
+| Name                   | Type          | Family | Current Monthly On-Demand ($) | 1-Year Reserved ($, All Upfront) | 3-Year Reserved ($, All Upfront) | Notes                                     |
+| ---------------------- | ------------- | ------ | ----------------------------- | -------------------------------- | -------------------------------- | ----------------------------------------- |
+| db-bastion             | t4g.micro     | t4g    | 6.13                          | 43                               | 83                               | Sequential 1-year RIs for 2-year coverage |
+| FileScanApiInstance    | t3.medium     | t3     | 30.37                         | 213                              | 411                              | Same as above                             |
+| Nat-instance           | t3.nano       | t3     | 3.8                           | 27                               | 51                               | Same                                      |
+| dev-backend-app        | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| prod-backend-app       | t4g.xlarge    | t4g    | 98.11                         | 689                              | 1327                             | Same                                      |
+| uat-backend-app        | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| dev-frontend-app       | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| uat-frontend-app       | t4g.medium    | t4g    | 24.53                         | 172                              | 332                              | Same                                      |
+| prod-frontend-app      | t4g.xlarge    | t4g    | 98.11                         | 689                              | 1327                             | Same                                      |
+| postgres-instance      | db.t4g.micro  | t4g    | 13.98                         | 122.6                            | 226.6                            | Same                                      |
+| prod-postgres-instance | db.t4g.xlarge | t4g    | 190.64                        | 1544.6                           | 3219.6                           | Same                                      |
+
+---
+
+## **5. Multiple RI Strategy Options**
+
+### **Option A – Two Consecutive 1-Year RIs (Recommended)**
+
+* **Strategy:** Buy first 1-year RI now (Mar 2026 → Mar 2027), second 1-year RI before expiry (Mar 2027 → Nov 2027).
+* **Pros:** Maximizes discount; ensures continuous coverage; flexible for architecture changes.
+* **Cons:** Retroactive coverage (Dec 2025 → Mar 2026) still billed On-Demand.
+* **Implementation:** All-Upfront payment for both 1-year periods.
+
+**Cost Example (prod-postgres-instance):**
+
+* 1-year upfront: $1544.6 → total for 2 sequential RIs: $1544.6 × 2 = $3089.2
+
+---
+
+### **Option B – 1-Year RI + Remaining Months On-Demand**
+
+* **Strategy:** Buy first 1-year RI now; pay On-Demand for remaining months to match timeline.
+* **Pros:** Lower immediate cash outlay; partial cost saving.
+* **Cons:** Less cost-effective than consecutive 1-year RIs; monthly billing for remaining months.
+* **Use Case:** If budget constraints prevent buying two upfront RIs.
+
+---
+
+### **Option C – 3-Year RI Starting Now**
+
+* **Strategy:** Buy 3-year RI starting Mar 2026 → Mar 2029.
+* **Pros:** Maximum discount on AWS RIs; covers service period and beyond.
+* **Cons:** Overpays for months beyond Nov 2027 (extra ~16 months); large upfront payment required.
+* **Use Case:** If long-term planning beyond 2027 is desired and cash flow allows.
+
+---
+
+### **Option D – Mix of Convertible & Standard RIs**
+
+* **Strategy:** Use Standard RIs for predictable instances (prod) and Convertible RIs for flexible/dev instances.
+* **Pros:** Balances cost savings with flexibility in instance family/type.
+* **Cons:** Convertible RIs offer slightly smaller discount than Standard.
+
+---
+
+## **6. Recommendations**
+
+1. **Primary Recommendation:** **Option A – Two consecutive 1-year All-Upfront RIs**, covers entire required service period with cost efficiency.
+2. **Alternative if cash-limited:** **Option B**. Buy 1-year RI, pay On-Demand for remainder.
+3. **Long-term expansion:** Consider **Option C**, but only if extending services beyond Nov 2027.
+4. **Convertibles:** Use for dev/test instances where instance families may change.
+
+---
+
+## **7. Timeline Chart for RI Purchases**
+
+| Month/Year          | Coverage Type | Notes                                        |
+| ------------------- | ------------- | -------------------------------------------- |
+| Dec 2025 – Mar 2026 | On-Demand     | Retroactive, unavoidable                     |
+| Mar 2026 – Mar 2027 | 1-Year RI     | First RI purchase                            |
+| Mar 2027 – Nov 2027 | 1-Year RI     | Second RI purchase to cover remaining months |
+| Dec 2027 onward     | N/A           | Beyond service period                        |
+
