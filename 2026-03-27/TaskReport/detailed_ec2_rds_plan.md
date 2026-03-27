@@ -232,11 +232,11 @@ All costs in **USD ($)**.
 | **1-Year RI** (All Upfront) | $3,839.20 | $7,678.40 (×2) | ~48% savings |
 | **3-Year RI** (All Upfront) | $7,643.20 | $5,095.47 (prorated) | ~48% savings |
 
-> **Note:** The 3-Year RI total is shown as a 3-year commitment. When prorated for 2 years, the cost is approximately: $7,643.20 ÷ 3 × 2 = **$5,095.47**
+> **Note:** The 3-Year RI total is shown as a 3-year commitment. When prorated for 2 years, the cost is approximately: $7,643.20 ÷ 3 × 2 = **$5,095.47** (but it's not possible to just pay for 2 years in a 3-year plan )
 
 ### 6.3 Key Observation
 
-Buying **two consecutive 1-year RIs** provides nearly the same cost efficiency as a 3-year RI when prorated for our 24-month service period, **without** the long-term commitment beyond November 2027.
+Buying **two consecutive 1-year RIs** provides nearly the same cost efficiency as a **3-year RI**
 
 ---
 
