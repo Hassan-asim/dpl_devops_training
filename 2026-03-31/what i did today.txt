@@ -202,3 +202,53 @@ as teh task is to see if teh instance is running if yes then stop it thats it
 
 after that i updated teh plan accoudingly and shared it with him 
 
+and after his approval for teh updated plan i did teh actuals changes and made teh stack 
+and then pushed it using a branch
+
+Push Command
+git push -u origin feat/db-bastion-auto-stop
+Merge Request Title
+feat: Add EC2 stop scheduler for db-bastion instance
+Merge Request Description
+## Overview
+Implements an automated schedule to stop the `db-bastion` EC2 instance daily at midnight PKT using EventBridge and SSM Automation.
+
+## Changes
+- **New Stack**: `DbBastionStopStack` with EventBridge rule + SSM Automation target
+- **IAM Role**: Created with least-privilege permissions for SSM and EC2
+- **Schedule**: `cron(0 19 * * ? *)` (19:00 UTC = midnight PKT)
+- **Configuration**: Added instance details to config files
+
+## Resources Created
+| Resource | Type |
+|----------|------|
+| EventBridge Rule | Scheduled trigger |
+| IAM Role | EventBridge → SSM invocation |
+| SSM Parameter | Instance ID reference |
+
+## Target Instance
+- **Name**: db-bastion
+- **Instance ID**: i-05664a6d7944e348d
+- **Region**: us-west-2
+
+## Testing
+- ✅ TypeScript compilation successful
+- ✅ CDK synth successful
+- ✅ CDK diff reviewed - all resources as expected
+
+## Deployment
+```bash
+cd source/cdk
+npx cdk deploy DbBastionStopStack --profile sindh-project
+
+
+its not yet deployed 
+i made teh mr and shared it with hazar for review 
+
+
+
+other tehn taht i also 
+i watches teh course i inrolled in
+Troubleshooting: Amazon Elastic Container Service
+its 56  % compleate 
+now 
