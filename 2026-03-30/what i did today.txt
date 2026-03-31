@@ -1,0 +1,328 @@
+i watches teh course i inrolled in 2 days ago
+Troubleshooting: Amazon Elastic Container Service
+
+and practiced teh commands on the nova via project 
+
+Troubleshooting: Amazon Elastic Container Service
+29% COMPLETE
+
+Introduction
+Overview of Amazon ECS
+Gathering Information with the AWS Management Console
+Using the AWS CLI to Gather Information about Amazon ECS
+Monitoring Amazon ECS
+
+Troubleshooting
+General Problem Determination
+Troubleshooting Amazon ECS Service Load Balancers
+Troubleshooting Errors about Placing Tasks in Amazon ECS
+Troubleshooting Unregistered Container Instances
+Troubleshooting AWS Fargate Migration Issues
+Troubleshooting Spot Instance Termination
+
+Getting Help
+Resources
+Support
+Feedback
+Lesson 3 - Gathering Information with the AWS Management Console
+Lesson 4 of 14
+Using the AWS CLI to Gather Information about Amazon ECS
+How can I obtain information about my ECS deployment using the AWS CLI?
+
+The aws ecs command can provide detailed information about clusters, services, tasks, and more. The following commands are useful and take a cluster name, services name, and task name as arguments (--cluster <value>, --services <value>, --tasks <value>).
+
+For examples of some useful commands and their output, expand each of the following nine categories.
+
+Note: The screenshots for the following AWS CLI commands were taken in an AWS Cloud9 integrated development environment. AWS Cloud9 is no longer recommended for new workflows. In future updates, this material will be revised to use other supported IDEs such as JetBrains IDEs or Visual Studio Code with the AWS Toolkits.
+
+
+aws ecs list-clusters
+This AWS CLI command provides basic information about clusters, similar to selecting the Clusters pane in the AWS Management Console. In most cases, it provides more details. For more information and a text version of the output, see list-clusters(opens in a new tab) in the AWS CLI Command Reference.
+
+Choose the following screenshot to toggle the zoom state.
+
+Example list-clusters command and its output.
+
+
+aws ecs describe-clusters
+This AWS CLI command provides more detailed information about your clusters. In this example, the --cluster parameter is used to obtain information about the chosen cluster. This is similar to selecting a cluster name in the console. In most cases, it provides more details. For more information and a text version of the output, see describe-clusters(opens in a new tab).
+
+Choose the following screenshot to toggle the zoom state.
+
+Example describe-clusters command and its output.
+
+
+aws ecs list-services
+This AWS CLI command provides basic information about your services. In this example, the --cluster parameter is used to list the services running on a given cluster. This is similar to selecting the Services tab for the chosen cluster in the console. In most cases, it provides more details. For more information, and a text version of the output, see list-services(opens in a new tab).
+
+
+Choose the following screenshot to toggle the zoom state.
+
+Example list-services command and its output.
+
+
+aws ecs describe-services (command)
+This AWS CLI command provides detailed information about your services. In this example, the --cluster and --services parameters are used to describe a particular service. This is similar to selecting a service name from the Services tab in the console. For more information, see describe-services(opens in a new tab).
+
+
+Choose the following screenshot to toggle the zoom state.
+
+Example describe-services command.
+
+
+aws ecs describe-services (partial output)
+The output consists of four pages of data. Here is the first page. For more information and a text version of the output, see describe-services(opens in a new tab).
+
+Choose the following screenshot to toggle the zoom state.
+
+Output from the example describe-services command.
+
+
+aws ecs list-tasks
+This AWS CLI command provides a list of your tasks. In this example, the --cluster parameter is used to list tasks running on a chosen cluster. This is similar to selecting the Tasks tab for a cluster in the console. For more information and a text version of the output, see list-tasks(opens in a new tab).
+
+Choose the following screenshot to toggle the zoom state.
+
+Example list-tasks command and its output.
+
+
+aws ecs describe-tasks (command)
+This AWS CLI command provides detailed information about your tasks. In this example, the --cluster and --tasks parameters are used to describe a particular task. This is similar to selecting a task ID on the Tasks tab for a cluster in the console. For more information and a text version of the output, see describe-tasks(opens in a new tab).
+
+Choose the following screenshot to toggle the zoom state.
+
+Example of the describe-tasks command.
+
+
+aws ecs describe-tasks (partial output)
+The output consists of several pages of data. Here is the last page.  For more information and a text version of the output, see describe-tasks(opens in a new tab).
+
+Choose the following screenshot to toggle the zoom state.
+
+Some of the output from the example describe-tasks command
+
+
+aws ecs list-container-instances
+This command returns a list of your container instances. In this example, the --cluster parameter is used to list the container instances supporting a chosen cluster. 
+
+
+
+You can filter the results of of this command with cluster query language statements inside the filter parameter. Filtering container instances by custom attributes is helpful when you need to explore task placements. The second example command filters for instances running in the us-east-2b Availability Zone. For more information  and a text version of the output, see list-container-instances(opens in a new tab).
+
+Note: This command was run against a different ECS cluster than the other example commands. The cluster in this example uses EC2 instead of Fargate launch types.
+
+
+
+Choose the following screenshot to toggle the zoom state.
+
+Example of the list-container-instances command and its output.
+
+
+In addition to gathering configuration information, you will need diagnostic data from log files for troubleshooting.
+
+Where are the Amazon ECS log files located?
+
+Amazon ECS stores logs in the /var/log/ecs folder of your container instances. There are logs available from the Amazon ECS container agent and from the ecs-init service that controls the state of the agent (start/stop) on the container instance. You can access these log files by connecting to a container instance using Secure Shell (SSH). 
+
+
+
+Screenshot of a terminal session to the local system that shows the location of the ECS Agent log files.
+
+What are other log files I can use?
+
+The Amazon ECS container agent stores logs on your container instances. There are two log files:
+
+ecs-agent.log.[time stamp]
+ecs-init.log.[time stamp]
+For more information about log entries and examples, see Amazon ECS Log File Locations(opens in a new tab).
+
+How can I collect these logs for further analysis?
+
+If you need to submit a support ticket to Support, you can collect all of the logs on your container instances by using the Amazon ECS logs collector. The following explains how to download the ecs-logs-collector.sh script, run it, and examine the collect files. To explore these commands choose the following three tabs.
+
+
+Download
+
+Run it
+
+Examine
+Use the curl command to download the ecs-logs-collector.sh script from the official GitHub repository.
+Run the script: sudo bash ./esc-logs-collector.sh
+Example of the curl command and initiation of the ecs-logs-collector.sh script.
+
+For a text version of these instructions and a link to the log collector script, choose the following button.
+
+ECS Logs Collector
+
+Docker provides several diagnostic tools that can help you troubleshoot problems with your containers and tasks. 
+
+What are some examples of Docker commands?
+
+For more information about all the available Docker command line utilities, see Use the Docker Command Line(opens in a new tab) in the Docker documentation. 
+
+For example commands and their output, expand each of the following three sections.
+
+
+List Docker containers
+You can use the docker ps command on your container instance to list the running containers. For more information and a text version of the output, see docker ps(opens in a new tab) in the Docker documentation.
+
+Choose the following screenshot to toggle the zoom state.
+
+Example of the docker ps command and its output.
+
+
+View Docker logs
+You can access the STDOUT and STDERR streams for a container with the docker logs command. In this example, the logs are displayed for the b7aff11acc76 container and piped through the head command to truncate the output. For more information and a text version of the output, see docker logs(opens in a new tab) in the Docker documentation.
+
+Choose the following screenshot to toggle the zoom state. 
+
+Example of a Docker log file.
+
+
+Inspect Docker containers
+If you have the Docker ID of a container, you can inspect it with the docker inspect command. Inspecting containers provides the most details about the environment in which a container was launched. This screenshot displays partial output. For more information and a text version of the output, see docker inspect(opens in a new tab) in the Docker documentation.
+
+Choose the following screenshot to toggle the zoom state.
+
+Example of the Docker inspect command and its output.
+
+
+
+then i asked hazar hor any task he wants me to do today (no responce from him as of yet)
+
+then i started a new course aswell 
+https://skillbuilder.aws/learn/FU5WCYVGKY/aws-cloud-quest-cloud-practitioner/JF9TKU68GT
+and compleated its 1st assignment 
+the proof img is in the image folder
+
+
+than Hazar asked about teh report i submitted on friday for sindh project 
+then he askeed me to make the price estimate again usingteh price calculater 
+for all ondemand and 1 year reserved and 3 year reserved
+for all the current infra
+so after making it i shared the plans with him 
+as the service plan is till nov 30 2027 and we need to figuer out teh best possibal plan so it cost us little for sindh project
+
+
+after that Afifa asked me to update the lelvenlab webhook value which i didi and notified her to cheack in teh nova project 
+
+after that Daniyal asked me for help in dignosing the issue he was facing with teh working of the project app he is working on 
+it was node version issue so he updated it from v18 to v20 
+
+after that hazar gave me some more tasks 
+# MR: Automate Stop/Start of `db-bastion` EC2 Instance via CDK + SSM
+
+## Objective
+
+Automate lifecycle management of the `db-bastion` EC2 instance:
+
+* Stop the instance daily at midnight (PKT)
+* Start the instance daily at a defined time (e.g., morning)
+
+---
+
+## Approach
+
+Use AWS CDK with:
+
+* Amazon EventBridge for scheduling
+* AWS Systems Manager Automation with AWS-managed runbooks:
+
+  * `AWS-StopEC2Instance`
+  * `AWS-StartEC2Instance`
+
+---
+
+## Implementation Plan
+
+### 1. Identify Target Instance
+
+* Retrieve the EC2 **Instance ID** for `db-bastion`
+
+---
+
+### 2. Create CDK Stack
+
+Add a new stack:
+
+```ts
+db-bastion-schedule-stack
+```
+
+---
+
+### 3. Configure IAM Role
+
+Create a role for EventBridge to trigger SSM Automation with permissions:
+
+* `ssm:StartAutomationExecution`
+* `ec2:StopInstances`
+* `ec2:StartInstances`
+
+---
+
+### 4. Create Stop Schedule
+
+* EventBridge cron (PKT midnight → UTC):
+
+```ts
+cron(0 19 * * ? *)
+```
+
+* Target:
+
+  * SSM Document: `AWS-StopEC2Instance`
+  * Parameter:
+
+```ts
+InstanceId = <db-bastion-instance-id>
+```
+
+---
+
+### 5. Create Start Schedule
+
+* Example start time: 9 AM PKT → 04:00 UTC
+
+```ts
+cron(0 4 * * ? *)
+```
+
+* Target:
+
+  * SSM Document: `AWS-StartEC2Instance`
+  * Parameter:
+
+```ts
+InstanceId = <db-bastion-instance-id>
+```
+
+---
+
+### 6. Link Components
+
+* EventBridge rules use IAM role
+* Each rule triggers corresponding SSM Automation document
+
+---
+
+### 7. Deploy
+
+```ts
+cdk deploy
+```
+
+this was teh plan i made for teh task he assigned me for his review 
+
+aftyer that he gave me a new task 
+in nova project we need to add permission to app service task role to access output s3 bucket : User: arn:aws:sts::471464546186:assumed-role/dev-AppServiceStack-AppServiceTaskRole30E9686C-8fwvlGyxRfgN/cfee86895ef649668a6d4b0b69f0b6fb is not authorized to perform: s3:PutObject on resource: "arn:aws:s3:::dev-media-output-471464546186-us-west-2/series_thumbnails/9436008feef7bce183021dc492288b54-cropped-image.jpg" because no identity-based policy allows the s3:PutObject action 
+ 
+create PR for review
+
+which i did and send him the mr for review 
+https://gitlab.dplit.com/nova-via/cicd/-/merge_requests/18
+ 
+
+
+after that khurrum asked me to run a quary on prod db in teh sindh project after it gets approved by rohhan 
+so i didi that aaswell 
