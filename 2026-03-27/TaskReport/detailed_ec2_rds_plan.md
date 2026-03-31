@@ -18,13 +18,6 @@
 5. [Service Timeline & Cost Analysis](#5-service-timeline--cost-analysis)
 6. [Complete Instance Cost Breakdown](#6-complete-instance-cost-breakdown)
 7. [Multiple Strategy Options](#7-multiple-strategy-options)
-8. [Recommendations](#8-recommendations)
-9. [Implementation Timeline](#9-implementation-timeline)
-10. [Next Steps](#10-next-steps)
-11. [Documentation References](#11-documentation-references)
-12. [Appendix A: Glossary of Terms](#appendix-a-glossary-of-terms)
-13. [Appendix B: Contact Information](#appendix-b-contact-information)
-
 ---
 
 ## 1. Executive Summary
@@ -236,11 +229,11 @@ All costs in **USD ($)**.
 | **1-Year RI** (All Upfront) | $3,839.20 | $7,678.40 (×2) | ~48% savings |
 | **3-Year RI** (All Upfront) | $7,643.20 | $5,095.47 (prorated) | ~48% savings |
 
-> **Note:** The 3-Year RI total is shown as a 3-year commitment. When prorated for 2 years, the cost is approximately: $7,643.20 ÷ 3 × 2 = **$5,095.47**
+> **Note:** The 3-Year RI total is shown as a 3-year commitment. When prorated for 2 years, the cost is approximately: $7,643.20 ÷ 3 × 2 = **$5,095.47** (but it's not possible to just pay for 2 years in a 3-year plan )
 
 ### 6.3 Key Observation
 
-Buying **two consecutive 1-year RIs** provides nearly the same cost efficiency as a 3-year RI when prorated for our 24-month service period, **without** the long-term commitment beyond November 2027.
+Buying **two consecutive 1-year RIs** provides nearly the same cost efficiency as a **3-year RI**
 
 ---
 
@@ -415,91 +408,3 @@ Organizations planning to **extend services beyond November 2027** or those with
 #### Best For
 
 Organizations expecting **architecture changes** in development environments or those wanting to **future-proof** their infrastructure decisions.
-
----
-
-## 8. Recommendations
-
-### 8.1 Primary Recommendation: Option A – Two Consecutive 1-Year RIs
-
-#### Why Option A?
-
-| Factor | Rating | Explanation |
-|--------|--------|-------------|
-| **Cost Efficiency** | 5/5 | Maximum savings for the 24-month period |
-| **Budget Management** | 4/5 | Two payments spread over time |
-| **Flexibility** | 4/5 | Can adjust after first year if needed |
-| **Simplicity** | 4/5 | Easy to understand and execute |
-| **Risk** | 5/5 | No long-term commitment beyond contract |
-
-#### Implementation Steps
-
-**Step 1: Immediate Action (March 2026)**
-
-| Action | Details |
-|--------|---------|
-| Purchase | 1-year All-Upfront RIs for all 11 instances |
-| Total upfront cost | **$3,839.20** |
-
-**Step 2: Reminder Setup**
-
-| Action | Details |
-|--------|---------|
-| Set calendar reminder | **February 2027** (1 month before expiry) |
-| Review | Instance utilization and adjust if needed |
-
-**Step 3: Second Purchase (March 2027)**
-
-| Action | Details |
-|--------|---------|
-| Purchase | Second 1-year All-Upfront RIs |
-| Total upfront cost | **$3,839.20** |
-| Note | Final 4 months (Nov 2027 – Mar 2028) will be unused |
-
----
-
-### 8.2 Alternative Recommendations
-
-| Scenario | Recommended Option | Reason |
-|----------|-------------------|--------|
-| Limited budget now | Option B | Lower immediate cash outlay |
-| Planning extension beyond 2027 | Option C | Long-term commitment makes sense |
-| Expecting architecture changes | Option D | Convertible RIs provide flexibility |
-
----
-
-## 9. Implementation Timeline
-
-### 9.1 Phase 1: Immediate Actions (March 2026)
-
-| Week | Action | Responsible Party |
-|------|--------|-------------------|
-| Week 1 | Review and approve this plan | Hazar / Management |
-| Week 2 | Verify instance details in AWS Console | Technical Team |
-| Week 3 | Process payment for first RI purchase | Finance Team |
-| Week 4 | Purchase 1-year All-Upfront RIs | Technical Team |
-
-### 9.2 Phase 2: Monitoring (April 2026 – February 2027)
-
-| Frequency | Action |
-|-----------|--------|
-| Monthly | Review RI utilization reports in AWS Cost Explorer |
-| Quarterly | Verify all instances are covered by RIs |
-| February 2027 | Receive alert for upcoming RI expiration |
-
-### 9.3 Phase 3: Second RI Purchase (March 2027)
-
-| Week | Action |
-|------|--------|
-| Week 1 | Review current infrastructure (any changes?) |
-| Week 2 | Process payment for second RI purchase |
-| Week 3 | Purchase second 1-year All-Upfront RIs |
-| Week 4 | Confirm RI coverage is active |
-
-### 9.4 Phase 4: Service Completion (November 2027)
-
-| Item | Details |
-|------|---------|
-| **Contract End Date** | 30 November 2027 |
-| **RI Status** | Second RI still active (until March 2028) |
-| **Options** | Continue service, sell unused RI on Marketplace, or let expire |
