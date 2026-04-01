@@ -143,5 +143,5 @@ Post Migration (Next Phase)
 
 after that i shared the plan with Ali and Basit
 
-
+after that i was asked by khurrum to run queries on the prod rds db in teh sindh project on off hours so i did taht aswell 
 

@@ -9,6 +9,7 @@
 - Continue ECS troubleshooting course and reach 60% completion.
 - Complete AWS Cloud Quest Cloud Practitioner assignment #2.
 - Create migration plan for moving repositories from AWS CodeCommit to GitLab.
+- Execute off-hours Prod Sindh RDS queries as requested by Khurrum.
 
 ---
 
@@ -17,7 +18,7 @@
 - **Editor:** Visual Studio Code
 - **Terminal:** PowerShell
 - **AWS Console:** CloudWatch, IAM, CDK
-- **Projects:** Nova Via
+- **Projects:** Nova Via, Sindh
 
 ---
 
@@ -35,8 +36,8 @@
   - Created CloudWatch Log Group with appropriate IAM permissions.
   - Added export for log group name following existing EcsLogGroupName pattern.
 - **Code Review Discussion with Hazar:**
-  - Discussed enableComplaintAuditLogs flag: Considered making audit logs always enabled instead of optional.
-  - Explained export usage: Follows same pattern as existing exports, available for future monitoring/dashboards.
+  - Discussed whether enableComplaintAuditLogs should be always enabled vs optional.
+  - Explained export usage: consistent with existing EcsLogGroupName export for potential future monitoring, not currently imported.
 - **Status:** Merge request created and sent for approval.
 
 ### 2. ECS Troubleshooting Course Progress
@@ -46,21 +47,25 @@
 
 ### 3. AWS Cloud Quest Cloud Practitioner
 - Started new gamified learning course on AWS Skillbuilder.
-- Working on assignment #2, currently in progress.
+- Working on assignment #2, in progress.
 - Course URL: [AWS Cloud Quest Cloud Practitioner](https://skillbuilder.aws/learn/FU5WCYVGKY/aws-cloud-quest-cloud-practitioner/JF9TKU68GT)
 
 ### 4. CodeCommit to GitLab Migration Planning
-- **Context:** Ali introduced Basit who needs project repositories migrated from AWS CodeCommit to GitLab.
+- **Context:** Ali introduced Basit, who needs project repositories migrated from AWS CodeCommit to GitLab.
 - **Planning Activities:**
   - Discussed migration requirements with Ali and Basit.
-  - Created comprehensive migration plan and guide.
+  - Produced comprehensive migration plan and guide.
   - Identified repository names: mm-backend, mm-enterprise, mm-cms, mm-event, mm-checkout.
   - Outlined migration strategy, responsibilities, and timeline.
 - **Migration Plan Highlights:**
   - Standard migration using git mirror for most repositories.
-  - Special handling for repositories with sensitive data (.env files).
+  - Special handling for repositories with sensitive history (e.g., .env files).
   - Post-migration pipeline updates to use GitLab as source.
 - **Status:** Repositories created in GitLab, ready for migration execution.
+
+### 5. Production Sindh RDS Queries
+- Completed off-hours production database queries in Sindh project as requested by Khurrum.
+- Ensured safe query execution during non-peak hours and confirmed result validity.
 
 ---
 
