@@ -1,0 +1,28 @@
+i connected with Basit and asked his for aws account access so i can look into teh pipeline source change task 
+and also asked him to start migration of repos from code commit to gitlab 
+
+waiting for his responce 
+
+in the mean time i contineued the coursec i started before (still in progress)
+
+
+
+Tasks Completed:
+
+GitLab Repository Setup:
+Created all the GitLab repositories: mm-backend, mm-enterprise, mm-cms, mm-event, mm-checkout.
+Set up the main branches in each repository to serve as default branches.
+Collaborated with Basit to migrate codebases from CodeCommit to GitLab.
+AWS Research & Preparation:
+Explored how to set up a GitLab connection in AWS via Connections in Developer Tools.
+Learned that a GitLab self-managed connection is required for gitlab.dplit.com.
+Ran into questions regarding VPC selection and access token setup.
+Next Steps Prepared:
+Requested Ali to create the GitLab connection in AWS to proceed with CodePipeline source change.
+Plan to update CodePipeline to use GitLab as the source tomorrow.
+
+Notes / Observations:
+
+Default branches in GitLab needed to be created first to allow pushing from local repositories.
+Migration from CodeCommit to GitLab for all repos is in progress and coordinated with Basit.
+AWS connection setup requires clarification on VPC selection.
