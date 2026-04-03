@@ -1,0 +1,70 @@
+Tasks Completed:
+
+GitLab Repository Setup:
+Created all the GitLab repositories: mm-backend, mm-enterprise, mm-cms, mm-event, mm-checkout.
+Set up the main branches in each repository to serve as default branches.
+Collaborated with Basit to migrate codebases from CodeCommit to GitLab.
+AWS Research & Preparation:
+Explored how to set up a GitLab connection in AWS via Connections in Developer Tools.
+Learned that a GitLab self-managed connection is required for gitlab.dplit.com.
+Ran into questions regarding VPC selection and access token setup.
+
+after this was done yestertay today i didi the following 
+
+tryed to make teh connection but kept getting 403 forbidden error 
+so sent theg error and my query to ali 
+
+amd hajd a meeting woth him regarding the issue 
+
+Requested Ali to create the GitLab connection in AWS to proceed with CodePipeline source change.
+Plan to update CodePipeline to use GitLab as the source tomorrow.
+
+
+
+in the mean time watched teh course i was enrolled in (still in progress)
+
+Here’s your **Daily Report (April 3, 2026)** clearly structured:
+
+
+1. **GitLab Migration Setup:**
+
+   * Created GitLab repositories (`mm-backend`, `mm-enterprise`, `mm-cms`, `mm-event`, `mm-checkout`).
+   * Set up default `main` branches for all repositories.
+   * Collaborated with Basit to migrate codebases from CodeCommit to GitLab.
+
+2. **AWS GitLab Integration:**
+
+   * Explored and set up GitLab connection in AWS CodeStar Connections.
+   * Successfully established connection using access token (without VPC requirement).
+
+3. **Pipeline Migration (Dev):**
+
+   * Updated **Dev pipeline** (`Miracle-morning-Dev-NodeJs-App-CICD-Pipeline`) to use GitLab (`mm-backend`) as source.
+   * Verified that **source stage change was successful**.
+
+4. **Deployment Issue Resolution:**
+
+   * Faced deployment failure due to missing `appspec.yml` (ignored via `.gitignore`).
+   * Fixed the issue by including `appspec.yml` in the repository.
+   * Deployment stage executed successfully afterward.
+
+5. **Environment Configuration Handling:**
+
+   * Identified missing `.env` file in GitLab repo (previously present in CodeCommit).
+   * Temporarily resolved by manually copying `.env` to EC2 instance and adjusting paths.
+   * Confirmed that the **Dev application is running successfully**.
+
+6. **Production Pipeline Planning:**
+
+   * Deferred updating Prod pipeline to GitLab to avoid risk.
+   * Plan to finalize proper environment variable management approach before proceeding.
+
+---
+
+**Next Steps:**
+
+* Finalize environment variable management strategy (likely via AWS Secrets Manager).
+* Update Prod pipeline (`MiracleMorning-Stage-CICD`) to GitLab.
+* Validate end-to-end deployment for production.
+
+---
