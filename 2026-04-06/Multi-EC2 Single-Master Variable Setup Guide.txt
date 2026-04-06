@@ -1,0 +1,56 @@
+Multi-EC2 Single-Master Variable Setup Guide
+
+Objective:
+Automatically set MASTER=true on one EC2 and MASTER=false on others during deployment
+
+Step 1: Get EC2 instance ID
+Use the EC2 metadata service to get the instance ID:
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id
+)
+
+Step 2: Decide which EC2 is master
+Choose one EC2 instance ID to be MASTER
+Example:
+MASTER_INSTANCE="i-0abc123xyz"
+
+Step 3: Create deployment script
+Create file set_master_var.sh in repo root with content:
+#!/bin/bash
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id
+)
+MASTER_INSTANCE="i-0abc123xyz"
+if [ "$INSTANCE_ID" == "$MASTER_INSTANCE" ]; then
+echo "MASTER=true" > /home/ec2-user/app/master.env
+else
+echo "MASTER=false" > /home/ec2-user/app/master.env
+fi
+
+Step 4: Update appspec.yml
+Add the hook:
+hooks:
+BeforeInstall:
+- location: set_master_var.sh
+timeout: 300
+runas: ec2-user
+
+Step 5: Deployment flow
+During deployment each EC2 runs the script
+The EC2 with matching instance ID becomes MASTER=true
+Others become MASTER=false
+No manual action is needed
+
+Step 6: Notes
+Ensure directory /home/ec2-user/app/ exists
+App can source master.env:
+source /home/ec2-user/app/master.env
+To switch master, update MASTER_INSTANCE in the script
+Works for any number of EC2s
+
+Demo example:
+If we have two EC2s with IDs i-0abc123xyz and i-0def456xyz
+Set MASTER_INSTANCE="i-0abc123xyz"
+After deployment:
+EC2 i-0abc123xyz → MASTER=true
+EC2 i-0def456xyz → MASTER=false
+
+End of guide

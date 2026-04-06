@@ -1,0 +1,113 @@
+i messaged Basit to let me know when he is avylable then we can start on the task to change the source of pipelines in MM project
+
+
+
+in the mean time watched teh course i was enrolled in (still in progress)
+
+
+ **Pipeline Migration (Dev):**
+
+   * Updated **Dev pipeline** (`Miracle-morning-Dev-NodeJs-App-CICD-Pipeline`) to use GitLab (`mm-backend`) as source.
+   * Verified that **source stage change was successful**.
+
+ **Deployment Issue Resolution:**
+
+   * Faced deployment failure due to missing `appspec.yml` (ignored via `.gitignore`).
+   * Fixed the issue by including `appspec.yml` in the repository.
+   * Deployment stage executed successfully afterward.
+
+ **Environment Configuration Handling:**
+
+   * Identified missing `.env` file in GitLab repo (previously present in CodeCommit).
+   * Temporarily resolved by manually copying `.env` to EC2 instance and adjusting paths.
+   * Confirmed that the **Dev application is running successfully**.
+
+ **Production Pipeline Planning:**
+
+   * Deferred updating Prod pipeline to GitLab to avoid risk.
+   * Plan to finalize proper environment variable management approach before proceeding.
+
+---
+
+**Next Steps:**
+
+* Finalize environment variable management strategy (likely via AWS Secrets Manager).
+* Update Prod pipeline (`MiracleMorning-Stage-CICD`) to GitLab.
+* Validate end-to-end deployment for production.
+
+---
+
+after that i waited for further instructions 
+and even asked Hazar if he had any task for me in teh mean time i wait for Basit to get free 
+
+
+Prod Pipeline Source Change:
+Successfully updated the source of the production backend pipeline to the GitLab mm-backend repository.
+Verified deployment of changes.
+Environment Issue Resolution:
+Identified that .env was missing from GitLab (present in old CodeCommit).
+Temporarily resolved by manually copying .env to EC2 and adjusting paths.
+Confirmed the dev app on prod EC2 instances is now working.
+Multi-EC2 Single-Master Setup:
+Created a guide for automatically setting MASTER=true on one EC2 and MASTER=false on others.
+Included script (set_master_var.sh), appspec.yml hook configuration, and deployment flow instructions.
+Provided a demo example for clarity for the dev team.
+Parameter Store Preparation:
+Drafted a complete guide for storing environment variables in AWS SSM Parameter Store.
+Included instructions for dev/prod environments for all 5 repositories (mm-backend, mm-checkout, mm-cms, mm-enterprise, mm-event).
+Prepared script and appspec.yml setup instructions to automatically inject .env during deployment.
+Dev Team Communication:
+Sent step-by-step guides in plain text to the dev team for easy implementation.
+Explained demo examples and usage for both Parameter Store and multi-EC2 master variable setup.
+E:\Traning\DPL\2026-04-06\Multi-EC2 Single-Master Variable Setup Guide.txt
+E:\Traning\DPL\2026-04-06\SSM Parameter Store Setup Guide.txt
+
+
+after taht it was decided to do teh source change just like this without impleemnting teh env solution 
+and will tackel teh env probles after teh source change task is compleate 
+
+after that i had a meetion with 
+ALI and HAzaifa (new hire DevOps) to ahve him familieraize with cdk and teh repo structure 
+
+after that i had a meeting with Basit again to change teh source for rest of teh pipelines 
+we have started to change teh source for teh cms pipeline
+
+
+**Prod Pipeline Source Change:**
+
+   * Successfully updated the source of the production backend pipeline to GitLab (`mm-backend`).
+   * Verified deployment and ensured application stability.
+
+ **Environment Setup & Guidance:**
+
+   * Created and shared guides for:
+
+     * AWS SSM Parameter Store based `.env` management
+     * Multi-EC2 single-master variable automation
+   * Included demo examples for easy implementation by the dev team.
+
+ **CMS Pipeline Configuration:**
+
+   * Identified CMS as a frontend (Vite) application.
+   * Configured environment variables in CodeBuild using `VITE_*` format.
+
+ **Pipeline Source Integration Fix:**
+
+   * Resolved GitLab connection issue by adding IAM permission:
+     `codestar-connections:UseConnection` (policy: `AllowGitLabConnection`)
+   * Enabled pipelines to fetch code from GitLab successfully.
+
+ **mm-event Pipeline Migration & Fix:**
+
+   * Collaborated to update source of `mm-event` pipeline to GitLab.
+   * Encountered deployment failure due to leftover `node_modules`.
+   * Identified issue with `start.sh` not cleaning old files.
+   * Coordinated manual cleanup with Basit.
+   * Deployment succeeded after fix.
+
+ **System Understanding & Debugging:**
+
+   * Analyzed pipeline failures and deployment behavior across services.
+   * Improved understanding of environment handling, build vs runtime configs, and deployment flows.
+
+
