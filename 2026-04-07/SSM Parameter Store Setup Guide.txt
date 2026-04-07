@@ -1,0 +1,141 @@
+SSM Parameter Store Setup Guide (Step-by-Step Execution)
+
+Step 1: Create Parameters in AWS
+Go to AWS Console
+Search → Systems Manager
+Click → Parameter Store
+Click → Create parameter
+Create parameter for mm-backend DEV
+Name:
+/mm/mm-backend/dev/env
+Type: SecureString
+Value: paste your .env content
+
+Click Create parameter
+
+Repeat for ALL:
+/mm/mm-backend/prod/env
+/mm/mm-checkout/dev/env
+/mm/mm-checkout/prod/env
+/mm/mm-cms/dev/env
+/mm/mm-cms/prod/env
+/mm/mm-enterprise/dev/env
+/mm/mm-enterprise/prod/env
+/mm/mm-event/dev/env
+/mm/mm-event/prod/env
+Step 2: Give EC2 Permission
+Go to AWS → EC2
+Click your instance
+Scroll → IAM Role
+Click role name
+Click → Add permissions → Attach policies
+Click → Create inline policy
+Paste this JSON:
+{
+  "Effect": "Allow",
+  "Action": ["ssm:GetParameter"],
+  "Resource": "*"
+}
+
+Click:
+
+Review
+Name: ssm-read
+Create policy
+Step 3: Add Script in Repo (ROOT FOLDER)
+
+Since no scripts folder, create file in root:
+
+File name:
+
+setup_env.sh
+
+Paste this EXACT:
+
+#!/bin/bash
+
+ENV=$DEPLOY_ENV
+APP=$APP_NAME
+
+PARAM="/mm/$APP/$ENV/env"
+
+aws ssm get-parameter \
+  --name "$PARAM" \
+  --with-decryption \
+  --query Parameter.Value \
+  --output text > /home/ec2-user/app/.env
+Step 4: Make Script Executable (IMPORTANT)
+
+On your local repo:
+
+git update-index --chmod=+x setup_env.sh
+
+Then:
+
+git add .
+git commit -m "add env setup script"
+git push
+Step 5: Update appspec.yml
+
+Open appspec.yml (root)
+
+Add this:
+
+hooks:
+  BeforeInstall:
+    - location: setup_env.sh
+      timeout: 300
+      runas: ec2-user
+
+Save → commit → push
+
+Step 6: Create Folder on EC2
+
+SSH into EC2:
+
+mkdir -p /home/ec2-user/app
+Step 7: Set Pipeline Variables
+
+Go to:
+AWS → CodePipeline → open pipeline → Edit
+
+For DEV pipeline:
+
+Add variables:
+
+DEPLOY_ENV=dev
+APP_NAME=mm-backend
+
+(Change APP_NAME per repo)
+
+For PROD pipeline:
+DEPLOY_ENV=prod
+APP_NAME=mm-backend
+Step 8: Save and Run Pipeline
+Click Save
+Click Release change
+Step 9: Verify on EC2
+
+SSH into EC2:
+
+cat /home/ec2-user/app/.env
+
+You should see your env values.
+
+Step 10: Repeat for All Pipelines
+
+For each repo:
+
+Repo	APP_NAME
+mm-backend	mm-backend
+mm-checkout	mm-checkout
+mm-cms	mm-cms
+mm-enterprise	mm-enterprise
+mm-event	mm-event
+Final Result
+No .env in repo
+Env auto-created on deploy
+Works for all 10 pipelines
+Dev and Prod separated
+
+End of Guide

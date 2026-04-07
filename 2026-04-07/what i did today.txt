@@ -1,0 +1,84 @@
+
+**Prod Pipeline Source Change:**
+
+   * Successfully updated the source of the production backend pipeline to GitLab (`mm-backend`).
+   * Verified deployment and ensured application stability.
+
+ **Environment Setup & Guidance:**
+
+   * Created and shared guides for:
+
+     * AWS SSM Parameter Store based `.env` management
+     * Multi-EC2 single-master variable automation
+   * Included demo examples for easy implementation by the dev team.
+
+ **CMS Pipeline Configuration:**
+
+   * Identified CMS as a frontend (Vite) application.
+   * Configured environment variables in CodeBuild using `VITE_*` format.
+
+ **Pipeline Source Integration Fix:**
+
+   * Resolved GitLab connection issue by adding IAM permission:
+     `codestar-connections:UseConnection` (policy: `AllowGitLabConnection`)
+   * Enabled pipelines to fetch code from GitLab successfully.
+
+ **mm-event Pipeline Migration & Fix:**
+
+   * Collaborated to update source of `mm-event` pipeline to GitLab.
+   * Encountered deployment failure due to leftover `node_modules`.
+   * Identified issue with `start.sh` not cleaning old files.
+   * Coordinated manual cleanup with Basit.
+   * Deployment succeeded after fix.
+
+ **System Understanding & Debugging:**
+
+   * Analyzed pipeline failures and deployment behavior across services.
+   * Improved understanding of environment handling, build vs runtime configs, and deployment flows.
+
+
+   after teh above was done yesteday 
+
+   i messaged Basit to let me know when he is avylable then we can start on the task to change the source of pipelines in MM project
+
+
+
+in the mean time watched teh course i was enrolled in (compleated and teh certificate is in teh image folder this is the ECS trouble shooting course E:\Traning\DPL\2026-04-07\images\certificate of completion.png)
+
+and then enrolled in a new course 
+https://skillbuilder.aws/renderer/?module_id=JUQMYVKMV4%3A001.000.002&product_id=1X8WNBRHH3%3A001.000.002&registration_id=152204e4-a4c1-597c-a7f8-093f70f038f2&referrer=https%3A%2F%2Fskillbuilder.aws%2Flearn%2FC9VBXQJM86%2Famazon-dynamodb--troubleshooting%2F1X8WNBRHH3&navigation=digital
+
+Troubleshooting: Amazon DynamoDB
+
+(still in progress )
+
+then focused on teh following 
+
+Checkout Pipeline Migration:
+
+Successfully updated pipelines for mm-checkout to use GitLab as the source.
+Migration completed without any complications.
+(it was done by basit himself using the steps i told him earliar for the pipeline source change )
+
+waiting for him to responce so we can start working towerd compleating teh task 
+in teh meantime i analyse teh repos and teh content 
+also reviewed teh pipelines related to teh last repo we need to change  mm-enterprise
+
+
+after reviewinin the repos and pipelines 
+i saw some repos in codecommit that were not migrated into gitlab (wasent asked to by basit that why )
+but there are 4 extra pipelines that are dependent on this repo ( will disscuss it with basit in teh meating )
+
+those are not ready yet teh codebase for these pipeline and the repo so when it is compleate then we will do teh migration and pipeline source chanhge (the MiracleMorning-portalApp repo in teh codecommit have no mirror migrated repo in gitlab as of yet )
+
+
+after having a meeting with Basit teh task was postpond till tommoprow as he was busy today with another task
+
+
+
+
+
+
+
+
+
