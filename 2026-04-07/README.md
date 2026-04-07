@@ -44,6 +44,9 @@
 - **Pipeline Source Integration Fix:**
   - Resolved GitLab connection issue by adding IAM permission: `codestar-connections:UseConnection`
   - Policy: `AllowGitLabConnection`
+  - **Error Resolved:** `Unable to use Connection: arn:aws:codeconnections:us-east-1:649871028995:connection/d2f844bb-b963-4b3c-ae1b-2c57b2f10ef0. The provided role does not have sufficient permissions.`
+  - **Action:** Added required policy to the IAM role to grant CodeConnections access.
+  - **Result:** Released changes and source stage completed successfully.
   - Enabled pipelines to fetch code from GitLab successfully.
 
 ### 4. CMS Pipeline Configuration
@@ -87,9 +90,10 @@
 
 ### 1. GitLab Connection Permission Issue
 - **Symptom:** Pipelines unable to fetch code from GitLab.
+- **Error:** `Unable to use Connection: arn:aws:codeconnections:us-east-1:649871028995:connection/d2f844bb-b963-4b3c-ae1b-2c57b2f10ef0. The provided role does not have sufficient permissions.`
 - **Investigation:** Reviewed IAM permissions for CodeStar Connections.
 - **Finding:** Missing `codestar-connections:UseConnection` permission.
-- **Resolution:** Added `AllowGitLabConnection` policy; pipelines now fetch successfully.
+- **Resolution:** Added `AllowGitLabConnection` policy to IAM role; released changes and source stage completed successfully.
 
 ### 2. mm-event Deployment Failure
 - **Symptom:** Pipeline failed during deployment stage.
