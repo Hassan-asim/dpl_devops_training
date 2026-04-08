@@ -65,6 +65,12 @@
 - Continued AWS training courses as scheduled.
 - Work in progress on assigned learning modules.
 
+### 7. ECS Audit Logging
+- Added a dedicated CloudWatch log group for complaint audit logs in `ecs-service.ts`.
+- Granted the ECS task role permission to write to that log group.
+- Verified changes with `npm run build` and `cdk synth dev-AppServiceStack --profile nova-dev`.
+- Confirmed the branch changes are minimal and focused on the app service stack.
+
 ---
 
 ## 📋 Action Items & Timeline
