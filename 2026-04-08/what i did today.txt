@@ -1,0 +1,51 @@
+connected with basit to fix teh pipeline error for teh mm-enterprise after teh source change task (the old pipeline had some errors which needed fixes so i did that and updated basit on it )
+
+he asked me to analyn=se and do reserch and fix if possibal as he was busy in another sprint 
+so i did teh following 
+now teh builde stage is fixed and tehdeploi=y stage is also fixed 
+teh only thing left is teh env file path fix which basit will do himself after he gets some free time
+
+
+**1. Build Issue Fix on CodeBuild**
+
+* **Problem:** Build was failing due to unsupported Node.js version on the old Linux image. Specifically:
+
+  * Node v20 was not supported on the previously selected standard image.
+  * `@tailwindcss/oxide` and `eslint-visitor-keys` reported `EBADENGINE` warnings.
+* **Action Taken:**
+
+  * Changed the CodeBuild environment image to **Standard 6 (aws/codebuild/amazonlinux2-x86_64-standard:6.0)**, which supports Node 20.
+  * Verified `node -v` and `npm -v` in the install phase.
+* **Result:** Build completed successfully.
+
+**2. Deployment Path Issue**
+
+* **Problem:** Deployment failed because `start.sh` was pointing to `/var/www/partner-mm-prod` (production path), while `appspec.yml` deploys to `/var/www/qa-partner.miraclemorning.com` (QA instance).
+* **Action Taken:**
+
+  * Updated `start.sh` to use the QA path `/var/www/qa-partner.miraclemorning.com`.
+  * Verified directory existence before proceeding with commands to avoid script failure.
+* **Result:** Deployment script now runs without exiting due to wrong directory.
+
+**3. `.env` File Not Found Error**
+
+* **Problem:** After fixing paths, deployment failed during `ApplicationStart` because `.env` could not be found.
+
+  * Error: `cp: cannot stat '../environments/partner/.env': No such file or directory`.
+  * The `.env` file was previously located in the production folder (`partner-mm-prod`) instead of the QA folder.
+* **Action Needed:**
+
+  * Update `start.sh` to copy `.env` from the correct QA path.
+  * Ensure environment variables are correctly available in the QA deployment directory before starting PM2.
+
+**4. PM2 Deployment Commands**
+
+* Confirmed `pm2 stop` handles the case where the process isn’t running (doesn’t fail).
+* PM2 starts the app in the QA environment using the updated ecosystem config.
+
+**Summary:**
+
+* **Build Fixed:** Switched CodeBuild image to Standard 6 → Node 20 supported.
+* **Deployment Paths Fixed:** Updated `start.sh` directory to QA instance path.
+* **Remaining Issue:** `.env` file not found; needs to be copied from QA environment location.
+
