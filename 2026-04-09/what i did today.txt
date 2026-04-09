@@ -1,0 +1,18 @@
+Daily Update
+
+MM-Enterprise QA Pipeline Follow-up
+
+Followed up with Basit regarding the remaining .env file path fix for the mm-enterprise QA pipeline.
+Awaiting his update/confirmation once he gets bandwidth from his current sprint to apply the environment path correction and re-run the pipeline.
+Current pipeline status remains:
+Build Stage: Fixed and working
+Deploy Stage: Fixed and working
+Pending: .env source path correction by Basit
+After the environment path fix is completed, Basit and I will connect to work on the production pipeline task together under his supervision.
+
+Learning / Upskilling
+
+Continued progress on AWS training courses during available time while waiting on dependency/blocker:
+
+Worked on Amazon DynamoDB – Troubleshooting course on AWS Skill Builder (in progress)
+Continued AWS Cloud Practitioner course (in progress)
