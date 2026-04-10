@@ -1,0 +1,22 @@
+Daily Update
+
+MM-Enterprise QA Pipeline Follow-up
+Awaiting basit update/confirmation once he gets bandwidth from his current sprint to apply the environment path correction and re-run the pipeline.
+Current pipeline status remains:
+Build Stage: Fixed and working
+Deploy Stage: Fixed and working
+Pending: .env source path correction by Basit
+After the environment path fix is completed, Basit and I will connect to work on the production pipeline task together under his supervision.
+
+Learning / Upskilling
+
+Continued progress on AWS training courses during available time while waiting on dependency/blocker:
+
+Worked on Amazon DynamoDB – Troubleshooting course on AWS Skill Builder (in progress)
+Continued AWS Cloud Practitioner course (in progress)
+
+other thaen that i updated the cloud team grouo about my porogress and my next plan and asked tehm if they have any other task for me in teh meantime i wait for basit to get free 
+
+from his current sprint to work on the production pipeline task with me. I also asked if they have any other tasks for me to work on while I wait for Basit to be available.
+
+had a converstaion with teh new hire (huzaifa )about teh cloud watch logs task i did  as hazar has assigned him to review teh code mr i made so he had some queries which i cleared 
