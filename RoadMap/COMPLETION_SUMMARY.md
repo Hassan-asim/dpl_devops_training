@@ -192,7 +192,7 @@ A comprehensive DevOps learning roadmap has been successfully created in the `Ro
 
 Based on the daily folders (Nov 21 - Jan 20), the roadmap documents:
 
-### Completed Learning Activities
+### Completed Learning Activities (Nov 21, 2025 - Jan 20, 2026)
 - Linux fundamentals with 70+ commands practiced
 - Git workflow mastery (internals, merging, rebasing, GitHub workflows)
 - TypeScript basics and advanced concepts
@@ -208,11 +208,40 @@ Based on the daily folders (Nov 21 - Jan 20), the roadmap documents:
 - High availability and disaster recovery planning
 - Cost optimization strategies
 
+### Advanced Learning Activities (Jan 21 - Apr 13, 2026)
+- **FBR Integration Project** - API testing, Streamlit application development, Python scripting
+- **Real Production Database Operations** - Sindh Ombudsman CMS PostgreSQL query execution and optimization
+- **Lambda & Serverless Architecture** - Lambda function deployment via CDK, EventBridge scheduled triggers, SNS notifications
+- **AWS Secrets Manager** - Binary vs string secrets, CloudFront private key handling, ElevenLabs credentials
+- **SQS & Notification Systems** - Deployed Lambda and SQS stacks for Sindh CMS notification logic
+- **AWS SAM (Serverless Application Model)** - IAM policy experiments, Lambda/DynamoDB deployments, template-driven infrastructure
+- **Terraform Fundamentals** - Init/plan/apply workflow, declarative infrastructure management
+- **Advanced CI/CD Pipeline Management** - GitLab self-managed integration, CodeBuild buildspec optimization, CodeDeploy troubleshooting
+- **CodeCommit to GitLab Migration** - Led migration of 5 repositories with AWS CodeStar Connections
+- **EC2 ARM64/Graviton Migration** - Migrated DEV, UAT, PROD from x86 (T3) to ARM64 (T4G) achieving 21% cost savings
+- **CloudFront Signed Cookies** - Binary secret decoding, Python cryptography, end-to-end validation
+- **SSM Parameter Store** - Environment variable management guides for deployments
+- **Advanced CloudWatch & CloudTrail** - Log groups for audit logs, API activity tracking, monitoring dashboards
+- **DynamoDB Operations** - Table management, Lambda integration, troubleshooting course
+- **Advanced Cost Optimization** - Reserved Instance strategy (27% savings), AWS Pricing Calculator analysis
+- **Multi-Environment Management** - DEV/UAT/PROD stack separation and deployment strategies
+- **Production Issue Troubleshooting** - HTTP 429 errors, connection pooling, disk space issues, timeout resolution
+
+### Real-World Project Experience
+- **FBR Digital Invoicing** - Federal Board of Revenue integration
+- **Sindh Ombudsman CMS** - Content management system operations
+- **The Breath Source (TBS)** - ECS/Fargate microservices architecture
+- **NovaLife (Nova Via)** - CloudFront, ALB, SSL, ECS infrastructure
+- **Miracle Morning (MM)** - CodeCommit to GitLab migration (5 repos)
+- **NGAGE** - Project onboarding and infrastructure review
+- **Meeting Room App** - Low-cost infrastructure deployment
+
 ### All Resources Referenced
 - 6 YouTube video tutorials documented with links
 - Official AWS documentation referenced
 - Industry best practices included
-- Real-world project examples from your GitHub repo
+- Real-world project examples from production work
+- 3 AWS certifications earned (Networking Basics, EBS Troubleshooting, ECS Troubleshooting)
 
 ---
 
@@ -271,10 +300,11 @@ The roadmap can be easily customized by:
 ---
 
 **Created:** January 29, 2026  
-**Based on:** Learning journey from Nov 21, 2025 - Jan 20, 2026  
+**Last Updated:** April 13, 2026  
+**Based on:** Learning journey from Nov 21, 2025 - Apr 13, 2026  
 **For:** Junior DevOps Engineers at DPL  
 **Status:** Complete and ready to share  
 
 ---
 
-The roadmap is now ready for your junior developers to follow and learn from the same path you took to master DevOps!
+The roadmap is now ready for your junior developers to follow and learn from the same path you took to learn DevOps!

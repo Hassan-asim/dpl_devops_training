@@ -1,0 +1,60 @@
+Daily Update
+
+MM-Enterprise QA Pipeline Follow-up
+Awaiting basit update/confirmation once he gets bandwidth from his current sprint to apply the environment path correction and re-run the pipeline.
+Current pipeline status remains:
+Build Stage: Fixed and working
+Deploy Stage: Fixed and working
+Pending: .env source path correction by Basit
+After the environment path fix is completed, Basit and I will connect to work on the production pipeline task together under his supervision.
+
+Learning / Upskilling
+
+Continued progress on AWS training courses during available time while waiting on dependency/blocker:
+
+Worked on Amazon DynamoDB – Troubleshooting course on AWS Skill Builder (in progress)
+Continued AWS Cloud Practitioner course (in progress)
+
+other thaen that i asked in teh cloud team group "is tehre anything they want me to focus on as of today " while i wait for basit to get free so we can finishteh pipeline stacge cganeg task 
+
+other that that i was imformed taht my cheackpoint meeting is schedule on wednesday 2026-04-15 so i prepaired teh refined PPT content  for it (its in teh folder 2026-04-13)
+
+after that i was watching teh aws dynamo db course and ali said taht to make a app to practice teh dynamo db so i did teh below 
+Built a complete e-commerce application to practice DynamoDB troubleshooting and learn real-world database patterns on AWS.
+
+✅ What We Built Today
+Full-Stack E-Commerce App
+
+Backend: Node.js/Express with TypeScript
+Frontend: Modern responsive SPA (Vite)
+Database: 4 DynamoDB tables with real data
+Local Development Mode (No AWS Needed)
+
+Built in-memory database that mimics DynamoDB
+Pre-loaded 14 demo products + 3 user accounts
+Can test locally before deploying to AWS
+Infrastructure Ready for AWS
+
+CDK stack with 4 DynamoDB tables + 3 GSIs
+4 Lambda functions for API
+API Gateway with 20+ endpoints
+CI/CD pipeline for automated deployment
+📚 Why We Built This (Learning Purpose)
+DynamoDB Concept	How We Practice It
+Table Design	4 tables with different key structures (partition key, sort key, composite key)
+GSIs (Global Secondary Indexes)	CategoryIndex, UserOrdersIndex, EmailIndex - test query vs scan performance
+Query vs Scan	Filter products by category (GSI query) vs scanning all products
+Capacity Planning	Switch between On-Demand and Provisioned mode to test throttling
+Error Handling	ConditionalCheckFailed, ValidationException, Throttling errors
+Data Modeling	One-to-many (user→orders), many-to-many (cart items), composite keys
+Monitoring	CloudWatch metrics for consumed capacity, throttled requests, errors
+Index Optimization	Test which GSIs improve query speed vs full table scans
+
+after taht ali said to reserch on teh below insted first tehn contineuw the course 
+
+so i msg hazar teh following 
+Ali has assigned me research on the following for today:
+AI-Driven Development Lifecycle
+https://prod.d13rzhkk8cj2z0.amplifyapp.com/
+https://www.youtube.com/watch?v=qB7AobjQqsU&t=685s
+I’ll be focusing on these for now. Please let me know if there are any other tasks I should prioritize alongside this.

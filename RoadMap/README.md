@@ -2,7 +2,7 @@
 
 ## Welcome to the DPL DevOps Training Roadmap
 
-This comprehensive documentation covers the complete DevOps learning journey from November 21, 2025 through January 20, 2026, including all foundational knowledge, hands-on labs, and production-ready implementations.
+This comprehensive documentation covers the complete DevOps learning journey from November 21, 2025 through April 13, 2026, including all foundational knowledge, hands-on labs, production-ready implementations, and real-world project experience.
 
 ---
 
@@ -104,11 +104,18 @@ Week 8-9: Production Implementation
 | Operating System  | Linux           | Server OS and command-line proficiency   |
 | Version Control   | Git/GitLab      | Code management and CI/CD                |
 | Programming       | TypeScript      | Infrastructure as Code (IaC)             |
+| Programming       | Python          | Scripting and API testing                |
 | Web Server        | Nginx           | Reverse proxy and load balancing         |
 | Backend Framework | NestJS          | RESTful API development                  |
 | Frontend          | React           | Single Page Application                  |
+| Frontend Build    | Vite            | Modern frontend build tool               |
 | Database          | PostgreSQL      | Relational data storage                  |
+| Database          | DynamoDB        | NoSQL database                           |
 | Containerization  | Docker          | Application containerization             |
+| Process Manager   | PM2             | Node.js process management               |
+| UI Framework      | Streamlit       | Python web applications                  |
+| IaC Tools         | Terraform       | Declarative infrastructure               |
+| IaC Tools         | AWS SAM         | Serverless application model             |
 
 ### AWS Services
 
@@ -136,18 +143,27 @@ Week 8-9: Production Implementation
 #### Identity & Security
 - IAM (Identity & Access Management)
 - Secrets Manager
+- SSM Parameter Store
 
 #### Infrastructure & Deployment
 - CloudFormation (IaC)
 - AWS CDK (IaC with TypeScript)
+- AWS SAM (Serverless Application Model)
+- Terraform
 - CodePipeline
 - CodeBuild
 - CodeDeploy
+- CodeStar Connections
 
 #### Monitoring
 - CloudWatch
 - X-Ray
 - CloudTrail
+
+#### Messaging & Events
+- SQS (Simple Queue Service)
+- SNS (Simple Notification Service)
+- EventBridge
 
 ---
 
@@ -227,6 +243,52 @@ Week 8-9: Production Implementation
 - Database: PostgreSQL RDS with Multi-AZ
 - Complete CI/CD pipeline with GitLab integration
 - High availability and disaster recovery
+
+### Project 7: FBR Digital Invoicing (Jan 2026)
+- API testing and integration with Federal Board of Revenue
+- Streamlit-based production desktop application
+- Python scripting for automated invoice generation
+- Production token evidence package preparation
+- Generated 6 valid invoices with approved scenarios
+
+### Project 8: AWS Billing Automation (Feb 2026)
+- Lambda functions for monthly billing report generation
+- EventBridge scheduled triggers (cron expressions)
+- SNS notifications for billing alerts
+- S3 integration for report storage
+- Complete serverless architecture deployment
+
+### Project 9: Sindh Ombudsman CMS Operations (Jan - Mar 2026)
+- Production PostgreSQL database operations
+- Lambda and SQS notification system deployment
+- EC2 ARM64 migration (T3 to T4G)
+- Escalation query optimization (10 queries updated)
+- SonarQube code quality analysis
+- Real production environment management
+
+### Project 10: NovaLife Infrastructure Setup (Feb - Apr 2026)
+- CloudFront signed cookies implementation
+- Wildcard SSL certificates with ACM
+- Custom domain configuration (portal-dev, video-cdn-dev, api-dev)
+- ECS service deployment with JWT integration
+- S3 permissions and secrets management
+- ElevenLabs API integration via Secrets Manager
+
+### Project 11: Miracle Morning GitLab Migration (Apr 2026)
+- CodeCommit to GitLab migration for 5 repositories
+- AWS CodeStar Connections establishment
+- CI/CD pipeline migration and configuration
+- IAM permissions and policy management
+- Environment variable configuration (VITE_* vars)
+- Production pipeline verification
+
+### Project 12: EC2 ARM64/Graviton Migration (Feb 2026)
+- Cost-benefit analysis (21% savings achieved)
+- Phased migration strategy (DEV → UAT → PROD)
+- Parallel deployment for zero downtime
+- CDK Launch Template updates
+- RDS scaling (db.t4g.large to db.t4g.xlarge)
+- MultiAZ configuration management
 
 ---
 
@@ -439,10 +501,18 @@ See [QUICK_REFERENCE.md - Troubleshooting Guide](QUICK_REFERENCE.md#troubleshoot
 ## Document Metadata
 
 **Created:** January 20, 2026  
-**Learning Period:** November 21, 2025 - January 20, 2026  
-**Total Duration:** 9 weeks  
+**Last Updated:** April 13, 2026  
+**Learning Period:** November 21, 2025 - April 13, 2026  
+**Total Duration:** 21 weeks (9 weeks foundations + 12 weeks advanced)  
 **Program:** DPL DevOps Training  
 **Target Audience:** Junior DevOps Engineers  
+
+**Certifications Earned:**
+- AWS Networking Basics (Jan 23, 2026)
+- Cursor AI Course (Jan 23, 2026)
+- AWS EBS Troubleshooting (Mar 25, 2026)
+- AWS ECS Troubleshooting (Apr 7, 2026)
+- AWS Cloud Quest Cloud Practitioner - Assignments 1-2 (In Progress)
 
 ---
 

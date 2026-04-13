@@ -268,7 +268,7 @@ Route53           KMS              CodeDeploy     VPC Endpoints
 
 ## Updates & Maintenance
 
-This roadmap documents learning from November 21, 2025 through January 20, 2026.
+This roadmap documents learning from November 21, 2025 through April 13, 2026.
 
 **To Update This Roadmap:**
 1. Add new resources in appropriate phase
@@ -289,14 +289,22 @@ This roadmap documents learning from November 21, 2025 through January 20, 2026.
 ## Document Metadata
 
 **Created:** January 29, 2026  
-**Based on Learning Journey:** November 21, 2025 - January 20, 2026  
-**Total Duration:** 9 weeks of intensive learning  
+**Last Updated:** April 13, 2026  
+**Based on Learning Journey:** November 21, 2025 - April 13, 2026  
+**Total Duration:** 21 weeks of intensive learning (9 weeks foundations + 12 weeks advanced)  
 **Prepared by:** Sufi Hassan Asim (Based on actual learning experience)  
 **Organized for:** Junior DevOps Engineers at DPL  
 **Status:** Complete and Production-Ready  
 
-**Key Achievement:** 
-This roadmap documents a complete DevOps learning journey from Linux fundamentals to production-ready cloud architecture implementation, with all 6 learning phases completed and verified.
+**Key Achievement:**
+This roadmap documents a complete DevOps learning journey from Linux fundamentals to production-ready cloud architecture implementation, with all 6 learning phases completed and verified, plus 12 weeks of advanced real-world project experience including FBR integration, Sindh Ombudsman CMS, NovaLife infrastructure, Miracle Morning GitLab migration, and EC2 ARM64 migration.
+
+**Certifications Earned:**
+- AWS Networking Basics (Jan 23, 2026)
+- Cursor AI Course (Jan 23, 2026)  
+- AWS EBS Troubleshooting (Mar 25, 2026)
+- AWS ECS Troubleshooting (Apr 7, 2026)
+- AWS Cloud Quest Cloud Practitioner (In Progress)
 
 ---
 
