@@ -1,0 +1,51 @@
+Daily Update
+
+MM-Enterprise QA Pipeline Follow-up
+Awaiting basit update/confirmation once he gets bandwidth from his current sprint to apply the environment path correction and re-run the pipeline.
+Current pipeline status remains:
+Build Stage: Fixed and working
+Deploy Stage: Fixed and working
+Pending: .env source path correction by Basit
+After the environment path fix is completed, Basit and I will connect to work on the production pipeline task together under his supervision.
+
+Learning / Upskilling
+
+Continued progress on AWS training courses during available time while waiting on dependency/blocker:
+
+Worked on Amazon DynamoDB – Troubleshooting course on AWS Skill Builder (in progress)
+Continued AWS Cloud Practitioner course (in progress)
+
+tehn teh app i created teh e commeres for teh practicce of teh dynamo db i did not had teh aws account as of now to test it by deploying so i madethe local runnable version and mimic teh dynamo db processes locally to test tehm 
+
+after that i created teh actual PPt for my cheackpoint that is tommorow and have it validated and fact checked sevral time so there are no misleading info in there 
+
+then i attended teh rebel speaker session on the following 
+Meeting 207 (Apr 14) - Things We'll Never Say Out Loud
+DPL Rebels, 
+ 
+Let’s be honest.
+
+
+I personally die inside when someone says, “5 min call?”
+
+Because we all know it’s never 5 minutes 😅
+
+And somehow, I end up talking way more than planned… especially when it could’ve been a text.
+ 
+This is my confession
+Now it’s YOUR turn.
+ 
+Bring your secret confessions, share your relatable truths, and let’s learn how to communicate better and maybe laugh at ourselves a little too in our tomorrow's Rebel Speaker Session 14 April, 2026 at 2:30 PM.
+ 
+Big 3
+Toastmaster of the Day -Maha Yaser
+Table Topics Master - Afzaal Akram
+General Evaluator - Muhammad Zeeshan Arif
+Role Players
+Ah Counter -Ibtehaj Ali
+Grammarian and Word master - TBD
+Timer - Zeeshan Ahmad
+Vote Counter - Me ( Rabiah Zareen)
+Table Topics Evaluator - Talha Babar
+ 
+ after taht i had some free time so i updated my CV and linkedin 
