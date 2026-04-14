@@ -49,3 +49,5 @@ Vote Counter - Me ( Rabiah Zareen)
 Table Topics Evaluator - Talha Babar
  
  after taht i had some free time so i updated my CV and linkedin 
+
+ after that basit asked me to assist him in teh error finding an dterouble shooting of teh serever env errors for teh mm entrerprise dev pipeline the pipeline is executed successfully but there is some pm2 error wher teh app was not loadingteh resources and sontimegiving teh node-env error

@@ -66,6 +66,16 @@
 - Updated CV with recent accomplishments and skills.
 - Updated LinkedIn profile to reflect current role, projects, and learnings.
 
+### 6. Guide to Fix Eval Error
+- Created a comprehensive guide: `guide to fix the eval error.md`
+- **Topic:** Fixing Content Security Policy (CSP) issues that prevent JavaScript execution, causing apps to load without styling.
+- **Content Covers:**
+  - Problem identification (console error: 'unsafe-eval' not allowed).
+  - Root cause analysis (strict CSP blocking React/Next.js hydration).
+  - Step-by-step fixes for NGINX, Next.js config, and Cloudflare.
+  - Temporary and production-ready solutions.
+- **Purpose:** Troubleshooting guide for deployment issues in web applications.
+
 ---
 
 ## 📋 Action Items & Timeline
@@ -76,6 +86,7 @@
 - ✓ Created and validated checkpoint PowerPoint presentation.
 - ✓ Attended Rebel Speaker Session and served as Vote Counter.
 - ✓ Updated CV and LinkedIn profile.
+- ✓ Created guide to fix eval error (CSP troubleshooting for app styling issues).
 
 ### Pending
 - ⏳ Basit's `.env` source path correction.
@@ -88,3 +99,4 @@
 - Local DynamoDB app successfully mimics cloud patterns without AWS deployment.
 - Attending company events (Rebel Speaker) maintains team engagement.
 - Continuous professional development through CV and LinkedIn updates.
+- Created troubleshooting guide for common deployment CSP issues.
