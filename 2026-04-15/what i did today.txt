@@ -1,0 +1,78 @@
+Daily Update
+
+MM-Enterprise QA Pipeline Follow-up
+basit updated/confirmed to apply the environment path correction and re-run the pipeline.
+Current pipeline status remains: successful but it shows an error 
+Build Stage: Fixed and working
+Deploy Stage: Fixed and working
+conpleated : .env source path correction by Basit
+After the environment path fix is completed, Basit and I will connect to work on the production pipeline task together under his supervision.
+
+Learning / Upskilling
+
+Continued progress on AWS training courses during available time while waiting on dependency/blocker:
+
+Worked on Amazon DynamoDB – Troubleshooting course on AWS Skill Builder (in progress)
+Continued AWS Cloud Practitioner course (in progress)
+
+tehn teh app i created teh e commeres for teh practicce of teh dynamo db i did not had teh aws account as of now to test it by deploying so i madethe local runnable version and mimic teh dynamo db processes locally to test tehm 
+
+after that i created teh actual PPt for my cheackpoint that is today and have it validated and fact checked sevral time so there are no misleading info in there added soome new info and updated it 
+
+ 
+ after that basit asked me to assist him in teh error finding an dterouble shooting of teh serever env errors for teh mm entrerprise dev pipeline the pipeline is executed successfully but there is some pm2 error wher teh app was not loadingteh resources and sontimegiving teh node-env error
+ Guide to Fix Eval Error
+- Created a comprehensive guide: `guide to fix the eval error.md`
+- **Topic:** Fixing Content Security Policy (CSP) issues that prevent JavaScript execution, causing apps to load without styling.
+- **Content Covers:**
+  - Problem identification (console error: 'unsafe-eval' not allowed).
+  - Root cause analysis (strict CSP blocking React/Next.js hydration).
+  - Step-by-step fixes for NGINX, Next.js config, and Cloudflare.
+  - Temporary and production-ready solutions.
+- **Purpose:** Troubleshooting guide for deployment issues in web applications.
+
+after i did some more rserch and found out teh below 
+
+and said this below to basit 
+
+Asalam o Alikum
+ 
+i reserched it more and even asked Hazar about this 
+ 
+the scc is being loaded successfully with the 200 status 
+ 
+the evel error is the only anomaly that stands out 
+ 
+and i researched it extensively and when i connected the ec2 i-06bac72aea44abbd4 (mm-dev)
+the below is what i see 
+ 
+ 
+ubuntu@ip-172-31-10-143:~$ pm2 list
+
+[PM2] Spawning PM2 daemon with pm2_home=/home/ubuntu/.pm2
+
+[PM2] PM2 Successfully daemonized
+
+┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+
+│ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+
+└────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+[PM2][WARN] Current process list is not synchronized with saved list. App main server differs. Type 'pm2 save' to synchronize.
+ 
+ 
+ 
+ 
+ 
+i am busy today rest of the day i have my check point meeting and have to prepare for that 
+ 
+so if you find anything other then this let me know 
+will look into it tommorow inshallah
+ 
+
+
+ after that i started the reserch on teh AI sdlc 
+ and then started preparing for the cheackpoint
+ after that 
+

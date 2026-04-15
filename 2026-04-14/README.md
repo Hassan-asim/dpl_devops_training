@@ -50,8 +50,8 @@
   - Covers CI/CD work, pipeline troubleshooting, MM migration, production operations, collaboration, and learning progress.
   - Scheduled presentation for 2026-04-15.
 
-### 4. Rebel Speaker Session – Attendance
-- Attended Meeting 207: "Things We'll Never Say Out Loud" (Apr 14, 2:30 PM).
+### 4. Rebel Speaker Session – postponded
+-  Meeting 207: "Things We'll Never Say Out Loud" (Apr 14, 2:30 PM).( did not happend )
 - **Role:** Vote Counter for the session.
 - **Session Theme:** Honest confessions and relatable workplace truths about communication.
 - **Speakers & Roles:**
