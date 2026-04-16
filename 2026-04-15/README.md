@@ -58,6 +58,8 @@
 - Connected to EC2 `i-06bac72aea44abbd4` (`mm-dev`) to inspect runtime state.
 - Observed `pm2 list` output indicating the daemon started but the process list is not synchronized with the saved list.
 - Noted this as the main anomaly and will continue investigation tomorrow.
+- Additional research confirmed that CSS is loading successfully with 200 status, and the eval error is the primary issue.
+- Communicated findings to Basit via message, highlighting the eval error as the key anomaly and providing PM2 status details.
 
 ### 7. AI SDLC Research
 - Started initial research on AI software development lifecycle topics.
